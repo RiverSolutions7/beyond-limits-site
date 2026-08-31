@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<style data-omelette-injected>html,body{background:transparent}</style><script data-omelette-injected>(()=>{{const n=new URLSearchParams(location.search).get("theme");if(n==="light"||n==="dark"){document.documentElement.dataset.theme=n}}{if(new URLSearchParams(location.search).get("_omthumb")==="1"){const n=(f)=>{const g=f.focus;if(!g)return;f.focus=function(h){g.call(this,{...h,preventScroll:true})}};n(HTMLElement.prototype);n(SVGElement.prototype);if(typeof MathMLElement!=="undefined"){n(MathMLElement.prototype)}const d=(f)=>{f.removeAttribute("autofocus");f.inert=true;if(!(f instanceof HTMLElement))f.removeAttribute("tabindex")};const p=(f)=>{if(f.hasAttribute("autofocus"))d(f);for(const g of f.querySelectorAll("[autofocus]")){d(g)}};p(document.documentElement);new MutationObserver((f)=>{for(const g of f){for(const h of g.addedNodes){if(h.nodeType===1)p(h)}}}).observe(document,{childList:true,subtree:true})}}{const n=()=>{try{if(document.querySelector('meta[name="color-scheme"]'))return;const d=getComputedStyle(document.documentElement).getPropertyValue("color-scheme").trim();if(d&&d!=="normal")return;const p=(y)=>{if(!y)return null;const m=getComputedStyle(y).backgroundColor.match(/^rgba?\(\s*(\d+)[,\s]+(\d+)[,\s]+(\d+)(?:[,\s/]+([\d.]+%?))?\s*\)$/);if(!m)return null;const w=m[4]==null?1:parseFloat(m[4])/(m[4].endsWith("%")?100:1);if(w<0.99)return null;return[+m[1],+m[2],+m[3]]};const f=p(document.body)||p(document.documentElement);if(!f)return;const g=(y)=>{const m=y/255;return m<=0.04045?m/12.92:((m+0.055)/1.055)**2.4};const h=0.2126*g(f[0])+0.7152*g(f[1])+0.0722*g(f[2]);document.documentElement.style.setProperty("color-scheme",h<0.4?"dark":"light")}catch{}};if(document.readyState==="complete")n();else window.addEventListener("load",n)}var I=["https://claude.ai","https://preview.claude.ai"];var B=true;var K=false;var C=()=>{};if(K===true){try{const n=setTimeout.bind(window);const d=1e4;const p=15;const f=1e4;const g=120000;const h=200;const y=(o)=>{try{let r;if(typeof o==="string")r=o;else if(o instanceof URL)r=o.href;else if(typeof Request!=="undefined"&&o instanceof Request)r=o.url;else return null;if(!r)return null;const l=document.baseURI;const i=new URL(r,l);if(i.protocol!=="http:"&&i.protocol!=="https:")return null;if(i.origin!==new URL(l).origin)return null;return i.origin+i.pathname}catch{return null}};const m=new Map;const w=(o)=>{let r=m.get(o);if(!r){if(m.size>=h){const l=m.keys().next().value;if(l!==undefined)m.delete(l)}r={fails:[],until:0,cooldown:f,hard:false};m.set(o,r)}return r};const R=(o)=>{const r=m.get(o);return r!==undefined&&r.until>Date.now()};const O=(o,r)=>{const l=Date.now();const i=w(o);if(r)i.hard=true;if(i.until>l)return;i.fails.push(l);while(i.fails.length>0&&i.fails[0]<=l-d)i.fails.shift();if(i.fails.length>=p){i.until=l+i.cooldown;if(i.hard)i.cooldown=Math.min(i.cooldown*2,g);i.fails.length=0;try{n(()=>{try{S(true)}catch{}},i.until-l+100)}catch{}console.warn("[omelette] asset circuit breaker: pausing requests to "+o+" for "+Math.round((i.until-l)/1000)+"s after "+p+" failures in "+d/1000+"s")}};const e=(o)=>{m.delete(o)};const t=100;const a=new WeakMap;const u=new Set;let s=null;const S=(o)=>{for(const r of Array.from(u)){try{const l=a.get(r);if(l===undefined){u.delete(r);continue}if(o){const i=y(l);if(i!==null&&R(i))continue}a.delete(r);u.delete(r);if(s!==null)s.call(r,l)}catch{}}};C=()=>{try{m.clear();S(false)}catch{}};document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")C()});const _=window.fetch;if(typeof _==="function"){const o=function(...r){let l=null;try{l=y(r[0])}catch{}if(l!==null&&R(l)){let c;try{if(r[1]&&r[1].signal!==undefined){c=r[1].signal||undefined}else if(typeof Request!=="undefined"&&r[0]instanceof Request){c=r[0].signal||undefined}}catch{c=undefined}return new Promise((k,b)=>{const E=()=>{try{return c.reason!==undefined?c.reason:new DOMException("The operation was aborted.","AbortError")}catch{return new DOMException("The operation was aborted.","AbortError")}};try{if(c&&c.aborted){b(E());return}}catch{}let T=false;const j=()=>{if(T)return;T=true;b(E())};try{if(c)c.addEventListener("abort",j,{once:true})}catch{}n(()=>{if(T)return;T=true;try{if(c)c.removeEventListener("abort",j)}catch{}let L;try{L=new Response(null,{status:429,statusText:"Too Many Requests",headers:{"Retry-After":"10"}})}catch{L={ok:false,status:429}}k(L)},250)})}const i=_.apply(window,r);if(l!==null){const c=l;i.then((k)=>{try{if(k.ok)e(c);else if(k.status===401||k.status===403||k.status===404||k.status===429){O(c,k.status!==404)}}catch{}},()=>{})}return i};window.fetch=o}const v=Object.getOwnPropertyDescriptor(HTMLImageElement.prototype,"src");if(v!==undefined&&v.set!==undefined&&v.get!==undefined){const o=v.set;s=o;Object.defineProperty(HTMLImageElement.prototype,"src",{configurable:true,enumerable:v.enumerable,get:v.get,set(r){const l=`${r}`;try{const i=y(l);if(i!==null&&R(i)){a.set(this,l);if(u.size<t)u.add(this);return}}catch{}try{a.delete(this);u.delete(this)}catch{}o.call(this,l)}})}try{const o=HTMLImageElement.prototype.setAttribute;HTMLImageElement.prototype.setAttribute=function(r,l){if(arguments.length<2){o.apply(this,arguments);return}if(typeof r==="string"&&r.toLowerCase()==="src"){const i=`${l}`;try{const c=y(i);if(c!==null&&R(c)){a.set(this,i);if(u.size<t)u.add(this);return}a.delete(this);u.delete(this)}catch{}o.call(this,r,i);return}o.call(this,r,l)}}catch{}window.addEventListener("error",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)O(l,true)}}catch{}},true);window.addEventListener("load",(o)=>{try{const r=o.target;if(r instanceof HTMLImageElement){const l=y(r.currentSrc||r.src||"");if(l!==null)e(l);const i=a.get(r);if(i!==undefined){let c=false;try{c=new URL(i,document.baseURI).href===new URL(r.currentSrc||r.src||"",document.baseURI).href}catch{c=false}if(c){a.delete(r);u.delete(r)}}}}catch{}},true)}catch{}}var J=30000;var G=3000;document.addEventListener("DOMContentLoaded",()=>{const n=window.Babel;const d="om-src-id";if(n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[d])){n.registerPlugin(d,({types:h})=>({visitor:{JSXOpeningElement(y,m){const w=y.node;if(w.name&&w.name.type==="JSXMemberExpression")return;for(let t=0;t<w.attributes.length;t++){const a=w.attributes[t];if(a.type==="JSXAttribute"&&a.name&&a.name.name==="data-om-id")return}const R=m.file&&m.file.opts&&m.file.opts.filename||"?";const O=w.loc&&w.loc.start;const e=`jsx:${R}:${w.start??0}:${O?O.line:0}:${O?O.column+1:0}`;w.attributes.push(h.jsxAttribute(h.jsxIdentifier("data-om-id"),h.stringLiteral(e)))}}}))}const p="om-text-extract";let f=false;if(B&&n&&n.registerPlugin&&!(n.availablePlugins&&n.availablePlugins[p])){const h=window.React;if(h&&h.useSyncExternalStore&&h.createElement){f=true;const y={};const m=new Set;let w=0;window.__omTextO=y;window.__omTextSet=(e)=>{for(const t in e){const a=e[t];if(a==null)delete y[t];else y[t]=a}w++;m.forEach((t)=>t())};const R=(e)=>{m.add(e);return()=>m.delete(e)};const O=()=>w;window.__OmT=function e(t){h.useSyncExternalStore(R,O,O);return h.createElement("span",{"data-om-text":t.i,className:"__om-t"},t.i in y?y[t.i]:t.children)};n.registerPlugin(p,({types:e})=>{const t={style:1,script:1,noscript:1,textarea:1,title:1,option:1,text:1,tspan:1,textPath:1};const a={placeholder:1,alt:1,title:1,label:1,"aria-label":1,"aria-description":1,"aria-placeholder":1};const u=(o,r)=>e.logicalExpression("??",e.memberExpression(e.logicalExpression("||",e.memberExpression(e.identifier("window"),e.identifier("__omTextO")),e.objectExpression([])),e.stringLiteral(o),true),r);const s=(o)=>o.file&&o.file.opts&&o.file.opts.filename||"?";const S=(o)=>o.file&&o.file.code||"";const _=(o,r)=>{const l=(c)=>c&&c.start!=null&&c.end!=null&&(c.type==="StringLiteral"||c.type==="TemplateLiteral"&&c.expressions.length===0)?[c.start,c.end]:null;const i=l(r);if(i)return i;if(r&&r.type==="Identifier"){const c=o.scope.getBinding(r.name);if(c&&c.constant&&c.path.node.type==="VariableDeclarator"){return l(c.path.node.init)}}return null};const v=(o,r,l)=>{const i=o.node;let c=false;const k=(E,T)=>{c=true;return e.jsxElement(e.jsxOpeningElement(e.jsxIdentifier("__OmT"),[e.jsxAttribute(e.jsxIdentifier("i"),e.stringLiteral(E))],false),e.jsxClosingElement(e.jsxIdentifier("__OmT")),[T],false)};const b=i.children.map((E)=>{if(E.type==="JSXText"){if(E.start==null||E.end==null)return E;const T=l.slice(E.start,E.end);const j=T.length-T.trimStart().length;const L=T.length-T.trimEnd().length;if(j+L>=T.length)return E;return k(`txt:${r}:${E.start+j}:${E.end-L}`,E)}if(E.type==="JSXExpressionContainer"){const T=_(o,E.expression);if(T)return k(`str:${r}:${T[0]}:${T[1]}`,E)}return E});if(c)i.children=b};return{visitor:{JSXOpeningElement(o,r){const l=o.node;const i=s(r);const c={};for(let k=0;k<l.attributes.length;k++){const b=l.attributes[k];if(b.type!=="JSXAttribute"||!b.name)continue;const E=b.name.name;if(!a[E])continue;if(!b.value||b.value.type!=="StringLiteral")continue;if(b.value.start==null||b.value.end==null)continue;const T=`txt:${i}:${b.value.start}:${b.value.end}`;c[E]=T;b.value=e.jsxExpressionContainer(u(T,e.stringLiteral(b.value.value)))}if(Object.keys(c).length){l.attributes.push(e.jsxAttribute(e.jsxIdentifier("data-om-text-attrs"),e.stringLiteral(JSON.stringify(c))))}},JSXElement(o,r){const l=o.node.openingElement;const i=l&&l.name&&l.name.name;if(i==="__OmT")return;if(typeof i==="string"&&t[i])return;v(o,s(r),S(r))},JSXFragment(o,r){v(o,s(r),S(r))}}}})}}const g=f?["transform-react-jsx-source",d,p]:["transform-react-jsx-source",d];document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((h,y)=>{const m=h.getAttribute("data-plugins")||"";const w=g.filter((R)=>m.indexOf(R)<0);if(w.length){h.setAttribute("data-plugins",m?`${m},${w.join(",")}`:w.join(","))}if(!h.hasAttribute("data-filename")){h.setAttribute("data-filename",h.getAttribute("src")||`inline-${y}`)}})});var A=window.parent;var U="not editable here — open the project in the Claude Design editor to save";var W=()=>Promise.resolve({persisted:false,noHost:true,reason:U});var H=W;var M="data/storage.json";var z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.match(/\/projects\/([^/]+)\/serve\//);if(d)return d[1];return n.hostname.split(".")[0]||""}catch{return location.hostname.split(".")[0]||""}};var Z=()=>{try{const n=new URL(document.baseURI);const d=n.pathname.indexOf("/serve/");if(d>=0)return n.origin+n.pathname.slice(0,d+"/serve/".length)+M}catch{}return"./"+M};var x=null;var N=()=>{if(!x){x=fetch(Z(),{cache:"no-store"}).then((n)=>{if(n.ok)return n.text();return n.status===404?"":null}).catch(()=>null).then((n)=>{if(n===null){x=null;return null}const d=new Map;if(!n)return d;let p;try{p=JSON.parse(n)}catch{console.warn("[omelette.storage] "+M+" is not valid JSON; treating the store as unreadable so a save cannot overwrite the "+"hand-edited bytes. Fix the JSON (or delete the file) to re-enable persistence.");x=null;return null}if(p===null||typeof p!=="object"||Array.isArray(p)){console.warn("[omelette.storage] "+M+" doesn't hold a JSON object; treating the store as unreadable so a save cannot "+"overwrite the hand-edited bytes. Make the top level a JSON object to re-enable persistence.");x=null;return null}const f=p;if("data"in f){const g=f.data;if(g===null||typeof g!=="object"||Array.isArray(g)){console.warn("[omelette.storage] "+M+' has a "data" field that is not a JSON object; treating the store as unreadable so a '+'save cannot overwrite the hand-edited bytes. Make "data" a JSON object to re-enable persistence.');x=null;return null}const h=f._meta;const y=h!==null&&typeof h==="object"?h.project:undefined;if(typeof y==="string"&&y!==""&&y!==z())return d;for(const m of Object.keys(g))d.set(m,g[m]);return d}for(const g of Object.keys(f)){if(g!=="_meta")d.set(g,f[g])}return d})}return x};var F=(n)=>H(M,JSON.stringify({_meta:{project:z(),version:1},data:Object.fromEntries(n)},null,2));var D=Promise.resolve();var $=(n)=>{const d=D.then(n);D=d.then(()=>{return},()=>{return});return d};var V=/sk-(?:ant-)?[A-Za-z0-9_-]{16,}|AKIA[0-9A-Z]{16}|gh[pousr]_[A-Za-z0-9]{20,}|xox[a-z]-[A-Za-z0-9][A-Za-z0-9-]{9,}|AIza[0-9A-Za-z_-]{30,}|-----BEGIN [A-Z ]*PRIVATE KEY-----/;var Y=/password|passwd|secret|api[_-]?key|access[_-]?token|auth[_-]?token|credential/i;var Q=(n,d,p)=>{if(V.test(d)||Y.test(n)&&typeof p==="string"&&p.length>=8){console.warn('[omelette.storage] the value for "'+n+'" looks like a credential. The storage file is a plaintext project file — visible to '+"everyone with project access and copied when the project is duplicated. Do not store secrets here.")}};var q={persisted:false,reason:"could not load the existing store — not overwriting it"};var X={persisted:false,reason:"stored value changed since a failed read — re-read this key before saving"};var P=new Set;var ee={get:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.get: key must be a string"))}return $(N).then((d)=>{if(d===null){P.add(n);return null}P.delete(n);if(!d.has(n))return null;const p=d.get(n);return p==null?null:JSON.parse(JSON.stringify(p))})},set:(n,d)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.set: key must be a string"))}let p;try{p=JSON.stringify(d)}catch(g){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable ("+String(g)+")"))}if(p===undefined){return Promise.reject(new TypeError("storage.set: value must be JSON-serializable"))}Q(n,p,d);const f=JSON.parse(p);return $(()=>N().then((g)=>{if(g===null)return q;if(P.has(n)){if(g.has(n))return X;P.delete(n)}g.set(n,f);return F(g)}))},delete:(n)=>{if(typeof n!=="string"){return Promise.reject(new TypeError("storage.delete: key must be a string"))}return $(()=>N().then((d)=>{if(d===null)return q;if(P.has(n)){if(d.has(n))return X;P.delete(n)}d.delete(n);return F(d)}))},keys:()=>$(N).then((n)=>n===null?[]:Array.from(n.keys()))};window.omelette={writeFile:(n,d)=>H(n,d).then((p)=>{if(!p.persisted&&!p.noHost){throw new Error(p.reason||"write failed")}}),storage:ee};if(A&&A!==window){const n=(e,t)=>{try{A.postMessage({__omelette_log:true,type:e,data:t},"*")}catch{}};["log","warn","error"].forEach((e)=>{const t=console[e];console[e]=(...a)=>{const u=a.map((s)=>{try{return typeof s==="object"?JSON.stringify(s):String(s)}catch{try{return String(s)}catch{return"[unstringifiable]"}}}).join(" ");n(e,u);t.apply(console,a)}});window.addEventListener("error",(e)=>{const t=e.target;if(t&&t!==window&&t.tagName){const a=t.src||t.href||"";n("resource_error",`${t.tagName} failed to load: ${a}`)}else{n("error",`${e.message||"Unknown error"} at ${e.filename||"?"}:${e.lineno||0}:${e.colno||0}`)}},true);window.addEventListener("unhandledrejection",(e)=>{const t=e.reason;const a=t instanceof Error?`${t.message} ${t.stack}`:String(t);n("error",`Unhandled rejection: ${a}`)});window.addEventListener("click",(e)=>{if(e.defaultPrevented||e.button!==0)return;if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;const t=e.composedPath?e.composedPath():[];const a=["button","input","select","textarea","summary","label"];let u=null;for(const v of t){if(!(v instanceof Element))continue;if(v.localName==="a"){if(!(v instanceof HTMLAnchorElement))return;u=v;break}if(a.indexOf(v.localName)!==-1)return}if(!u)return;if(u.isContentEditable)return;const s=u.closest("[contenteditable]");if(s&&s.getAttribute("contenteditable")!=="false")return;const S=(u.getAttribute("target")||"_self").toLowerCase();if(S!=="_self"&&S!=="_top"&&S!=="_parent")return;let _;try{_=new URL(u.href)}catch{return}if(_.protocol!=="http:"&&_.protocol!=="https:")return;if(location.origin==="null")return;if(_.origin===location.origin)return;e.preventDefault();window.open(_.href,"_blank","noopener,noreferrer")});const d=()=>{try{A.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(window.ResizeObserver)new ResizeObserver(d).observe(document.documentElement);const p=()=>{d();if(!document.querySelector('script[type="text/babel"],script[type="text/jsx"]'))return;const e=()=>document.getElementById("root")||document.querySelector("body > div[id]");const t=e()?.firstElementChild??null;let a=0;const u=()=>{const s=e();if(s&&s.firstElementChild!==t||++a>30){d();return}setTimeout(u,100)};setTimeout(u,100)};if(document.readyState==="complete")p();else window.addEventListener("load",p);const f={};let g=0;const h=(e)=>new Promise((t,a)=>{if(!I.length){a(new Error("claude.complete: no parent origin"));return}const u=`c${++g}`;const s=()=>setTimeout(()=>{delete f[u];a(new Error(`claude.complete: no data for ${J/1000}s`))},J);const S=s();f[u]={resolve:t,reject:a,text:"",t:S,arm:s};try{for(const _ of I){A.postMessage({__om_api:true,id:u,body:e},_)}}catch(_){clearTimeout(S);delete f[u];a(_)}});const y=8;const m=async(e,t)=>{if(!Array.isArray(e.messages)){throw new Error("claude.complete: tools require a messages array")}const a=e.messages.slice();const u={...e,tools:e.tools.map((_)=>{if(_===null||typeof _!=="object")return _;const v={};for(const o of Object.keys(_)){if(typeof _[o]!=="function")v[o]=_[o]}return v})};const s=u.tool_choice;const S=s!=null&&(s.type==="any"||s.type==="tool")?{...u,tool_choice:s.disable_parallel_tool_use!==undefined?{type:"auto",disable_parallel_tool_use:s.disable_parallel_tool_use}:{type:"auto"}}:u;for(let _=0;_<y;_++){const v=await h({..._===0?u:S,messages:a});const o=v.message;const r=o&&Array.isArray(o.content)?o.content:null;const l=r?r.filter((c)=>c?.type==="tool_use"):[];if(o?.stop_reason!=="tool_use"||l.length===0){return v.text}const i=[];for(const c of l){const k=t.get(c.name);if(!k){i.push({type:"tool_result",tool_use_id:c.id,content:`no handler for tool "${c.name}"`,is_error:true});continue}try{const b=await k(c.input);const E=typeof b==="string"?b:O(b)??"";i.push({type:"tool_result",tool_use_id:c.id,content:E})}catch(b){i.push({type:"tool_result",tool_use_id:c.id,content:String(b?.message??b??"tool handler failed"),is_error:true})}}a.push({role:"assistant",content:r},{role:"user",content:i})}throw new Error(`claude.complete: exceeded ${y} tool turns`)};window.claude={complete(e){const t=e;if(t!==null&&typeof t==="object"&&Array.isArray(t.tools)&&t.tools.some((a)=>a!==null&&typeof a==="object"&&typeof a.run==="function")){const a=new Map;for(const u of t.tools){if(u!==null&&typeof u==="object"&&typeof u.run==="function"){a.set(String(u.name),u.run)}}return m(t,a)}return h(e).then((a)=>a.text)}};const w={};let R=0;H=(e,t)=>new Promise((a)=>{if(!I.length){a({persisted:false,noHost:true,reason:U});return}const u=`f${++R}`;const s=setTimeout(()=>{delete w[u];a({persisted:false,noHost:true,reason:U})},G);w[u]={settle:a,t:s};try{for(const S of I){A.postMessage({__om_file:true,id:u,op:"write",path:e,content:t},S)}}catch{clearTimeout(s);delete w[u];a({persisted:false,noHost:true,reason:U})}});const O=(e)=>{try{return JSON.stringify(e)}catch{return JSON.stringify(String(e))}};window.addEventListener("message",(e)=>{if(I.indexOf(e.origin)<0)return;if(e.source!==A)return;const t=e.data;if(!t)return;if(t.type==="omelette-preview-refresh"){if(typeof t.token!=="string"||!/^[0-9a-f.-]+(\.(rc|pr-[0-9]+))?(\.[0-9]+\.[0-9a-f]{16})?$/.test(t.token))return;const s=Math.max(1,Math.floor((t.expiresAt||0)-Date.now()/1000));document.cookie="__Host-omelette-preview="+t.token+"; Path=/; Secure; SameSite=None; Partitioned; Max-Age="+s;C();return}if(t.__om_file_r){const s=w[t.id];if(!s)return;clearTimeout(s.t);delete w[t.id];s.settle(t.ok?{persisted:true}:{persisted:false,reason:t.error||"write failed"});return}if(t.__om_api_r){const s=f[t.id];if(!s)return;if(t.error!=null){clearTimeout(s.t);delete f[t.id];s.reject(new Error(t.error));return}if(t.chunk!=null){clearTimeout(s.t);s.t=s.arm();s.text+=t.chunk;return}if(t.done){clearTimeout(s.t);delete f[t.id];s.resolve({text:t.text!=null?t.text:s.text,message:t.message});return}return}if(!t.__om_eval)return;const a=t;const u=(s)=>{e.source.postMessage({...s,__om_eval_r:1,id:a.id},e.origin)};try{const s=(0,eval)(a.code);if(s&&typeof s.then==="function"){s.then((S)=>u({ok:1,v:O(S)}),(S)=>u({ok:0,e:String(S)}))}else{u({ok:1,v:O(s)})}}catch(s){u({ok:0,e:String(s)})}})}})();
+</script>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beyond Limits Academics · Stamford Peace Youth Foundation</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--navy:#10233F;--ink:#0B1B30;--gold:#F5B316;--gold-deep:#B77F07;--gold-wash:#FDF3DA;--warm:#FBFAF7;--white:#FFFFFF;--slate:#46536A;--line:#E4E0D8;--sky:#E8EEF6;--serif:'Source Serif 4',Georgia,serif;--sans:Inter,system-ui,sans-serif;--pad:48px;--maxw:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--warm);color:var(--slate);font-family:var(--sans);font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:var(--navy);text-decoration:none}a:hover{color:var(--gold-deep)}
+img,svg{display:block}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold-deep);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4,p{margin:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.d1{font-weight:800;color:var(--ink);font-size:clamp(42px,5.8vw,88px);line-height:1.0;letter-spacing:-.045em}
+.h2{font-weight:800;color:var(--ink);font-size:clamp(28px,3.2vw,48px);line-height:1.06;letter-spacing:-.03em}
+.h3{font-weight:700;color:var(--ink);font-size:24px;line-height:1.25;letter-spacing:-.01em}
+.h4{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.body{font-size:18px;line-height:1.62;max-width:64ch;text-wrap:pretty}
+.sm{font-size:14.5px;line-height:1.55;color:var(--slate);text-wrap:pretty}
+.micro{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep)}
+.eyebrow-slate{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+.stack{display:flex;flex-direction:column}
+.section{padding:0 var(--pad) 88px}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--gold-wash);border:1px solid var(--gold-deep);color:var(--gold-deep);font-size:12px;font-weight:600;padding:3px 12px;border-radius:99px;width:fit-content}
+
+/* header, exact from canonical Home */
+.headstack{position:sticky;top:0;z-index:60;background:var(--white)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:82px;padding:0 var(--pad);border-bottom:1px solid var(--line);background:var(--white)}
+.brand{display:flex;align-items:center;gap:12px}
+.brandname{font-size:17px;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.1}
+.brandsub{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--slate)}
+.navlinks{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:500}
+.navright{display:flex;align-items:center;gap:10px}
+.pill{display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 18px;border-radius:999px;font-size:13px;font-weight:600;white-space:nowrap;transition:background-color .16s ease,color .16s ease,border-color .16s ease}
+.pill-gold{background:var(--gold);color:var(--navy)}
+.pill-gold:hover{background:var(--gold-deep);color:var(--navy)}
+.pill-outline{border:1.5px solid var(--navy);color:var(--navy)}
+.pill-outline:hover{background:var(--navy);color:var(--white)}
+.navlink{position:relative;padding:6px 0;color:var(--slate);white-space:nowrap}
+.navlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .18s ease}
+.navlink:hover::after,.navlink[aria-current="page"]::after{transform:scaleX(1)}
+.navlink[aria-current="page"]{color:var(--navy);font-weight:600}
+.burger{display:none;width:44px;height:44px;align-items:center;justify-content:center}
+.drawer{display:none}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:48px;padding:0 24px;border-radius:999px;font-size:15px;font-weight:600;white-space:nowrap;transition:background-color .16s ease,color .16s ease,border-color .16s ease,transform .16s ease}
+.btn:active{transform:translateY(1px)}
+.btn-primary{background:var(--gold);color:var(--navy)}
+.btn-primary:hover{background:var(--gold-deep);color:var(--navy)}
+.btn-secondary{border:1.5px solid var(--navy);color:var(--navy)}
+.btn-secondary:hover{background:var(--navy);color:var(--white)}
+.btn-ghost{border:1.5px solid var(--white);color:var(--white)}
+.btn-ghost:hover{background:var(--white);color:var(--navy)}
+.btn-lg{height:54px;padding:0 28px;letter-spacing:-.01em}
+.btn-xs{height:40px;padding:0 20px;font-size:14px}
+.tlink{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;color:var(--navy)}
+.tlink svg{transition:transform .18s ease}
+.tlink:hover{color:var(--gold-deep)}
+.tlink:hover svg{transform:translateX(4px)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:72px var(--pad) 88px}
+.hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
+.eyebrow-pill{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:999px;background:var(--white);border:1px solid var(--line);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);width:fit-content}
+.sup{font-size:19px;line-height:1.55;color:var(--slate);max-width:46ch}
+.hero-photo{height:520px;border-radius:16px;overflow:hidden;background:var(--gold-wash)}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.hero-cta{display:flex;gap:12px;margin-top:4px;flex-wrap:wrap}
+.slot{border:1.5px dashed var(--gold-deep);background:var(--gold-wash);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center}
+.slot-label{font-size:12px;font-weight:600;color:var(--gold-deep);line-height:1.5}
+
+/* fact panel, Variant C editorial data (locked lab pattern) */
+.ed{display:flex;flex-direction:column}
+.ed-top{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:14px}
+.ed-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:28px;padding:16px 0;border-top:1px solid var(--line);align-items:baseline}
+.ed-row .el{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);line-height:1.6}
+.ed-row .ev{font-size:26px;font-weight:800;letter-spacing:-.03em;color:var(--ink);line-height:1.15;font-variant-numeric:tabular-nums}
+.ed-row .ev.long{font-size:19px;font-weight:600;letter-spacing:-.015em;line-height:1.4}
+.ed-row .ec{margin-top:9px}
+.hub-factsplit{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
+.ed-foot{border-top:1px solid var(--line);padding-top:12px}
+
+/* vision, mission: serif quoted-voice cards */
+.voice{background:var(--white);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.voice-text{font-family:var(--serif);font-size:23px;line-height:1.55;color:var(--navy);max-width:56ch}
+
+/* core values */
+.value{display:flex;flex-direction:column;gap:12px}
+.value-num{font-weight:800;color:var(--gold-deep);letter-spacing:-.03em;font-size:40px;line-height:1}
+
+/* why the model works, Variant C one continuous argument (locked lab pattern) */
+.bandhead{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,300px);gap:56px;align-items:start}
+.crun{font-size:26px;line-height:1.56;color:var(--slate);letter-spacing:-.008em;text-wrap:pretty;max-width:64ch}
+.crun .beat{white-space:nowrap}
+.crun .lead{color:var(--ink);font-weight:500}
+.beat{font-weight:800;color:var(--ink);letter-spacing:-.028em}
+.crun .beat{display:block;margin-top:.62em}
+.bn{font-size:14px;font-weight:700;color:var(--gold-deep);vertical-align:.62em;letter-spacing:.02em;margin-right:6px;font-variant-numeric:tabular-nums}
+.carrow{display:inline-block;vertical-align:.12em;margin:0 10px}
+
+/* cards */
+.card{position:relative;background:var(--white);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px;transition:transform .18s ease}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);border-radius:16px 16px 0 0;opacity:0;transition:opacity .18s ease}
+.card:hover{transform:translateY(-2px)}
+.card:hover::before{opacity:1}
+.card-title{font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.25;color:var(--ink)}
+.card-body{font-size:15px;line-height:1.6}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+
+/* stat band, exact geometry from canonical Home */
+.statband{display:flex;gap:20px}
+.stat-anchor{flex:1.1;background:var(--navy);border-radius:16px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.stat-anchor-label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.stat-anchor-line{font-size:18px;line-height:1.45;color:var(--white)}
+.stat-num-gold{font-size:36px;font-weight:700;letter-spacing:-.03em;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1}
+.stat-sub{font-size:12px;color:var(--white);opacity:.85}
+.statcard{flex:1;background:var(--white);border-radius:16px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;position:relative;transition:transform .18s ease}
+.statcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);border-radius:16px 16px 0 0;opacity:0;transition:opacity .18s ease}
+.statcard:hover{transform:translateY(-2px)}
+.statcard:hover::before{opacity:1}
+.stat-num{font-size:44px;font-weight:700;letter-spacing:-.03em;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1}
+.stat-label{font-size:13px;color:var(--slate)}
+.source{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-top:18px}
+
+/* closing, four doors */
+.doorlink{display:flex;flex-direction:column;gap:14px}
+.support-row{display:flex;align-items:center;justify-content:center;gap:24px;padding-top:28px;border-top:1px solid var(--line);margin-top:8px}
+.logoslot{height:40px;width:auto;border:1.5px dashed var(--gold-deep);background:var(--gold-wash);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:600;color:var(--gold-deep);text-align:center;line-height:1.3;padding:0 14px}
+.lg-nfa{height:26px;width:auto;max-width:100%}
+
+/* footer, exact from canonical Home */
+.foot{background:var(--ink);border-top:1px solid var(--gold-deep);padding:56px 0 40px}
+.foot-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px}
+.foot-col{display:flex;flex-direction:column;gap:10px}
+.foot-h{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.foot-t{font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--white);line-height:1.2}
+.foot-b{font-size:13px;line-height:1.9;color:var(--white);opacity:.75}
+.foot-b a{color:var(--white)}.foot-b a:hover{color:var(--gold)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;gap:20px;border-top:1px solid rgba(255,255,255,.15);padding-top:20px;margin-top:32px}
+.foot-legal{font-size:12px;color:var(--white);opacity:.55}
+.foot-legal a{color:var(--white)}
+@media (max-width:1100px){
+  :root{--pad:32px}
+  .hero{gap:36px}
+  .hero-photo{height:400px}
+  .navlinks{gap:20px;font-size:13.5px}
+}
+@media (max-width:900px){
+  :root{--pad:20px}
+  .burger{display:flex}
+  .navlinks{display:none}
+  .navright{display:none}
+  .nav{height:60px}
+  .headstack.compact .nav{height:56px}
+  .drawer{display:block;overflow:hidden;height:0;background:var(--white);border-bottom:1px solid var(--line);transition:height .26s ease}
+  .drawer-inner{display:flex;flex-direction:column;padding:8px var(--pad) 20px;gap:2px}
+  .drawer-inner a{display:flex;align-items:center;min-height:48px;font-size:16px;font-weight:500;color:var(--navy);border-bottom:1px solid var(--line)}
+  .drawer-inner a:hover{color:var(--gold-deep)}
+  .drawer .btn{margin-top:16px}
+  .brandsub{display:none}
+  .hero{grid-template-columns:1fr;gap:24px;padding:32px var(--pad)}
+  .hero-photo{height:260px}
+  .hero-cta{flex-direction:column;gap:12px;margin-top:0}
+  .hero-cta .btn{width:100%;height:52px}
+  .statband{flex-direction:column;gap:14px}
+  .stat-anchor,.statcard{flex:1 1 auto}
+  .grid2,.grid3,.grid4{grid-template-columns:1fr;gap:14px}
+  .doorcard{grid-template-columns:1fr;gap:24px;padding:28px 24px}
+  .doorside{align-items:stretch}
+  .doorside .btn{width:100%;height:52px}
+  .doornote{max-width:none}
+  .sponsorsplit{grid-template-columns:1fr;gap:24px}
+  .sponsorsplit .btn{width:100%}
+  .partnerhead{grid-template-columns:1fr;gap:14px}
+  .logorow,.logorow.four{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;padding:20px 0}
+  .foot-grid{grid-template-columns:1fr;gap:24px}
+  .foot-bot{flex-direction:column;align-items:flex-start}
+  .hub-factsplit{grid-template-columns:1fr;gap:24px}
+  .ed-row{grid-template-columns:1fr;gap:6px}
+  .crun .beat{white-space:normal}
+  .section{padding:0 var(--pad) 44px}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation-duration:.01ms!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="headstack">
+  <nav class="nav" aria-label="Main">
+    <a class="brand" href="index.html" aria-label="Stamford Peace Youth Foundation, home">
+      <span><span class="brandname">Stamford Peace</span><span class="brandsub" style="display:block">Youth Foundation</span></span>
+    </a>
+    <div class="navlinks">
+      <a class="navlink" href="#top" aria-current="page">Beyond Limits</a>
+      <a class="navlink" href="https://www.peaceyouthct.org/basketballprograms" target="_blank" rel="noopener">Basketball</a>
+      <a class="navlink" href="https://www.peaceyouthct.org/whatwedo" target="_blank" rel="noopener">Our Impact</a>
+      <a class="navlink" href="about.html">About</a>
+      <a class="navlink" href="start.html">Get Involved</a>
+    </div>
+    <div class="navright">
+      <a class="pill pill-outline" href="#">Español</a>
+      <a class="pill pill-gold" href="donate.html">Donate</a>
+    </div>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="drawer" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10233F" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </nav>
+  <div class="drawer" id="drawer">
+    <div class="drawer-inner">
+      <a href="#top">Beyond Limits</a>
+      <a href="https://www.peaceyouthct.org/basketballprograms" target="_blank" rel="noopener">Basketball</a>
+      <a href="https://www.peaceyouthct.org/whatwedo" target="_blank" rel="noopener">Our Impact</a>
+      <a href="about.html">About</a>
+      <a href="start.html">Get Involved</a>
+      <a href="#">Español</a>
+      <a class="btn btn-primary" href="donate.html">Donate</a>
+    </div>
+  </div>
+</div>
+
+<main id="top">
+
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <span class="eyebrow-pill">A program of the Stamford Peace Youth Foundation</span>
+      <h1 class="d1">Beyond Limits Academics</h1>
+      <p class="sup">Highly subsidized one on one tutoring and informal mentoring for students in grades 4 to 10, in lower Fairfield County. <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm grades served</span></p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#program">See how tutoring works</a>
+        <a class="btn btn-secondary btn-lg" href="#offer">Become a paid tutor</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="tutoring-room.jpg" alt="Students working with tutors at desks in the Beyond Limits Academics tutoring room">
+    </div>
+  </section>
+
+  <section class="wrap section" id="program">
+    <div class="stack" style="gap:48px">
+      <div class="hub-factsplit">
+        <div class="stack" style="gap:16px">
+          <h2 class="h2" style="max-width:22ch">What Beyond Limits is</h2>
+          <p class="body">Launched in <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm launch year</span> as a program of the Stamford Peace Youth Foundation, the Beyond Limits Academic Program provides highly subsidized one on one tutoring and informal mentoring to students attending Stamford Public Schools and other schools in lower Fairfield County. Tutoring is typically conducted by upperclassmen, many of whom are referred by teachers, administrators and other tutors. We also have a number of college students around the world working with us.</p>
+          <p class="body">Sessions are held at our headquarters on Long Ridge Road, which includes dedicated tutoring rooms equipped with Chromebooks, school supplies and program materials, a lounge area with Wi-Fi for families, a kitchen with water and snacks, and academic reference books.</p>
+          <a class="tlink" href="tutoring.html">See the full tutoring details <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="ed">
+          <div class="ed-top"><span class="micro">At a glance</span><span class="eyebrow-slate" style="font-size:11px">Five facts</span></div>
+          <div class="ed-row"><span class="el">Grades served</span><span><span class="ev">4 to 10</span><span class="chip ec"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm grades served</span></span></div>
+          <div class="ed-row"><span class="el">Subjects</span><span class="ev">Math and science</span></div>
+          <div class="ed-row"><span class="el">Format</span><span><span class="ev long">In person on Long Ridge Road or online by Zoom</span><span class="chip ec"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm online availability</span></span></div>
+          <div class="ed-row"><span class="el">Frequency</span><span class="ev long">Generally two 1-hour sessions per week</span></div>
+          <div class="ed-row"><span class="el">Cost</span><span><span class="ev long">Sliding scale, substantially subsidized for eligible families</span><span class="chip ec"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm subsidized fee</span></span></div>
+          <div class="ed-foot"><span class="eyebrow-slate" style="font-size:11px">Beyond Limits Academics, Long Ridge Road</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="mission">
+    <div class="grid2">
+      <div class="voice">
+        <span class="micro">Vision</span>
+        <p class="voice-text">To create an equitable academic ecosystem in lower Fairfield County and beyond by empowering every learner through tutoring, informal mentoring, advocacy, and collaboration with local partners.</p>
+      </div>
+      <div class="voice">
+        <span class="micro">Mission</span>
+        <p class="voice-text">Beyond Limits' mission is to level the academic playing field and eliminate opportunity gaps for learners in lower Fairfield County. We empower every learner to achieve their potential through high-quality, subsidized, non-school-based peer-to-peer tutoring, mentoring, academic advocacy, and enrichment activities. By collaborating with local partners, we create a sustainable, inclusive academic support network that fosters a thirst for knowledge and equitable access to opportunities.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="values">
+    <div class="stack" style="gap:32px">
+      <h2 class="h2">Core values</h2>
+      <div class="grid3">
+        <div class="value">
+          <p class="value-num">1</p>
+          <p class="micro" style="color:var(--ink)">Equity through access</p>
+          <p class="sm">Providing accessible, discounted, high-quality academic supports to bridge the opportunity gap among all participants. <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm full sentence</span></p>
+        </div>
+        <div class="value">
+          <p class="value-num">2</p>
+          <p class="micro" style="color:var(--ink)">Empowerment through support</p>
+          <p class="sm">Fostering confidence through personalized tutoring, enrichment programming and informal mentoring to help students reach their full potential. <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm full sentence</span></p>
+        </div>
+        <div class="value">
+          <p class="value-num">3</p>
+          <p class="micro" style="color:var(--ink)">Community through collaboration</p>
+          <p class="sm">Building a support network among students, families, tutors and other community organizations to create a broad and supportive learning environment that drives success. <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm full sentence</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="model">
+    <div class="bandhead" style="margin-bottom:36px">
+      <div class="stack" style="gap:16px">
+        <h2 class="h2" style="max-width:22ch">Why this model works</h2>
+      </div>
+      <div class="stack" style="gap:14px;padding-top:6px">
+        <span class="eyebrow-slate">One run, five emphases</span>
+      </div>
+    </div>
+    <p class="crun"><span class="lead">Beyond Limits is not only a tutoring service. It is a system in which older students are trained, paid and trusted to teach younger ones, so a single investment produces academic gains for one student and a first professional experience for another.</span> <span class="beat"><span class="bn">01</span>Peer-Powered Learning</span> Our student-to-student informal mentoring model builds confidence, connection, and mutual growth for tutors and learners alike. <span class="beat"><span class="bn">02</span>Youth Employment &amp; Leadership</span> Tutoring offers a flexible first job or volunteer role, giving youth valuable work experience, responsibility, and leadership skills. <span class="beat"><span class="bn">03</span>Mission-Driven Equity</span> We are committed to closing the opportunity gap through subsidized access and long-term investment in student success. <span class="beat"><span class="bn">04</span>Community-Centered Impact</span> We engage families and local community partners to ensure students thrive in and out of school. <span class="beat"><span class="bn">05</span>Holistic Growth</span> We actively engage students to be their best selves in every way.</p>
+  </section>
+
+  <section class="wrap section" id="offer">
+    <div class="stack" style="gap:32px">
+      <h2 class="h2">What we offer</h2>
+      <div class="grid3">
+        <div class="card"><p class="card-title">Peer Tutoring</p><p class="card-body">One on one math and science, generally twice a week.</p></div>
+        <div class="card"><p class="card-title">Mentoring</p><p class="card-body">Informal mentoring built into every pairing.</p></div>
+        <div class="card"><p class="card-title">Enrichment Programming</p><p class="card-body">Coding, writing, college planning, time management and organizational skills.</p></div>
+        <div class="card"><p class="card-title">Youth Employment</p><p class="card-body">Paid peer tutoring positions for high school and college students.</p></div>
+        <div class="card"><p class="card-title">Building Foundations for Success</p><p class="card-body">Support for Stamford High School's Early College Studies students.</p></div>
+        <div class="card"><p class="card-title">Middle School Summer Scholars</p><p class="card-body">A one week program for incoming 6th graders.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="impact" aria-label="Program impact">
+    <div class="statband">
+      <div class="stat-anchor">
+        <div class="stack" style="gap:8px">
+          <p class="stat-anchor-label">Beyond Limits Academics</p>
+          <p class="stat-anchor-line">One student, two sessions a week, for as long as it takes.</p>
+        </div>
+        <div class="stack" style="gap:3px">
+          <p class="stat-num-gold">250+</p>
+          <p class="stat-sub">enrolled students in lower Fairfield County</p>
+          <span class="chip" style="margin-top:8px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm one agreed count</span>
+        </div>
+      </div>
+      <div class="statcard">
+        <p class="stat-num">90%</p>
+        <p class="stat-label">eligible for discounted services <span class="chip" style="margin-top:6px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm %</span></p>
+      </div>
+      <div class="statcard">
+        <p class="stat-num">99%</p>
+        <p class="stat-label">parent satisfaction</p>
+      </div>
+      <div class="statcard">
+        <p class="stat-num">81.6%</p>
+        <p class="stat-label">improved confidence</p>
+      </div>
+    </div>
+    <p class="source">Beyond Limits program data, November 2025</p>
+  </section>
+
+  <section class="wrap section" id="start">
+    <div class="stack" style="gap:14px;margin-bottom:32px">
+      <span class="micro">Find your way in</span>
+      <h2 class="h2">However you know Beyond Limits, there's a next step here.</h2>
+    </div>
+    <div class="grid4">
+      <a class="card doorlink" href="tutoring.html"><span class="eyebrow-slate">I'm a parent or student</span><span class="tlink">See how tutoring works <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="card doorlink" href="#"><span class="eyebrow-slate">I want to tutor</span><span class="tlink">Apply, tutors are paid <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="card doorlink" href="sponsorship.html"><span class="eyebrow-slate">I represent a business</span><span class="tlink">See sponsorship levels <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      <a class="card doorlink" href="donate.html"><span class="eyebrow-slate">I want to give</span><span class="tlink">Donate <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+    <div class="support-row">
+      <p class="sm" style="max-width:44ch;text-align:right">Beyond Limits has received a grant from the New Canaan Community Foundation and continues to be supported by Near &amp; Far Aid.</p>
+      <div class="logoslot" id="logo-nccf">NCCF logo</div>
+      <img class="lg-nfa" src="logo-near-and-far-aid.png" alt="Near & Far Aid">
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <p class="foot-t">Stamford Peace Youth Foundation</p>
+        <p class="foot-b">925 Long Ridge Road<br>Stamford, CT 06902<br>501(c)(3) · EIN 27-1254631</p>
+      </div>
+      <div class="foot-col">
+        <p class="foot-h">Contact</p>
+        <p class="foot-b"><a href="tel:+12035889023">(203) 588-9023</a><br>Phone hours Monday to Thursday, 9am to 3pm</p>
+        <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm which entity owns this number</span>
+        <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm email</span>
+      </div>
+      <div class="foot-col">
+        <p class="foot-h">Programs</p>
+        <p class="foot-b"><a href="#program">Beyond Limits Academics</a><br><a href="#top">Peace Basketball</a><br><a href="#impact">Our Impact</a><br><a href="start.html">Get Involved</a></p>
+      </div>
+      <div class="foot-col">
+        <p class="foot-h">Follow</p>
+        <p class="foot-b">@blprogram on Instagram<br>@blprogram on Facebook<br>Beyond Limits Academic Program on LinkedIn</p>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <p class="foot-legal"><a href="#top">Privacy policy</a> · <a href="#top">Media consent</a></p>
+      <a class="btn btn-ghost btn-xs" href="#start">Donate</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* mobile drawer */
+var burger=document.getElementById('burger'),drawer=document.getElementById('drawer');
+function setDrawer(open){burger.setAttribute('aria-expanded',open?'true':'false');burger.setAttribute('aria-label',open?'Close menu':'Open menu');drawer.style.height=open?drawer.firstElementChild.offsetHeight+'px':'0px'}
+burger.addEventListener('click',function(){setDrawer(burger.getAttribute('aria-expanded')!=='true')});
+drawer.addEventListener('click',function(e){if(e.target.tagName==='A')setDrawer(false)});
+window.addEventListener('resize',function(){if(window.innerWidth>900)setDrawer(false);else if(burger.getAttribute('aria-expanded')==='true')setDrawer(true)});
+</script>
+</body>
+</html>

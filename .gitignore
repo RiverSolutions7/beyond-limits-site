@@ -1,0 +1,18 @@
+# Bundles used to move files out of Claude Design. Transient, never source.
+*-bundle.json
+bl-site-bundle.json
+bl-about-bundle.json
+
+# Capture and test artifacts
+__test*.html
+__t*.html
+screenshots/
+*.pdf
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+.vscode/
+.idea/

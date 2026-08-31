@@ -1,0 +1,4 @@
+# Work in progress. Not the official site of the Stamford Peace Youth Foundation.
+# Kept out of search results until the design is final.
+User-agent: *
+Disallow: /
