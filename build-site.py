@@ -29,6 +29,52 @@ ASSISTANT = 'https://vastlyresilient.github.io/beyond-limits-enrollment/'
 NOINDEX = '<meta name="robots" content="noindex, nofollow">'
 CHARSET = '<meta charset="utf-8">'
 
+# Claude Design injects a runtime into every exported page, tagged with
+# data-omelette-injected. It is ~20KB per page (about 43% of this site's HTML) and
+# does nothing outside a Claude Design frame: it posts messages to claude.ai parent
+# frames, handles preview theming, and exposes a window.claude API.
+#
+# It also sets html,body{background:transparent}, which is right for a preview frame
+# and wrong for a real site.
+#
+# The pages' own scripts (count-up stats, sticky header, drawer toggle) are separate
+# untagged <script> blocks and are NOT touched by this.
+OMELETTE = re.compile(
+    r'<(script|style)\b[^>]*\bdata-omelette-injected\b[^>]*>.*?</\1>\s*',
+    re.S)
+
+# Stat safety net.
+#
+# The count-up script zeroes every [data-to] figure on load and only restores the
+# real number when an IntersectionObserver fires at 50% visibility. That fails
+# UNSAFE: if the observer never delivers, the zeros are permanent and the homepage
+# reads "0 students". Observers and rAF do not run in a hidden or heavily throttled
+# tab, which is exactly what a background tab is.
+#
+# This net snaps a figure to its real value only when it is BOTH on screen AND still
+# zero, so a normal scroll still gets the animation and an off-screen figure is left
+# alone. Runs on scroll, on the tab becoming visible, and once after 3s.
+STAT_NET = """<script>
+/* Stat safety net: never leave a real figure showing 0 on screen. */
+(function(){
+function f(v,d,s){return (d?v.toFixed(d):Math.round(v).toLocaleString('en-US'))+(s||'')}
+function snap(){
+  var n=document.querySelectorAll('[data-to]');
+  for(var i=0;i<n.length;i++){var e=n[i],t=parseFloat(e.dataset.to);
+    if(!t||parseFloat(e.textContent)!==0)continue;
+    var r=e.getBoundingClientRect();
+    if(r.bottom>0&&r.top<(window.innerHeight||0))
+      e.textContent=f(t,parseInt(e.dataset.dec||'0',10),e.dataset.suffix||'');}
+}
+var q=false;
+function later(){if(q)return;q=true;setTimeout(function(){q=false;snap()},250)}
+window.addEventListener('scroll',later,{passive:true});
+document.addEventListener('visibilitychange',function(){if(!document.hidden)later()});
+setTimeout(snap,3000);
+})();
+</script>
+"""
+
 # The canonical-reference banner the design system injects after <body>.
 BANNER = re.compile(
     r'<div style="background:#FDF3DA;border-bottom:1px solid #B77F07;[^"]*">'
@@ -93,6 +139,7 @@ def main():
             new = new.replace(CHARSET, CHARSET + '\n' + NOINDEX, 1)
             n0 = 1
 
+        new, nO = OMELETTE.subn('', new)
         new, n1 = BANNER.subn('', new)
         new, n2 = re.subn(r'<!--\s*@dsCard[^>]*-->\s*', '', new)
         # Rule 3 of the link convention: no verified destination means a bare '#'.
@@ -117,14 +164,20 @@ def main():
                 new = new.replace(find, repl)
                 hits += 1
 
+        # Stat safety net, only on pages that actually have count-up figures.
+        nS = 0
+        if 'data-to=' in new and 'Stat safety net' not in new and '</body>' in new:
+            new = new.replace('</body>', STAT_NET + '</body>', 1)
+            nS = 1
+
         # Only correct the timing note on pages that actually enter the assistant.
         if ASSISTANT in new and TIMING[0] in new:
             new = new.replace(TIMING[0], TIMING[1])
 
-        if n0 or n1 or n2 or n3:
-            changed.append('%s (noindex:%d banner:%d dsCard:%d assistantHref:%d)' % (p, n0, n1, n2, n3))
-        if hits or n4:
-            wired.append('%s (buttons:%d getInvolved:%d)' % (p, hits, n4))
+        if n0 or nO or n1 or n2 or n3:
+            changed.append('%s (noindex:%d omelette:%d banner:%d dsCard:%d assistantHref:%d)' % (p, n0, nO, n1, n2, n3))
+        if hits or n4 or nS:
+            wired.append('%s (buttons:%d getInvolved:%d statNet:%d)' % (p, hits, n4, nS))
         if new != s:
             io.open(path, 'w', encoding='utf-8').write(new)
 
@@ -135,7 +188,8 @@ def main():
     for p in PAGES:
         s = io.open(os.path.join(OUT, p), encoding='utf-8').read()
         for marker in ['Canonical rendered reference', '@dsCard', 'superseded',
-                       'pages-home.html', 'Pages file disagrees', 'href="PARENT-ONBOARDING']:
+                       'pages-home.html', 'Pages file disagrees', 'href="PARENT-ONBOARDING',
+                       'data-omelette-injected', 'window.claude', '__om_api']:
             if marker in s:
                 bad.append('%s contains %r' % (p, marker))
     # Every page must carry the noindex meta while this is a work in progress.

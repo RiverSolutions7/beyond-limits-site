@@ -45,10 +45,14 @@ Then visit <http://localhost:8777>.
 Pages are authored in **Claude Design** and exported here. This script is what turns
 an export into a shippable page. It does two jobs:
 
-1. **Strips design-system scaffolding** that must never reach the client (a
-   "Canonical rendered reference" banner, internal `@dsCard` comments).
+1. **Strips design-system scaffolding** that must never reach the client: a
+   "Canonical rendered reference" banner, internal `@dsCard` comments, and the
+   Claude Design runtime (~20KB per page, about 43% of the site's HTML, tagged
+   `data-omelette-injected`). The pages' own scripts are untagged and untouched.
 2. **Wires the onboarding assistant** into the pages: six entry points, plus the
    nav "Get Involved" pointing at the router.
+3. **Adds the noindex meta** to every page, and a **stat safety net** to any page
+   with count-up figures.
 
 The wiring lives here rather than in the design sources so it is declarative,
 reviewable in one place, and **cannot be silently lost on a re-export**.
@@ -61,7 +65,24 @@ python build-site.py
 
 It is idempotent and self-verifying. It prints what it stripped, what it wired,
 whether any internal marker leaked, and the assistant entry-point count. A count
-other than 6 means something regressed.
+other than 6 means something regressed, and a missing noindex fails the run.
+
+### The stat safety net, and why it exists
+
+The homepage figures (250+, 99%, 81.6%, 90%) count up on scroll. The original
+script zeroes them on load and only restores the real number when an
+IntersectionObserver fires at 50% visibility. That **fails unsafe**: if the observer
+never delivers, the zeros are permanent and the homepage reads "0 students".
+Observers and requestAnimationFrame do not run in a hidden or throttled tab, so a
+background tab reliably reproduces it.
+
+The net snaps a figure to its real value only when it is **both on screen and still
+zero**, so a normal scroll keeps the animation and off-screen figures are left alone.
+It runs on scroll, when the tab becomes visible, and once after three seconds.
+
+Capturing screenshots? Use `reducedMotion: 'reduce'`. The count-up is skipped
+entirely under that setting, leaving the correct static values with no scroll
+choreography needed.
 
 ---
 
