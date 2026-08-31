@@ -19,6 +19,16 @@ PAGES = ['index.html', 'beyond-limits.html', 'tutoring.html',
 
 ASSISTANT = 'https://vastlyresilient.github.io/beyond-limits-enrollment/'
 
+# Keep the work-in-progress site out of search results.
+#
+# A robots.txt does NOT work here. Crawlers only read robots.txt at the root of a
+# domain, and this deploys to a project subpath (username.github.io/repo/), so ours
+# was never being read. A meta tag travels with each page and works at any path.
+#
+# REMOVE THIS when the site launches for real.
+NOINDEX = '<meta name="robots" content="noindex, nofollow">'
+CHARSET = '<meta charset="utf-8">'
+
 # The canonical-reference banner the design system injects after <body>.
 BANNER = re.compile(
     r'<div style="background:#FDF3DA;border-bottom:1px solid #B77F07;[^"]*">'
@@ -77,6 +87,12 @@ def main():
         s = io.open(path, encoding='utf-8').read()
         new = s
 
+        # Insert the noindex meta once, immediately after the charset declaration.
+        n0 = 0
+        if NOINDEX not in new and CHARSET in new:
+            new = new.replace(CHARSET, CHARSET + '\n' + NOINDEX, 1)
+            n0 = 1
+
         new, n1 = BANNER.subn('', new)
         new, n2 = re.subn(r'<!--\s*@dsCard[^>]*-->\s*', '', new)
         # Rule 3 of the link convention: no verified destination means a bare '#'.
@@ -105,8 +121,8 @@ def main():
         if ASSISTANT in new and TIMING[0] in new:
             new = new.replace(TIMING[0], TIMING[1])
 
-        if n1 or n2 or n3:
-            changed.append('%s (banner:%d dsCard:%d assistantHref:%d)' % (p, n1, n2, n3))
+        if n0 or n1 or n2 or n3:
+            changed.append('%s (noindex:%d banner:%d dsCard:%d assistantHref:%d)' % (p, n0, n1, n2, n3))
         if hits or n4:
             wired.append('%s (buttons:%d getInvolved:%d)' % (p, hits, n4))
         if new != s:
@@ -122,7 +138,14 @@ def main():
                        'pages-home.html', 'Pages file disagrees', 'href="PARENT-ONBOARDING']:
             if marker in s:
                 bad.append('%s contains %r' % (p, marker))
+    # Every page must carry the noindex meta while this is a work in progress.
+    missing_noindex = [p for p in PAGES
+                       if NOINDEX not in io.open(os.path.join(OUT, p), encoding='utf-8').read()]
+    if missing_noindex:
+        bad.append('noindex meta missing from: %s' % ', '.join(missing_noindex))
+
     print('leaks:   ', bad if bad else 'none')
+    print('noindex: ', 'all %d pages' % len(PAGES) if not missing_noindex else 'MISSING')
 
     n_assist = sum(io.open(os.path.join(OUT, p), encoding='utf-8').read().count(ASSISTANT)
                    for p in PAGES)

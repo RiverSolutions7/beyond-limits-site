@@ -101,9 +101,12 @@ Deliberate, not bugs. Anyone reviewing should know these up front.
 - **The Español toggle is `href="#"`** everywhere. Spanish scope is undecided.
 - **Basketball and Our Impact link out** to the client's existing site in a new tab.
   Those sections are out of scope, so the visual jump is expected.
-- **No custom domain yet.** `robots.txt` disallows all crawlers while this is a work
-  in progress, so it will not show up in search results. Remove that file when the
-  design is final and live.
+- **No custom domain yet.** Every page carries
+  `<meta name="robots" content="noindex, nofollow">` so this stays out of search
+  results while it is a work in progress. It is injected by `build-site.py`, which
+  fails if any page is missing it. **Remove it there when the site launches.**
+  A `robots.txt` will not do this job: crawlers only read robots.txt at the root of
+  a domain, and this deploys to a project subpath.
 
 ---
 
