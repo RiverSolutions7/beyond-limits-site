@@ -106,6 +106,22 @@ WIRING = [
                          '<a class="btn btn-primary" href="#sponsorship">Talk to our team</a>'),
 ]
 
+# A confirm chip ANNOTATES a stated value. It must never REPLACE one.
+#
+# Two sentences had the chip standing in for the launch year, which left a hole:
+#   "Launched in [confirm launch year] as a program of the Stamford Peace..."
+# That is a broken sentence on a live page, and it misapplies the rule. The facts
+# file says CONTESTED means publish the value WITH a chip, not omit it.
+#
+# 2014 is the better-supported figure: it is what the live Beyond Limits page says
+# in the very sentence ours is adapted from ("Launched in 2014 as a program of the
+# Stamford Peace Youth Foundation..."), and the deck says "since inception in 2014".
+# Only one other page says 2013, which is why the chip stays until Andy confirms.
+CHIP_FILL = [
+    ('beyond-limits.html', 'Launched in <span class="chip"', 'Launched in 2014 <span class="chip"'),
+    ('about.html', 'launched in <span class="chip"', 'launched in 2014 <span class="chip"'),
+]
+
 # The assistant's own welcome screen says "About 4 minutes". Our buttons said two.
 # Align the promise with the tool so the first screen does not contradict the button.
 TIMING = ('Takes about two minutes. No account needed.',
@@ -164,6 +180,12 @@ def main():
                 new = new.replace(find, repl)
                 hits += 1
 
+        # Restore values that a chip was wrongly standing in for.
+        nC = 0
+        for pg, find, repl in CHIP_FILL:
+            if pg == p and find in new:
+                new = new.replace(find, repl); nC += 1
+
         # Stat safety net, only on pages that actually have count-up figures.
         nS = 0
         if 'data-to=' in new and 'Stat safety net' not in new and '</body>' in new:
@@ -176,8 +198,8 @@ def main():
 
         if n0 or nO or n1 or n2 or n3:
             changed.append('%s (noindex:%d omelette:%d banner:%d dsCard:%d assistantHref:%d)' % (p, n0, nO, n1, n2, n3))
-        if hits or n4 or nS:
-            wired.append('%s (buttons:%d getInvolved:%d statNet:%d)' % (p, hits, n4, nS))
+        if hits or n4 or nS or nC:
+            wired.append('%s (buttons:%d getInvolved:%d statNet:%d chipFill:%d)' % (p, hits, n4, nS, nC))
         if new != s:
             io.open(path, 'w', encoding='utf-8').write(new)
 
@@ -192,6 +214,15 @@ def main():
                        'data-omelette-injected', 'window.claude', '__om_api']:
             if marker in s:
                 bad.append('%s contains %r' % (p, marker))
+    # A chip must never replace a value: catch "in <chip>", "is <chip>", etc.
+    dangling = []
+    for p in PAGES:
+        t = io.open(os.path.join(OUT, p), encoding='utf-8').read()
+        for mm in re.finditer(r'(in|of|is|are|about|to|at|for)\s+<span class="chip', t):
+            dangling.append('%s: "%s <chip>"' % (p, mm.group(1)))
+    if dangling:
+        bad.append('chip replacing a value: %s' % '; '.join(dangling))
+
     # Every page must carry the noindex meta while this is a work in progress.
     missing_noindex = [p for p in PAGES
                        if NOINDEX not in io.open(os.path.join(OUT, p), encoding='utf-8').read()]
