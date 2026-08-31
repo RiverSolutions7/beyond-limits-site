@@ -177,13 +177,39 @@ Notes on these pages:
 - Several pages carry PDF links to flyers. Capture the link text and the URL, not the
   contents of the PDF.
 
+## WHERE TO SAVE
+
+Write both outputs to disk yourself. Create folders if they do not exist.
+
+**1. The JSON array:**
+```
+C:\Users\river\OneDrive\Documents\SEO Agency\beyond-limits-site\inventory\old-site-inventory.json
+```
+
+**2. The plain text of every page you read**, exactly as you saw it, one file per
+page, named for its prefix:
+```
+C:\Users\river\OneDrive\Documents\SEO Agency\beyond-limits-site\inventory\source-text\HOME.txt
+                                                                          \BL.txt
+                                                                          \BBALL.txt
+                                                                          \WWD.txt
+                                                                          \IMPACT.txt
+                                                                          \WWA.txt
+                                                                          \LEAD.txt
+                                                                          \CONTACT.txt
+                                                                          \GETINV.txt
+                                                                          \DONATE.txt
+                                                                          \INVEST.txt
+```
+
+The text files are not optional. Every quote in your JSON gets checked against them
+character for character. Without them nothing can be verified.
+
 ## WHEN YOU ARE DONE
 
-Emit the JSON array and nothing else.
-
-Then, in a **separate message**, report:
+Confirm both were written, then report in plain text:
 - rows per page
 - any page that failed to load
 - anything you were unsure how to classify
 
-Keep that report out of the JSON.
+Keep that report out of the JSON file.
