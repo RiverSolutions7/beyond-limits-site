@@ -190,9 +190,14 @@ wasted call.
 > ACADEMIC PROGRAM". So 9023 is the Beyond Limits line. Our footer carries 9023 with a
 > chip reading "confirm which entity owns this number", and this sources it.
 >
-> **Which email is canonical (findings q12).** There isn't one. Every address on the old
-> site is hidden behind a `/page_element/compose_email/NNNNNN` form, so no email address
-> is published anywhere. That is why we could not find one. Andy has to supply it.
+> **Which email is canonical (findings q12).** `info@peaceyouthct.org`. It is the only
+> address published anywhere on the old site, and it appears six times across four
+> pages: HOME-049, GETINV-020, GETINV-034, DONATE-019, DONATE-051 and INVEST-019.
+> Confirmed present in the raw text captures.
+>
+> *An earlier version of this note said no address was published anywhere. That was
+> wrong. It is true only of the Contact page, where all four addresses sit behind
+> `/page_element/compose_email/NNNNNN` forms. The rest of the site prints it plainly.*
 >
 > Neither should be treated as settled without his confirmation, but both now have a
 > source rather than a guess.
