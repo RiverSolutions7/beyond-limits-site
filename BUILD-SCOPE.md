@@ -18,19 +18,22 @@ Seven items. Every one has sourced copy in hand. None needs Andy.
 |---|------|---------|-------------|------|
 | 1 | "Other ways to support the Foundation" strip: Susetka, Kosovo, three named sub-campaigns | `donate.html`, foot | DONATE-053, DONATE-057 | medium |
 | 2 | Stamford Peace shop row inside that strip | `donate.html`, same strip | GETINV-029, GETINV-030 | small |
-| 3 | Leadership: Brian Kriftcher and Andy Sklover | `about.html` | LEAD-005 to 008, LEAD-014 to 017 | medium |
-| 4 | Staff, phone numbers, office hours | `about.html` or footer | CONTACT-003 to 040 | medium |
-| 5 | DEI statement and non-discrimination clause | `about.html` | WWD-013, WWD-014 | small |
+| ~~3~~ | **DONE.** Leadership: Kriftcher and Sklover, as an accordion | `about.html` | LEAD-005 to 010, LEAD-014 to 017 | done |
+| ~~4~~ | **DONE.** Who to talk to: five contacts, two numbers, office hours | `about.html` | CONTACT-003 to 040 | done |
+| ~~5~~ | **DONE.** Our commitment, uncollapsed so funders can find it | `about.html` | WWD-013, WWD-014 | done |
 | 6 | Wire the partner logo grid, 10 of 14 links | `index.html` | HOME-057 to 096 | small |
 | 7 | Two Get Involved paths: Host a Fundraiser, Spread the Word | `start.html` | GETINV-014 to 017, GETINV-023 to 030 | medium |
 | 8 | Our Impact page: four student stories, programme list, growth figures | `impact.html`, new | IMPACT-002 to 036 | large |
 
-### Why item 3 is the most urgent thing on this list
+### Item 3 was the most urgent thing on this list, and is now done
 
-`about.html` is headlined **"The people behind Beyond Limits."** There are no people on
-it. The two sections are "The Uniqueness of Our Model" and "A Growing List of
-Collaborators." The headline promises something the page does not deliver, and we hold
-full biographies for both men.
+`about.html` was headlined **"The people behind Beyond Limits"** with no people on it.
+The headline promised something the page did not deliver. It now carries both
+biographies, five named contacts with direct numbers and office hours, and the DEI and
+non-discrimination statements.
+
+Also done, ahead of its wave: **theme 9, the scholarships section**, on `tutoring.html`
+directly after the cost block. That was blocked on Dan and is now decided and built.
 
 ### Notes that change how three of these get built
 
@@ -63,7 +66,7 @@ breakage should be reported rather than quietly patched.
 
 | What | Blocked on | Why it cannot proceed |
 |------|-----------|----------------------|
-| Scholarships for Beyond Limits students | **Dan, then Andy** | We hold the copy, but it names two 13-year-olds and quotes them. Same class as the recipient list already deferred. See decision 3. |
+| ~~Scholarships for Beyond Limits students~~ | ~~Dan~~ | **DONE.** Dan reviewed the source and chose to carry all four recipients, reorganised into one accordion. Built on `tutoring.html`. |
 | Three Beyond Limits sub-campaign descriptions | Andy | No source text exists anywhere. |
 | `basketball.html` | **Hermes round 2** | The hub page is a signpost. Real content is on three uninventoried pages. Prompt written, not yet run. |
 | The Español toggle, 14 dead links | Andy | Findings question 16. Whether Spanish is in scope is a budget decision, not ours. |
