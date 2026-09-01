@@ -155,8 +155,34 @@ scholarship" is one of the strongest reasons to enrol, and it is currently nowhe
 the new site.
 
 **Proposed home:** Tutoring page, near the cost section.
-**Note:** recipient names here are few and already public alongside their own quotes,
-unlike theme 6. Still worth confirming.
+
+> **DECIDED 2026-09-01 (Dan). Carry all four across, reorganised.** Dan reviewed the
+> source material in full before deciding.
+>
+> **What is being republished.** Four recipients, not two as first reported. Annabella
+> (10, 5th grade) and Mia (11, 6th grade, names Dolan Middle School) under the Rotary
+> award, both writing in the first person. Anthony Lopez (13) and Danna Rivas under the
+> Susetka award, also in the first person. Rows BL-053 to BL-069.
+>
+> **The concern, stated and overruled.** A first name with an age and a named school is
+> enough to identify a specific child, and that combination appears in Mia's entry. It is
+> already public on Andy's live site, so nothing here is being exposed that was not
+> exposed already. Dan's call is that faithfulness to "all of the old website's
+> information reorganized" wins, and that reproducing what he already publishes is not
+> our decision to override. Recorded here so the reasoning is not lost.
+>
+> **Reorganised, not copied.** On the old site the four are scattered: Annabella, then
+> the Rotary description, then Mia, then the Susetka description, then Anthony and Danna,
+> with their quotes separated from their names further down. All four go in one block
+> together, under the two scholarship descriptions. UI to be designed.
+>
+> **Open: photographs.** The old page carries an image beside each recipient (BL-052,
+> BL-055, BL-064, BL-066). We hold none of those files and all four lack alt text.
+> Defaulting to a text-only treatment. Fetching and republishing photographs of named
+> children is a further step and has not been agreed.
+>
+> **Andy still gets told.** Not as an omission, but as a disclosure: we carried your four
+> recipients across, here is where they sit, say the word and they come out.
 
 ### 10. Leadership biographies · ~10 rows
 Full biographies for Brian Kriftcher ("Coach K") and Andy Sklover.
