@@ -90,6 +90,14 @@ people to the onboarding assistant instead.
 collects contact details, but only from people who complete enrolment. Someone who just
 wants updates has nowhere to go.
 
+> **DECIDED 2026-08-31 (Dan).** Leave it off for now and flag it to Andy rather than
+> building a replacement. Added to the client findings document as question 18.
+>
+> Reasoning: a working signup needs somewhere for the addresses to go, which means an
+> email service and Andy's account. That cannot be finished without him, so asking is
+> the honest step rather than half-building it. The funnel stays pointed at the
+> assistant in the meantime.
+
 ### 8. Other Foundation funds on the donate page · ~8 rows
 Bill Susetka Memorial Scholarship Fund description, Kosovo Heritage Basketball Academy,
 and their donate instructions.
