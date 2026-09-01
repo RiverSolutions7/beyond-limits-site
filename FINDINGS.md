@@ -180,11 +180,20 @@ Two entries also carry misspelled colleges: "Rennsylear Polytechinic Institute" 
 
 ## Something that is ours, not theirs
 
-The footer we built carries a **"Media consent"** link. That phrase appears in **none** of
-the 725 inventory rows from the old site. We added it, it has no destination, and it has
-no source. It should either be removed or given a real document.
+Two defects were ours rather than Andy's. Both are fixed, and both are recorded here so
+they are not mistaken for problems on his site.
 
-Recorded here so it is not mistaken for one of Andy's problems.
+**The "Media consent" footer link.** That phrase appears in **none** of the 725 inventory
+rows. We added it, and it had no destination and no document behind it. Removed from all
+eight footers on 2026-09-01.
+
+**The sponsorship page stranded the highest-value audience on the site.** Its "Talk to our
+team" button pointed at `#sponsorship`, which is the section the button sits inside: a
+link to itself. That section contained no link, button, form, phone or email, so a
+business that wanted to sponsor had nowhere to go. It also carried an "assistant link
+pending" chip for a link that should never exist, since the assistant is enrolment-only.
+Fixed 2026-09-01: the button now emails `info@peaceyouthct.org` and the card carries the
+Beyond Limits phone line and office hours.
 
 ### The website and the enrollment assistant disagree about price
 
