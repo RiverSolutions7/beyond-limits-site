@@ -22,7 +22,7 @@ Seven items. Every one has sourced copy in hand. None needs Andy.
 | ~~4~~ | **DONE.** Who to talk to: five contacts, two numbers, office hours | `about.html` | CONTACT-003 to 040 | done |
 | ~~5~~ | **DONE.** Our commitment, uncollapsed so funders can find it | `about.html` | WWD-013, WWD-014 | done |
 | ~~6~~ | **DONE.** Partner logo grid wired, all 14, four corrected | `index.html` | HOME-057 to 096 | done |
-| 7 | Two Get Involved paths: Host a Fundraiser, Spread the Word | `start.html` | GETINV-014 to 017, GETINV-023 to 030 | medium |
+| ~~7~~ | **DONE.** Two Get Involved paths, as a secondary block not doorcards | `start.html` | GETINV-014 to 017, GETINV-023 to 028 | done |
 | 8 | Our Impact page: four student stories, programme list, growth figures | `impact.html`, new | IMPACT-002 to 036 | large |
 
 ### Item 3 was the most urgent thing on this list, and is now done

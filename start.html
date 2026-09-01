@@ -187,6 +187,15 @@ h1,h2,h3,p{margin:0}
 .doorcard.lightcard .btn-ghost{background:transparent;border:1.5px solid var(--navy);color:var(--navy)}
 .doorcard.lightcard .btn-secondary:hover,
 .doorcard.lightcard .btn-ghost:hover{background:var(--navy);color:var(--white)}
+.helphead{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:14px}
+.helprow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.helpcard{background:var(--white);border-radius:16px;padding:26px 28px;display:flex;flex-direction:column;gap:10px}
+.helpcard h3{font-size:19px;font-weight:800;letter-spacing:-.018em;color:var(--ink);margin:0}
+.helpcard p{font-size:15px;line-height:1.6;color:var(--slate);margin:0}
+.helplinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.helplinks a{display:inline-flex;align-items:center;height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--navy)}
+.helplinks a:hover{border-color:var(--gold-deep);color:var(--gold-deep)}
+@media (max-width:900px){.helprow{grid-template-columns:minmax(0,1fr)}.helpcard{padding:22px 24px}}
 </style>
 </head>
 <body>
@@ -276,6 +285,28 @@ h1,h2,h3,p{margin:0}
         </div>
         <div class="doorside">
           <a class="btn btn-ghost btn-lg" href="https://www.peaceyouthct.org/basketballprograms" target="_blank" rel="noopener">Go to Peace Basketball</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="more-ways">
+    <p class="helphead">Two more ways to help</p>
+    <div class="helprow">
+      <div class="helpcard">
+        <h3>Fundraise for our local students</h3>
+        <p>Donate your birthday or any other special day: create a Facebook fundraiser to benefit Stamford Peace. Be sure to invite family and friends to maximize your impact.</p>
+        <div class="helplinks">
+          <a href="https://www.facebook.com/fund/stamfordpeaceyouthfoundation/" target="_blank" rel="noopener">Start a fundraiser</a>
+        </div>
+      </div>
+      <div class="helpcard">
+        <h3>Help us spread the word</h3>
+        <p>Follow us on social media and like/share our content. Share our story, mission and news with your family and friends.</p>
+        <div class="helplinks">
+          <a href="http://facebook.com/stamfordpeaceyouthfoundation" target="_blank" rel="noopener">Facebook</a>
+          <a href="http://www.instagram.com/peaceyouth_ct" target="_blank" rel="noopener">Instagram</a>
+          <a href="http://www.twitter.com/peaceyouth_ct" target="_blank" rel="noopener">Twitter</a>
         </div>
       </div>
     </div>
