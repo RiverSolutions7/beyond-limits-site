@@ -178,6 +178,47 @@ Two entries also carry misspelled colleges: "Rennsylear Polytechinic Institute" 
 
 ---
 
+## 11. Your own site disagrees with itself in three places
+
+Found by running a probe over all 969 verified inventory rows. Each value below is a
+literal string from a specific row, so any of them can be checked in seconds.
+
+**Beyond Limits founding year, 2013 versus 2014.** Two rows say 2013: `/whatwedo` says
+"Established in late 2013" and `/leadership` says "In 2013, Andy Sklover co-founded". One
+row says 2014: `/beyondlimits` says "Launched in 2014". Two to one for 2013, and "late
+2013" would reconcile both if the programme was founded late in 2013 and began operating
+in 2014.
+
+**Beyond Limits grade range, 4 to 10 versus 3 to 12.** The home page says "grades 4-10"
+twice. `/whatwedo` says "over 200 students in the 3rd through 12th grades". This one
+changes what a parent is told they qualify for.
+
+**Brian Kriftcher's career length, 18 years versus 20.** The leadership page and the board
+page both say "a successful 18-year Wall Street career". `/whatwedo` says "a successful
+20-year career in financial services". Minor, but it is in the founder's biography in
+three places and two of them agree.
+
+**How it was checked.** A deterministic script, not a model reading prose. Each probe
+requires its subject in the same row, which is what stops it reporting nonsense like the
+Foundation's 2008 founding contradicting a board member's company founded in 2016. An
+earlier version without that requirement reported four contradictions and three were
+false.
+
+### What the sweep could NOT see, which matters more
+
+The script only reads the website. It cannot see the fundraising deck or the sponsorship
+kit. That turns out to be the important result:
+
+**Inside the website, the student count is consistently 200 and the free-or-reduced-lunch
+rate is consistently 80%.** The competing figures, **250+ students** and **90%**, come
+from the deck and the kit, not from any web page.
+
+So the numbers Andy most needs to settle are not his site arguing with itself. They are
+**his website disagreeing with his fundraising documents**, and the website is the quieter
+of the two. Anyone reading only the site would never notice.
+
+---
+
 ## Something that is ours, not theirs
 
 Two defects were ours rather than Andy's. Both are fixed, and both are recorded here so
@@ -217,6 +258,6 @@ that changes the most. It now has a second reason to be answered.
 
 ---
 
-*Findings 1 and 2 were established before 2026-09-01. Findings 3 to 6 and 8 to 10 came
+*Findings 1 and 2 were established before 2026-09-01. Findings 3 to 6 and 8 to 11 came
 out of the inventory work on 2026-09-01. Finding 7 was recorded when the mailing list decision
 was made on 2026-08-31.*
