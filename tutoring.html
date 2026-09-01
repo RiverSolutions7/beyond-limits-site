@@ -209,6 +209,21 @@ h1,h2,h3,p{margin:0}
   .section{padding:0 var(--pad) 44px}
 }
 @media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important;animation-duration:.01ms!important}html{scroll-behavior:auto}}
+/* accordion, matching about.html */
+.acclist{display:flex;flex-direction:column;gap:12px}
+.accitem{background:var(--white);border-radius:16px}
+.accitem summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px}
+.accitem summary::-webkit-details-marker{display:none}
+.acctitle{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.accicon{flex:0 0 auto;width:20px;height:20px;color:var(--gold-deep);transition:transform .2s ease}
+.accitem[open] .accicon{transform:rotate(45deg)}
+.accbody{padding:0 24px 24px;font-size:15px;line-height:1.6;color:var(--slate)}
+.accbody p{margin:0 0 12px}
+.accbody p:last-child{margin-bottom:0}
+.accrec{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);font-weight:600;color:var(--ink)}
+.accquote{margin:14px 0 0;padding-left:16px;border-left:2px solid var(--gold)}
+.accquote blockquote{margin:0;font-family:var(--serif);font-size:16px;line-height:1.5;color:var(--navy)}
+.accquote figcaption{margin-top:6px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
 </style>
 </head>
 <body>
@@ -266,6 +281,7 @@ h1,h2,h3,p{margin:0}
       <a class="subpill subpill-on" href="#sessions">How sessions work</a>
       <a class="subpill subpill-off" href="#tutors">Who the tutors are</a>
       <a class="subpill subpill-off" href="#costs">What it costs</a>
+      <a class="subpill subpill-off" href="#scholarships">Scholarships</a>
       <a class="subpill subpill-off" href="#center">Where it happens</a>
       <a class="subpill subpill-off" href="#enroll">How to enroll</a>
     </div>
@@ -327,6 +343,39 @@ h1,h2,h3,p{margin:0}
           <span class="chip chip-white"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm subsidized fee</span>
         </div>
         <p class="sm">What a family actually pays depends on eligibility. We talk it through with you before anything is signed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="scholarships">
+    <div class="stack" style="gap:22px">
+      <h2 class="h2">Scholarships our students have won</h2>
+      <p class="body">Beyond Limits students are eligible for two scholarships awarded through Stamford Peace. Both weigh academic standing, citizenship and financial need.</p>
+      <div class="acclist">
+        <details class="accitem">
+          <summary><span class="acctitle">The Stamford Rotary Trust Scholarship</span><svg class="accicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="accbody">
+            <p>The Stamford Rotary Trust Scholarship offers non-renewable, one-year scholarships to students with financial need who display academic achievement.</p>
+            <p>It is awarded to Beyond Limits students who are in good academic standing or show commitment to improve that standing, display good citizenship, and demonstrate financial need.</p>
+            <p class="accrec">2025 recipients: Annabella, 5th grade, and Mia, 6th grade.</p>
+          </div>
+        </details>
+        <details class="accitem">
+          <summary><span class="acctitle">Bill Susetka Memorial Scholarship</span><svg class="accicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+          <div class="accbody">
+            <p>This scholarship is awarded to students in honor of Bill Susetka’s memory. Bill graduated from Stamford Catholic High School. He was accomplished in athletics, having played on the Stamford World Champion Babe Ruth baseball team and the varsity baseball and basketball teams at Rensselaer Polytechnic Institute. Still, he remained humble and reveled in other’s triumphs.</p>
+            <p>Bill was an inspirational leader with a kind, compassionate, and generous nature, who cared deeply about people and always had a smile and encouraging words to share. To honor his memory, the friends and family of Bill Susetka have established this scholarship for worthy Stamford Peace student-athletes. The successful candidate is in good academic standing, displays good citizenship, and demonstrates financial need.</p>
+            <p class="accrec">2025-2026 Beyond Limits recipients: Anthony Lopez and Danna Rivas.</p>
+            <figure class="accquote">
+              <blockquote>My name is Anthony Lopez and I’m 13 years old. I’m grateful for Beyond Limits because the sessions help me with tests, homework, and projects. I’m also grateful for my mom because she sacrifices her time to take me to Beyond Limits. Thank you</blockquote>
+              <figcaption>Anthony Lopez</figcaption>
+            </figure>
+            <figure class="accquote">
+              <blockquote>Hello, my name is Danna Rivas, and I like going to [Beyond Limits] because I like the tutors that I get, and it is fun learning there. And when I’m out of school, I like to do Gymnastics! Thank you!</blockquote>
+              <figcaption>Danna Rivas</figcaption>
+            </figure>
+          </div>
+        </details>
       </div>
     </div>
   </section>
@@ -406,7 +455,7 @@ h1,h2,h3,p{margin:0}
     <div class="grid4">
       <a class="pathcard" href="#"><span>Beyond Limits Academics overview</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="pathcard" href="#"><span>Enrichment and summer programs</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-      <a class="pathcard" href="#"><span>Scholarships for Beyond Limits students</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="pathcard" href="#scholarships"><span>Scholarships for Beyond Limits students</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="pathcard" href="#"><span>Become a paid tutor</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </section>
