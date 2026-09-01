@@ -98,13 +98,35 @@ says 2014. Two sources to one, and "late 2013" reconciles them.
 |------|-----------|----------------------|
 | ~~Scholarships for Beyond Limits students~~ | ~~Dan~~ | **DONE.** Dan reviewed the source and chose to carry all four recipients, reorganised into one accordion. Built on `tutoring.html`. |
 | Three Beyond Limits sub-campaign descriptions | Andy | No source text exists anywhere. |
-| `basketball.html` | **Nothing. Unblocked 2026-09-01.** | Round 2 came back and verifies: 164 rows across AAU, SPBL and Summer League. Ready to build. |
+| ~~`basketball.html`~~ | **DONE 2026-09-01.** | Built as durable structure, linking out for dates and prices. See note below. |
 | The Español toggle, 14 dead links | Andy | Findings question 16. Whether Spanish is in scope is a budget decision, not ours. |
 | Privacy policy, 6 dead links | Andy | The only one is a SportsEngine PDF dated Feb 2020, describing a platform the new site does not run on. |
 | Media consent, 6 dead links | **Us** | It appears in **none** of the 725 rows. We added this link. It has no source and no destination. |
 | Grades, fees, student count, $20,000 tier | Andy | Findings questions 1, 2, 7, 8. These clear 37 chips. |
 
 ---
+
+### basketball.html, and why it carries no prices
+
+Dan chose durable structure over completeness. The page describes the three leagues in
+the Foundation's own words, which does not go stale, and links out for season dates and
+fees, which change every year and are maintained elsewhere.
+
+That was the right call for a specific reason: the Boys League page currently advertises
+the **2025-2026 season, November 22 to March 8**, which ended in March 2026, alongside an
+early-bird deadline of **September 12** that reads as current. Reproducing it faithfully
+would have published a finished season on work we hand to Andy. Verified: no price or
+season date appears anywhere on our page.
+
+The Summer League card does not link to the Summer League page, because that page is a
+SportsEngine sign-in wall. It points at our own contact block instead, which is a real
+answer rather than a dead end.
+
+Building it also turned up two footer links, on `donate.html` and `sponsorship.html`,
+sending "Beyond Limits Academics" back to the **old site**. Our own footer was undoing
+the redesign. Fixed. 21 Basketball links and 18 Our Impact links were rewired in total,
+and the only two external `peaceyouthct.org` links left on the whole site are the two
+deliberate registration links on this page.
 
 ## Wave 3: polish, last
 

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>About · Beyond Limits Academics</title>
+<title>Peace Basketball &middot; Stamford Peace Youth Foundation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
 :root{--navy:#10233F;--ink:#0B1B30;--gold:#F5B316;--gold-deep:#B77F07;--gold-wash:#FDF3DA;--warm:#FBFAF7;--white:#FFFFFF;--slate:#46536A;--line:#E4E0D8;--sky:#E8EEF6;--serif:'Source Serif 4',Georgia,serif;--sans:Inter,system-ui,sans-serif;--pad:48px;--maxw:1280px}
@@ -185,6 +185,26 @@ h1,h2,h3,p{margin:0}
 .person-tel{font-size:14px;margin-top:6px;display:block}
 .hours{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:15px;line-height:1.6;color:var(--slate)}
 @media (max-width:900px){.deicard{padding:24px}}
+.impactlist{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px}
+.impactlist li{font-size:16px;line-height:1.65;color:var(--slate)}
+.storygrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.story{background:var(--white);border-radius:16px;padding:28px 30px;display:flex;flex-direction:column;gap:12px}
+.story h3{font-size:20px;font-weight:800;letter-spacing:-.018em;color:var(--ink);margin:0}
+.story p{font-size:15px;line-height:1.65;color:var(--slate);margin:0}
+.storyquote{font-family:var(--serif);font-size:17px;line-height:1.5;color:var(--navy);padding-left:16px;border-left:2px solid var(--gold);margin:0}
+.bandhead{background:var(--navy);border-radius:16px;padding:34px 36px}
+.bandhead .h2{color:var(--white);max-width:34ch}
+.bandhead .micro-gold{color:var(--gold)}
+@media (max-width:900px){.storygrid{grid-template-columns:minmax(0,1fr)}.story{padding:22px 24px}.bandhead{padding:26px 24px}}
+.leaguegrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.league{background:var(--white);border-radius:16px;padding:28px 30px;display:flex;flex-direction:column;gap:12px}
+.league h3{font-size:19px;font-weight:800;letter-spacing:-.018em;color:var(--ink);margin:0}
+.league p{font-size:15px;line-height:1.6;color:var(--slate);margin:0}
+.league .note{font-size:13.5px;color:var(--slate);padding-top:10px;border-top:1px solid var(--line)}
+.league a.go{margin-top:auto;padding-top:12px;font-size:14.5px;font-weight:600;color:var(--navy)}
+.league a.go:hover{color:var(--gold-deep)}
+@media (max-width:1100px){.leaguegrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.leaguegrid{grid-template-columns:minmax(0,1fr)}.league{padding:22px 24px}}
 </style>
 </head>
 <body>
@@ -196,9 +216,9 @@ h1,h2,h3,p{margin:0}
     </a>
     <div class="navlinks">
       <a class="navlink" href="beyond-limits.html">Beyond Limits</a>
-      <a class="navlink" href="basketball.html">Basketball</a>
+      <a class="navlink" href="#top" aria-current="page">Basketball</a>
       <a class="navlink" href="impact.html">Our Impact</a>
-      <a class="navlink" href="#top" aria-current="page">About</a>
+      <a class="navlink" href="about.html">About</a>
       <a class="navlink" href="start.html">Get Involved</a>
     </div>
     <div class="navright">
@@ -212,9 +232,9 @@ h1,h2,h3,p{margin:0}
   <div class="drawer" id="drawer">
     <div class="drawer-inner">
       <a href="beyond-limits.html">Beyond Limits</a>
-      <a href="basketball.html">Basketball</a>
-      <a href="impact.html">Our Impact</a>
-      <a href="#top" aria-current="page">About</a>
+      <a href="#top" aria-current="page">Basketball</a>
+      <a href="#top" aria-current="page">Our Impact</a>
+      <a href="about.html">About</a>
       <a href="start.html">Get Involved</a>
       <a href="#">Español</a>
       <a class="btn btn-primary" href="donate.html">Donate</a>
@@ -226,192 +246,65 @@ h1,h2,h3,p{margin:0}
 
   <section class="wrap hero">
     <div class="hero-copy">
-      <span class="eyebrow-pill">A program of the Stamford Peace Youth Foundation</span>
-      <h1 class="d1">The people behind Beyond Limits.</h1>
-      <p class="sup">Beyond Limits Academics is how the Stamford Peace Youth Foundation shows up for students in lower Fairfield County, one relationship at a time.</p>
+      <span class="eyebrow-pill">Stamford Peace Youth Foundation</span>
+      <h1 class="d1">Peace Basketball</h1>
+      <p class="sup">Three leagues, from a first season of developmental basketball to a nationally competitive travel program. Beyond Limits Academics is the Foundation’s tutoring program and runs alongside them.</p>
     </div>
     <div class="hero-photo">
-      <img src="hero-img-h1.jpg" alt="Students and staff outside the Beyond Limits tutoring center on Long Ridge Road">
+      <img src="peace-basketball-game.png" alt="Stamford Peace youth basketball league players in Peace pinnies during a game">
     </div>
   </section>
 
   <section class="wrap section">
-    <div class="missioncard">
-      <span class="micro">Our mission</span>
-      <p class="missiontext">Beyond Limits' mission is to level the academic playing field and eliminate opportunity gaps for learners in lower Fairfield County. We empower every learner to achieve their potential through high-quality, subsidized, non-school-based peer-to-peer tutoring, mentoring, academic advocacy, and enrichment activities. By collaborating with local partners, we create a sustainable, inclusive academic support network that fosters a thirst for knowledge and equitable access to opportunities.</p>
-    </div>
-  </section>
-
-  <section class="wrap section">
-    <div class="stack" style="gap:28px">
-      <h2 class="h2">The Uniqueness of Our Model</h2>
-      <div class="acclist">
-        <details class="accitem">
-          <summary><span class="acctitle">Peer-Powered Learning</span><svg class="accicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <p class="accbody">Our student-to-student informal mentoring model builds confidence, connection, and mutual growth for tutors and learners alike.</p>
-        </details>
-        <details class="accitem">
-          <summary><span class="acctitle">Youth Employment and Leadership</span><svg class="accicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <p class="accbody">Tutoring offers a flexible first job or volunteer role, giving youth valuable work experience, responsibility, and leadership skills.</p>
-        </details>
-        <details class="accitem">
-          <summary><span class="acctitle">Mission-Driven Equity</span><svg class="accicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <p class="accbody">We are committed to closing the opportunity gap through subsidized access and long-term investment in student success.</p>
-        </details>
-        <details class="accitem">
-          <summary><span class="acctitle">Community-Centered Impact</span><svg class="accicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <p class="accbody">We engage families and local community partners to ensure students thrive in and out of school.</p>
-        </details>
-        <details class="accitem">
-          <summary><span class="acctitle">Holistic Growth</span><svg class="accicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <p class="accbody">We actively engage students to be their best selves in every way.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap section">
-    <div class="foundationcard">
-      <span class="micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">The foundation behind Beyond Limits</span>
-      <p class="body">The Stamford Peace Youth Foundation was founded in 2008 by Brian Kriftcher <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm founders</span>, and has grown into two programs working side by side: Peace Basketball and Beyond Limits Academics.</p>
-      <div class="fstatrow">
-        <div>
-          <p class="fstat-num">1,200+</p>
-          <p class="fstat-sub">young people reached across all Foundation programs</p>
-        </div>
-        <div>
-          <p class="fstat-num">Nearly 100</p>
-          <p class="fstat-sub">former players now in college as basketball student athletes</p>
-        </div>
-      </div>
-      <p class="body">Beyond Limits Academics launched in 2014 <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm launch year</span> as one of the Foundation's programs.</p>
-    </div>
-  </section>
-
-  <section class="wrap section" id="leadership">
-    <div class="stack" style="gap:28px">
-      <h2 class="h2">Who runs Beyond Limits</h2>
-      <div class="acclist">
-        <details class="accitem">
-          <summary>
-            <span class="bioname">
-              <span class="acctitle">Brian Kriftcher</span>
-              <span class="accrole">Founder and President, Stamford Peace Youth Foundation. Known as Coach "K".</span>
-            </span>
-            <svg class="accicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </summary>
-          <div class="accbody">
-            <p>Following a successful 18-year Wall Street career, Brian Kriftcher (Coach "K") retired from the business world at the age of 40 in order to devote his full-time energies to his passions for coaching, teaching and philanthropic work.</p>
-            <p>Coach "K" is the Founder and President of Stamford Peace Youth Foundation; and is Head Coach of PEACE Basketball. He is an experienced high school basketball coach at Westhill High School in Stamford, CT, as well as at St. Luke’s School in New Canaan, CT. At St. Luke’s, Coach K led his Varsity boys’ basketball team to a coveted Fairchester Athletic Association tournament crown, before losing in the Championship game of the New England Preparatory School Athletic Conference tournament in 2010-2011.</p>
-            <p>Coach "K" has been a lifelong student and teacher of the game, and has successfully coached both boys’ and girls’ teams representing Stamford in several JCC Maccabi Games, as well as many other teams in many other events. Coach "K" has worked at such distinguished basketball camps as the Bob Hurley Basketball Camp, Coach K Academy/Duke Basketball Camp, and Point Guard College. He is also a frequent basketball clinician/instructor and 1-on-1 trainer.</p>
-            <p>As a player, Coach K earned a Silver Medal representing the U.S.A. as a member of its Masters (35+ years old) basketball team in the World Maccabiah Games in Israel in 2009. Previously, he earned a Gold Medal in the Pan American Maccabiah Games in Buenos Aires, Argentina in 2007.</p>
-            <p>Coach "K" earned his Bachelor of Arts degree in Political Science from the State University of New York at Albany, where he was member of the men’s intercollegiate basketball team for two seasons. He earned a law degree from St. John’s University Law School, which he attended at night; and remains licensed to practice law in New York State.</p>
-            <p>Coach "K" is the Global Chairman of the Board of Directors of PeacePlayers International; a not-for-profit organization that uses the game of basketball to bridge divides between young people in conflict areas throughout the world. From 2009 to 2012, he was president of the Stamford JCC.</p>
-          </div>
-        </details>
-        <details class="accitem">
-          <summary>
-            <span class="bioname">
-              <span class="acctitle">Andy Sklover</span>
-              <span class="accrole">Co-founder, Beyond Limits Academic Program</span>
-            </span>
-            <svg class="accicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
-          </summary>
-          <div class="accbody">
-            <p>In 2013, Andy Sklover co-founded the Beyond Limits Academic Program as a program of Stamford Peace Basketball Club, Inc.</p>
-            <p>As a former member of the City of Stamford’s Board of Representatives (BOR), he served as chair of the Education Committee and a member of the Fiscal, State & Commerce and Charter Review Committees. As Education Committee Chair, he lead the establishment of the BOR’s Student Advisory Council (SAC), which seeks to empower the Stamford Public School (SPS) student body by granting student representatives an opportunity to express their thoughts and opinions and favorably impact the current and future academic and social experiences of SPS students. He has also served as a member of a School Governance Council and the High School Call to Action and District Technology Committees.</p>
-            <p>From December, 2012 to June, 2015, Sklover served, on a part-time basis, as Director of Advocacy and Education for Stamford Achieves, a non-profit established in 2004 to serve as an advocate and catalyst for closing the achievement gap in Stamford.</p>
-            <p>He earned his Bachelor of Arts degree in Economics from Northwestern University and an MBA from Columbia University. He is the President of Sklover Benefits Group, Inc., an insurance brokerage firm also based in Stamford.</p>
-          </div>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap section">
-    <div class="collabcard">
-      <h2 class="h2">A Growing List of Collaborators</h2>
-      <div class="collab-grid">
-        <p class="collab-item">Bartlett Arboretum and Gardens</p>
-        <p class="collab-item">Horizons at NCCS</p>
-        <p class="collab-item">Intempo</p>
-        <p class="collab-item">Kids in Crisis</p>
-        <p class="collab-item">Mill River Park Collaborative</p>
-        <p class="collab-item">Sacred Heart University</p>
-        <p class="collab-item">SCSE</p>
-        <p class="collab-item">Silvermine Arts Center</p>
-        <p class="collab-item">Stamford Public Schools</p>
-        <p class="collab-item">UConn Stamford</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="wrap section" id="contact">
     <div class="stack" style="gap:22px">
-      <h2 class="h2">Who to talk to</h2>
-      <div class="collabcard">
-        <div class="peoplegrid">
-          <div class="person">
-            <p class="person-name">Brian Kriftcher</p>
-            <p class="person-role">Founder, President and Head Coach</p>
-            <a class="person-tel" href="tel:+12035889020">(203) 588-9020</a>
-          </div>
-          <div class="person">
-            <p class="person-name">Andy Sklover</p>
-            <p class="person-role">Co-founder, Beyond Limits Academic Program</p>
-            <a class="person-tel" href="tel:+12035889023">(203) 588-9023</a>
-          </div>
-          <div class="person">
-            <p class="person-name">Caroline Sasser</p>
-            <p class="person-role">Program Coordinator</p>
-            <a class="person-tel" href="tel:+12035889020">(203) 588-9020</a>
-          </div>
-          <div class="person">
-            <p class="person-name">Martine Curto</p>
-            <p class="person-role">Academic Coordinator</p>
-            <a class="person-tel" href="tel:+12035889020">(203) 588-9020</a>
-          </div>
-          <div class="person">
-            <p class="person-name">General inquiries</p>
-            <p class="person-role">Stamford Peace Youth Foundation</p>
-            <a class="person-tel" href="tel:+12035889020">(203) 588-9020</a>
-            <a class="person-tel" href="mailto:info@peaceyouthct.org">info@peaceyouthct.org</a>
-          </div>
-        </div>
-        <p class="hours">Office hours are Monday to Thursday, 9am to 3pm. Closed Friday, Saturday and Sunday.</p>
+      <h2 class="h2">Three ways to play</h2>
+      <p class="body">Season dates, fees and tryout schedules change every year, so each league links to the page where its own are kept current.</p>
+      <div class="leaguegrid">
+      <div class="league">
+        <h3>Peace AAU</h3>
+        <p>Our elite-level AAU basketball program, with teams for boys and girls in the 3rd through 11th grades. Tryout based, teams are both competitive and very selective. Each team plays between 5-12 tournaments per season (depending upon grade and level of play) throughout the Northeast region and elsewhere. Tryouts for our AAU teams take place towards the end of the winter season.</p>
+        <a class="go" href="https://www.peaceyouthct.org/aau" target="_blank" rel="noopener">Go to the AAU page</a>
       </div>
-    </div>
-  </section>
-
-  <section class="wrap section" id="commitment">
-    <div class="stack" style="gap:22px">
-      <h2 class="h2">Our commitment</h2>
-      <div class="deicard">
-        <p class="deitext">We are cognizant of the fact that our society’s full promise has eluded too many for far too long. The issue of racial division and other inequities in America requires active, open, honest, direct, and respectful encounters to overcome them. As we face a crossroads, do we truly come together or do we remain apart? Stamford Peace remains wholly committed to doing all we can to champion justice and to play a leadership role in supporting our community’s most underserved; to combat all forms of racism and bigotry; and to be a vocal ally in the ongoing struggle for a more fair, loving and inclusive world.</p>
-        <p class="deilegal">Stamford Peace does not discriminate on the basis of race, color, national origin (ancestry), religion, gender identity (including gender expression), sexual orientation, disability, age, marital status, family/parental status, military status or any other characteristic protected by law in any of its activities, programs or operations, including employment.</p>
+      <div class="league">
+        <h3>Stamford Peace Boys Basketball League</h3>
+        <p>The Stamford Peace Boys Basketball League, a local winter developmental league (available without regard to basketball ability or experience) for elementary and middle school boys. This league generally runs from mid-November through early March. Teams practice one weekday per week, followed by an either Saturday or Sunday game. Every team earns a berth in a single-elimination playoff/championship tournament.</p>
+        <p class="note">Run with the Stamford JCC, which will accommodate Sabbath observers with Sunday only scheduling. JCC members receive 10% off the registration price.</p>
+        <a class="go" href="https://www.peaceyouthct.org/page/show/8134836-peace-boys-basketball-league" target="_blank" rel="noopener">Season dates and registration</a>
+      </div>
+      <div class="league">
+        <h3>Summer League</h3>
+        <p>Peace Basketball Summer League, as a program of J Basketball is a summer league (available without regard to basketball ability or experience) for middle school boys and high school boys. This league runs from the July timeframe through mid-August. All teams have 2 games games per weekend and concludes with a two day-single tournament.</p>
+        <a class="go" href="about.html#contact">Ask about the summer league</a>
+      </div>
       </div>
     </div>
   </section>
 
   <section class="wrap section">
-    <div class="legitcard">
-      <span class="micro">Legitimacy</span>
-      <p class="h4" style="margin-top:6px">Stamford Peace Youth Foundation, Inc.</p>
-      <p class="body" style="color:var(--slate);font-size:15px">501(c)(3) · EIN 27-1254631<br>925 Long Ridge Road, Stamford, CT 06902</p>
+    <div class="deicard">
+      <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Academics come first</span>
+      <p class="deitext">Peace Basketball is deeply concerned with the academic performance and conduct of its players. As a condition to playing with Peace, participants are required to submit a copy of their report card or other academic progress reports, which are then reviewed to identify those in need of individualized academic support.</p>
+      <p class="deilegal">That review is one of the ways students reach Beyond Limits Academics. <a href="tutoring.html">See how tutoring works</a>.</p>
     </div>
   </section>
 
-  <section class="wrap section closing" id="start">
+  <section class="wrap section">
+    <div class="stack" style="gap:20px">
+      <h2 class="h2">What the program is for</h2>
+      <p class="body">PEACE offers a first-rate basketball educational experience emphasizing the development of strong fundamentals and high quality competition, as well as establishing a culture of excellence among our players and in our overall approach to the game. PEACE is built on a foundation consisting of teamwork, discipline, leadership, and sportsmanship. Rather than focusing exclusively on wins and losses, the goal of PEACE includes using the game of basketball as a vehicle through which to positively influence young people within Stamford and other lower Fairfield County communities towards academic achievement, community service, and other life skills. As a nationally elite program, PEACE’s spring/summer AAU travel schedule includes some of the most competitive age-group tournaments and college showcase events in the United States.</p>
+    </div>
+  </section>
+
+  <section class="wrap section closing">
     <div class="doorcard">
       <div class="stack" style="gap:14px">
-        <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Start here</span>
-        <h2 class="h2">Whatever brought you here, we can help you take the next step.</h2>
-        <p class="doorsub">Find tutoring for your student, or support the work with a gift to Beyond Limits.</p>
+        <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">The other half of the Foundation</span>
+        <h2 class="h2">Beyond Limits is our tutoring program.</h2>
+        <p class="doorsub">One on one math and science tutoring for students in lower Fairfield County, open to players and non-players alike.</p>
       </div>
       <div class="doorside">
-        <a class="btn btn-primary btn-lg" href="tutoring.html">Find tutoring for your student</a>
-        <a class="btn btn-ghost btn-lg" href="donate.html">Donate to Beyond Limits</a>
-        <p class="doornote">Both take less than five minutes.</p>
+        <a class="btn btn-primary btn-lg" href="tutoring.html">See tutoring</a>
+        <a class="btn btn-ghost btn-lg" href="donate.html">Donate</a>
       </div>
     </div>
   </section>
@@ -433,7 +326,7 @@ h1,h2,h3,p{margin:0}
       </div>
       <div class="foot-col">
         <p class="foot-h">Programs</p>
-        <p class="foot-b"><a href="beyond-limits.html">Beyond Limits Academics</a><br><a href="basketball.html">Peace Basketball</a><br><a href="impact.html">Our Impact</a><br><a href="start.html">Get Involved</a></p>
+        <p class="foot-b"><a href="beyond-limits.html">Beyond Limits Academics</a><br><a href="#top">Peace Basketball</a><br><a href="#top">Our Impact</a><br><a href="start.html">Get Involved</a></p>
       </div>
       <div class="foot-col">
         <p class="foot-h">Follow</p>

@@ -16,7 +16,7 @@ OUT = os.path.dirname(os.path.abspath(__file__))
 
 PAGES = ['index.html', 'beyond-limits.html', 'tutoring.html',
          'sponsorship.html', 'donate.html', 'about.html', 'start.html',
-         'impact.html']
+         'impact.html', 'basketball.html']
 
 ASSISTANT = 'https://vastlyresilient.github.io/beyond-limits-enrollment/'
 
