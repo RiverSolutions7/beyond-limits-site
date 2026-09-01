@@ -6,6 +6,7 @@ proves it mechanically instead of trusting the model that produced it.
 Usage:
     python verify-inventory.py        round 1, the eleven main pages
     python verify-inventory.py 2      round 2, the three basketball sub-pages
+    python verify-inventory.py 3      round 3, the board and alumni pages
 
 Rounds are separate files on purpose. Round 1 is 725 verified rows and a second model
 writing into it could silently damage them.
@@ -42,6 +43,8 @@ ROUNDS = {
            'LEAD', 'CONTACT', 'GETINV', 'DONATE', 'INVEST'}),
     '2': ('old-site-inventory-2.json',
           {'AAU', 'SPBL', 'SUMMER'}),
+    '3': ('old-site-inventory-3.json',
+          {'BOARD', 'ALUMNI'}),
 }
 ROUND = sys.argv[1] if len(sys.argv) > 1 else '1'
 if ROUND not in ROUNDS:

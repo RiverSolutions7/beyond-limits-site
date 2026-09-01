@@ -113,6 +113,32 @@ Someone who is curious but not ready to enrol currently has no way to hear from 
 
 ---
 
+## 8. Your leadership page contradicts your board page
+
+Both publish a biography of Brian Kriftcher. They disagree on two current facts.
+
+| | `/leadership` says | `/boardofdirectors` says |
+|---|---|---|
+| Coaching role | "an experienced high school basketball coach at Westhill High School... as well as at St. Luke's School" | "Head Coach of the boys' Varsity basketball team at **Notre Dame Prep of Sacred Heart University**", with Trinity Catholic, Westhill and St. Luke's listed as prior roles |
+| PeacePlayers International | "**is** the Global Chairman" | "served as Global Chairman **from July 2012 to December 2018**", and now serves on the board |
+
+The board page also records a **PowerFORWARD International** board seat that appears
+nowhere else.
+
+A third page agrees with the board page: `/whatwedo` calls him "current Notre Dame Prep of
+Sacred Heart University Boys Varsity basketball coach".
+
+So `/leadership` looks to be the oldest of the three and has not been updated. Two of
+three sources agree it is out of date.
+
+**This cost us a real error.** We built the About page from `/leadership` and published
+both stale claims before catching it. Corrected on 2026-09-01 using the board page.
+
+`/whatwedo` also says "a successful **20-year** career in financial services" while both
+other pages say **18-year**. That one is unresolved.
+
+---
+
 ## Something that is ours, not theirs
 
 The footer we built carries a **"Media consent"** link. That phrase appears in **none** of
@@ -143,6 +169,6 @@ that changes the most. It now has a second reason to be answered.
 
 ---
 
-*Findings 1 and 2 were established before 2026-09-01. Findings 3 to 6 came out of the
-inventory work on 2026-09-01. Finding 7 was recorded when the mailing list decision was
-made on 2026-08-31.*
+*Findings 1 and 2 were established before 2026-09-01. Findings 3 to 6 and 8 came out of
+the inventory work on 2026-09-01. Finding 7 was recorded when the mailing list decision
+was made on 2026-08-31.*
