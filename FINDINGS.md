@@ -121,6 +121,26 @@ no source. It should either be removed or given a real document.
 
 Recorded here so it is not mistaken for one of Andy's problems.
 
+### The website and the enrollment assistant disagree about price
+
+The enrollment assistant we built says **"Free, one-on-one math & science help"** and
+**"at little or no cost to your family"**.
+
+The website says **"Tutoring fees are on a sliding scale and are substantially
+subsidized"**.
+
+Both are handed to Andy in the same package. A parent reads "subsidized fees" on the
+site, clicks through, and is told it is free.
+
+**Decided 2026-09-01 (Dan): the website stays as it is, and the gap goes to Andy.** The
+site's wording is sourced from his own marketing materials. The assistant's "free" is not
+sourced from any document we hold, and facts file rule 4 says an unestablished value
+ships as a chip rather than an assertion. Overstating cost-free access is the worst thing
+on this site to get wrong: a parent told "free" who is later billed has been misled by us.
+
+This is already question 18 in the client findings document, which calls it the question
+that changes the most. It now has a second reason to be answered.
+
 ---
 
 *Findings 1 and 2 were established before 2026-09-01. Findings 3 to 6 came out of the

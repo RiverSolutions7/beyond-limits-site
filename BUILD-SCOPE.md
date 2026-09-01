@@ -132,11 +132,31 @@ deliberate registration links on this page.
 
 Ordered as agreed: nothing here starts until waves 1 and 2 are settled.
 
-1. Assistant coverage. It is on four of seven pages, missing from `beyond-limits.html`,
-   `sponsorship.html` and `about.html`. Those are where a family, a donor and a curious
-   visitor land.
-2. Audience-specific entry points. Every existing call to action says roughly the same
-   thing to four different audiences.
+1. ~~Assistant coverage.~~ **Measured 2026-09-01, and the framing was wrong.**
+
+   The assistant is **enrollment-only**: ten steps, families with a student in grades 4
+   to 10, no tutor, sponsor or donor branch. So "put it on every page" would drop a
+   would-be tutor into a student enrollment form. Coverage is not the goal; the right
+   audience reaching it is.
+
+   What was actually wrong: `beyond-limits.html`, the main program page, offered two
+   hero buttons and **both were in-page scrolls**. A convinced parent had no way to start
+   anything from the top of the page. Its primary CTA now reaches the assistant.
+
+   The persuasion pages, `impact.html`, `about.html` and `basketball.html`, correctly
+   route to `tutoring.html`, which carries the assistant alongside cost and logistics.
+   Sending someone from an impact page straight into a four-minute enrollment form is
+   worse, not better. `sponsorship.html` should never reach the assistant at all.
+
+2. **The real hole: tutors had nowhere to go.** Families reach the assistant, sponsors
+   reach the sponsorship page, donors reach the donate page. Two links said "apply" and
+   both were dead. There is no application form anywhere, so both now point at the
+   contact block, which is a working path. A real application form is an Andy question.
+
+3. Dead links: **41 down to 26.** Every content link now resolves; a full crawl of all
+   200 internal links found no broken file and no missing anchor. The 26 left are the two
+   groups genuinely blocked on him, Espanol (18) and the privacy policy (8). Media consent
+   was removed: we invented it, and it had no source and no destination.
 3. Scroll animations and UI.
 4. The feedback deck for Andy.
 
