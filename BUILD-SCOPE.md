@@ -92,6 +92,27 @@ It also gives a third independent source for **2013** as the launch year: "Estab
 late 2013". LEAD-014 says Sklover co-founded it in 2013 and the live Beyond Limits page
 says 2014. Two sources to one, and "late 2013" reconciles them.
 
+### Round 3: the board and alumni, added 2026-09-01
+
+Dan asked what happened to the board section. Neither `/boardofdirectors` nor `/alumni`
+had been inventoried by round 1 or round 2, and neither was on the new site.
+
+**Board, on `about.html`.** Nine members, eight as an accordion plus Kriftcher whose
+biography already sits above. Finance, real estate, social work, clergy and economic
+development, most of them living in Stamford. This is the section a grant reviewer goes
+looking for.
+
+**Alumni, on `basketball.html`.** The colleges, not the roster. The old page lists 99
+named alumni across the classes of 2013 to 2020, naming 74 distinct institutions. Naming
+the schools keeps the proof and drops three liabilities: a roster six years out of date,
+99 names to maintain, and one entry that appears to carry the wrong person's name. The
+page says "more than 70", which holds under any way of counting.
+
+**It also caught a live error in our own work.** The Kriftcher bio published that morning
+came from `/leadership`, the oldest of three versions on the client's site. It named
+coaching roles he had left and a chairmanship he stood down from in 2018. Corrected from
+the board page. Recorded as finding 8.
+
 ## Wave 2: blocked, and on what
 
 | What | Blocked on | Why it cannot proceed |
