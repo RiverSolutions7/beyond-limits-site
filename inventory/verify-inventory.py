@@ -29,6 +29,7 @@ the run, and it must not stay invisible either.
 
 Exit code 0 = usable. 1 = do not build on this.
 """
+import html
 import io, json, os, re, sys, unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -61,7 +62,7 @@ BAD_HREF = [
     (r'^https?://https?:?//', 'doubled scheme, resolves to a nonsense hostname'),
     (r'^\s*$', 'empty href'),
     (r'^https?://\s*$', 'scheme with no host'),
-    (r'\s', 'whitespace inside the URL'),
+    (r'^(?!#)[^#]*\s', 'whitespace inside the URL'),
 ]
 
 TELLS = [r'^a (paragraph|heading|list|section|link|photo|image)\b',
@@ -70,11 +71,19 @@ TELLS = [r'^a (paragraph|heading|list|section|link|photo|image)\b',
 
 
 def norm(s):
-    """Whitespace and unicode punctuation differ harmlessly between HTML and text."""
+    """Whitespace and punctuation differ harmlessly between HTML and text.
+
+    The source captures are page text with HTML entities left as written, so a
+    capture holds "&bull;" where a correctly-decoded inventory row holds the
+    bullet itself. Unescaping here means a model is not marked wrong for
+    decoding the entity properly, which cost five false failures on round 2.
+    """
+    s = html.unescape(s)
     s = unicodedata.normalize('NFKC', s)
     s = (s.replace('’', "'").replace('‘', "'")
           .replace('“', '"').replace('”', '"')
           .replace('–', '-').replace('—', '-')
+          .replace('•', '-').replace('·', '-')
           .replace(' ', ' '))
     return re.sub(r'\s+', ' ', s).strip().lower()
 

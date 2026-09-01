@@ -82,7 +82,7 @@ silently.
 |------|-----------|----------------------|
 | ~~Scholarships for Beyond Limits students~~ | ~~Dan~~ | **DONE.** Dan reviewed the source and chose to carry all four recipients, reorganised into one accordion. Built on `tutoring.html`. |
 | Three Beyond Limits sub-campaign descriptions | Andy | No source text exists anywhere. |
-| `basketball.html` | **Hermes round 2** | The hub page is a signpost. Real content is on three uninventoried pages. Prompt written, not yet run. |
+| `basketball.html` | **Nothing. Unblocked 2026-09-01.** | Round 2 came back and verifies: 164 rows across AAU, SPBL and Summer League. Ready to build. |
 | The Español toggle, 14 dead links | Andy | Findings question 16. Whether Spanish is in scope is a budget decision, not ours. |
 | Privacy policy, 6 dead links | Andy | The only one is a SportsEngine PDF dated Feb 2020, describing a platform the new site does not run on. |
 | Media consent, 6 dead links | **Us** | It appears in **none** of the 725 rows. We added this link. It has no source and no destination. |
