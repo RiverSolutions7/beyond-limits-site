@@ -139,6 +139,45 @@ other pages say **18-year**. That one is unresolved.
 
 ---
 
+## 9. The alumni page congratulates someone by the wrong name
+
+The section heading reads **"Congratulation to PEACE Alum and Darien-native, Eric
+Steuber"**, and the paragraph below it says "Steuber graduated from Darien High School in
+2017 and went on to play football for the University of Michigan. In the 2022 NFL draft,
+Steuber was drafted in the 7th round by the New England Patriots! Congratulations, Eric!!"
+
+Directly beneath that, on the same screen, sits the article it links to:
+
+> "NFL draft: Michigan football OL **Andrew Stueber** picked by New England Patriots in
+> Round 7"
+
+Different first name, and the surname is spelled the other way round. Every biographical
+detail in the paragraph, Darien, class of 2017, Michigan football, 2022 draft, seventh
+round, New England Patriots, matches Andrew Stueber.
+
+**How it was checked.** Both spellings were read from the live page source, and the linked
+Detroit Free Press article returns 200 and carries the other spelling in its own headline.
+
+We are not certain enough to correct it ourselves, and would not want to. But a page
+celebrating an alum by what looks like the wrong name, with the right name visible
+immediately below it, is worth Andy seeing today.
+
+---
+
+## 10. The alumni roster stops six years ago
+
+The page lists **99 named alumni** with their colleges, split into girls and boys and
+grouped by graduating class. The classes run **2013 to 2020**.
+
+It is now 2026. The classes of **2021, 2022, 2023, 2024, 2025 and 2026** are absent
+entirely. Six years of graduates are missing from a page whose whole purpose is to show
+where students end up.
+
+Two entries also carry misspelled colleges: "Rennsylear Polytechinic Institute" and
+"Malloy College".
+
+---
+
 ## Something that is ours, not theirs
 
 The footer we built carries a **"Media consent"** link. That phrase appears in **none** of
@@ -169,6 +208,6 @@ that changes the most. It now has a second reason to be answered.
 
 ---
 
-*Findings 1 and 2 were established before 2026-09-01. Findings 3 to 6 and 8 came out of
-the inventory work on 2026-09-01. Finding 7 was recorded when the mailing list decision
+*Findings 1 and 2 were established before 2026-09-01. Findings 3 to 6 and 8 to 10 came
+out of the inventory work on 2026-09-01. Finding 7 was recorded when the mailing list decision
 was made on 2026-08-31.*
