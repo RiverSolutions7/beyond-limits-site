@@ -170,13 +170,32 @@ his own biography, and the founders question can be settled by asking him direct
 
 ### 11. Staff and contact details · ~12 rows
 Caroline Sasser (Program Coordinator), Andy Sklover, Martine Curto, General Inquiries,
-plus office hours Tuesday to Sunday.
+plus office hours.
+
+*Corrected 2026-09-01: this line previously read "office hours Tuesday to Sunday", which
+was wrong. CONTACT-034 to CONTACT-040 say Monday to Thursday 9AM-3PM, with Friday,
+Saturday and Sunday closed. That matches what the donate page already says.*
 
 **Why it matters:** a parent with a question currently has one phone number and a
 confirm marker. Named humans with roles is a trust signal, and office hours prevent a
 wasted call.
 
 **Proposed home:** About page, or a contact block in the footer.
+
+> **The CONTACT page answers two of our open client questions.** Noted 2026-09-01.
+>
+> **Which phone belongs to which entity (findings q11).** 203-588-**9020** is the
+> Foundation line: Kriftcher, Sasser, Curto and General Inquiries all list it.
+> 203-588-**9023** is listed only against Andy Sklover, "Co-founder, BEYOND LIMITS
+> ACADEMIC PROGRAM". So 9023 is the Beyond Limits line. Our footer carries 9023 with a
+> chip reading "confirm which entity owns this number", and this sources it.
+>
+> **Which email is canonical (findings q12).** There isn't one. Every address on the old
+> site is hidden behind a `/page_element/compose_email/NNNNNN` form, so no email address
+> is published anywhere. That is why we could not find one. Andy has to supply it.
+>
+> Neither should be treated as settled without his confirmation, but both now have a
+> source rather than a guess.
 
 ### 12. DEI commitment and non-discrimination statement · 3 rows
 "We are cognizant of the fact that our society's full promise has eluded too many for

@@ -14,6 +14,15 @@ The .txt files are whoever fetched the pages saving what they actually saw. The
 inventory is checked against those, so a page that changes later cannot silently
 invalidate the check.
 
+Known limit of that check: the .txt captures are visible text, so they hold no URLs.
+The href half of every `link` and `pdf` row is therefore invisible to the quote check.
+Those rows are 17% of the inventory, and we were about to wire the partner logo grid
+from them. So hrefs get their own structural pass below.
+
+A malformed URL is reported as a SOURCE DEFECT, not an error. It is the client's own
+mistake, faithfully recorded, which is the inventory working correctly. It must not fail
+the run, and it must not stay invisible either.
+
 Exit code 0 = usable. 1 = do not build on this.
 """
 import io, json, os, re, sys, unicodedata
@@ -30,6 +39,14 @@ REQUIRED = ['id', 'source_url', 'source_title', 'source_section',
             'type', 'content', 'verbatim', 'fetched', 'notes']
 
 # Phrases that mean the model described instead of copying.
+# Hrefs we would refuse to ship. Every pattern here is a real defect in this source.
+BAD_HREF = [
+    (r'^https?://https?:?//', 'doubled scheme, resolves to a nonsense hostname'),
+    (r'^\s*$', 'empty href'),
+    (r'^https?://\s*$', 'scheme with no host'),
+    (r'\s', 'whitespace inside the URL'),
+]
+
 TELLS = [r'^a (paragraph|heading|list|section|link|photo|image)\b',
          r'^(this|the) (page|section|paragraph) (describes|explains|covers|contains)\b',
          r'\betc\.?$', r'\band so on\b', r'^\[?various\b']
@@ -59,7 +76,7 @@ def main():
                 sources[f[:-4].upper()] = norm(io.open(
                     os.path.join(SRC, f), encoding='utf-8').read())
 
-    errs, warns, seen = [], [], set()
+    errs, warns, seen, defects = [], [], set(), []
     per_page, unmatched = {}, 0
 
     for i, r in enumerate(rows):
@@ -95,6 +112,15 @@ def main():
                          str(r['notes']).lower()):
                 warns.append('%s notes contain a judgement: %r' % (rid, r['notes'][:60]))
 
+        # A text capture holds no URLs, so hrefs get a shape check instead.
+        if r.get('type') in ('link', 'pdf') and ' -> ' in content:
+            href = content.split(' -> ')[-1].strip()
+            for pat, why in BAD_HREF:
+                if re.search(pat, href):
+                    defects.append('%s  %s  ->  %s'
+                                   % (rid, why, href[:78]))
+                    break
+
         # The check that matters: is this quote really in the page?
         if r.get('verbatim') is True and r.get('type') not in ('image', 'error'):
             src = sources.get(pref)
@@ -114,6 +140,14 @@ def main():
         errs.append('no rows at all for: %s' % ', '.join(missing_pages))
 
     print()
+    if defects:
+        print("SOURCE DEFECTS (%d) - broken URLs on the old site, recorded faithfully."
+              % len(defects))
+        print("These are findings to report to the client, not inventory errors.")
+        print("Do not carry them across to the new site.")
+        for d in defects:
+            print('   ', d)
+        print()
     if warns:
         print('WARNINGS (%d):' % len(warns))
         for w in warns[:25]:
