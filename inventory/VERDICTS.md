@@ -65,6 +65,16 @@ the old page is the wrong instinct. It is also a different fund, not Beyond Limi
 
 **Recommendation:** leave out, and ask. If he wants it, it is trivial to add back.
 
+> **DECIDED 2026-08-31 (Dan).** Leave it off the new site, and put the question to Andy
+> for his sign-off rather than deciding it for him. Added to the client findings
+> document as question 17 so it reaches him in writing.
+>
+> Two things noted while checking the section in context: it is a **Stamford Peace
+> Basketball League** award, not a Beyond Limits one, so it sits outside the tutoring
+> pages on scope grounds as well. And the fund is a **memorial** to Bill Susetka, so the
+> recipient list may be part of the tribute rather than incidental. If Andy wants it, it
+> goes back exactly as it reads now.
+
 ---
 
 ## OMIT — but flag, because we are dropping a function
