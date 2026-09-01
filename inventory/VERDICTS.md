@@ -8,7 +8,9 @@ Two verdicts are possible:
   to the client.
 - **ADD** — genuinely missing. Needs a home on the new site.
 
-Nothing here is decided. This is a proposal.
+**Status as of 2026-09-01.** Four themes are now decided and carry a dated block
+saying so: **6** and **7** stay out and go to Andy as questions, **5** and **8** were
+reversed to ADD and get built. The remaining ten are still proposals.
 
 ---
 
@@ -51,6 +53,21 @@ of sale benefits..."
 **Reason:** merchandise for the Foundation as a whole, not a Beyond Limits path.
 ⚠ **This is a live fundraising channel we would be dropping.** Worth a deliberate yes
 or no rather than silence.
+
+> **DECIDED 2026-09-01 (Dan). Reversed to ADD.** Keep it, as one row in the donate
+> page's "Other ways to support the Foundation" strip (theme 8).
+>
+> **Checked before deciding:** the store is live. `curl` returns 403, but that is a
+> Cloudflare bot challenge, not a dead link. Loaded in a real browser it resolves to a
+> stocked Stamford Peace locker of 59 items across Under Armour, Champion, Badger and
+> Carhartt, with an active clearance section. So omitting it would have silenced a
+> channel that currently works, which is a different thing from tidying away a dead one.
+>
+> It goes in the donate strip rather than on the Get Involved router. The router is
+> already due two more cards from theme 14, and shopping is a way to give rather than a
+> way to participate. The strip costs it one line and no new structure.
+>
+> Source copy: GETINV-029 and GETINV-030, plus HOME-050 and HOME-051.
 
 ---
 
@@ -107,6 +124,22 @@ at checkout already lets a donor choose another fund.
 
 ⚠ The old page was **Foundation-wide**. If Andy expects his donate page to still cover
 every fund, this is the item he will notice first.
+
+> **DECIDED 2026-09-01 (Dan). Reversed to ADD.** Keep every fund. None get dropped.
+>
+> They go in a short "Other ways to support the Foundation" strip at the foot of the
+> donate page, one line and a give button each, below the Beyond Limits block. Beyond
+> Limits keeps the page; the other funds stop being invisible.
+>
+> No onboarding-assistant work is involved. The old site's own routing pattern was a
+> description plus "select this from the CAMPAIGN drop down box", and our donate page
+> already does exactly that for Beyond Limits. The strip repeats that pattern per fund.
+>
+> **Blocked on Andy for three of them.** We hold sourced copy for the Susetka fund
+> (DONATE-053) and Kosovo Heritage (DONATE-057). The three Beyond Limits sub-campaigns
+> in the Kindful menu — End of School Year, Sponsorships 25-26, and the Hart Elementary
+> Collaboration — appear nowhere in the 725-row inventory. They exist only inside the
+> checkout menu. They can be named but not described until he tells us what they fund.
 
 ---
 
@@ -183,8 +216,8 @@ four, and these two are the ones missing.
 |---|---|---|
 | OMIT, uncontroversial | 1, 2, 3, 4 | ~39 |
 | OMIT, needs permission | 6 | ~40 |
-| OMIT, flagged as a dropped function | 5, 7, 8 | ~18 |
-| ADD | 9, 10, 11, 12, 13, 14 | ~50 |
+| OMIT, flagged as a dropped function | 7 | ~6 |
+| ADD | 5, 8, 9, 10, 11, 12, 13, 14 | ~62 |
 
 Roughly 50 items to place, about 40 that need one yes or no from the client, and the
 rest are defensible omissions with reasons attached.
