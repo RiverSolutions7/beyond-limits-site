@@ -21,7 +21,7 @@ Seven items. Every one has sourced copy in hand. None needs Andy.
 | ~~3~~ | **DONE.** Leadership: Kriftcher and Sklover, as an accordion | `about.html` | LEAD-005 to 010, LEAD-014 to 017 | done |
 | ~~4~~ | **DONE.** Who to talk to: five contacts, two numbers, office hours | `about.html` | CONTACT-003 to 040 | done |
 | ~~5~~ | **DONE.** Our commitment, uncollapsed so funders can find it | `about.html` | WWD-013, WWD-014 | done |
-| 6 | Wire the partner logo grid, 10 of 14 links | `index.html` | HOME-057 to 096 | small |
+| ~~6~~ | **DONE.** Partner logo grid wired, all 14, four corrected | `index.html` | HOME-057 to 096 | done |
 | 7 | Two Get Involved paths: Host a Fundraiser, Spread the Word | `start.html` | GETINV-014 to 017, GETINV-023 to 030 | medium |
 | 8 | Our Impact page: four student stories, programme list, growth figures | `impact.html`, new | IMPACT-002 to 036 | large |
 
@@ -47,7 +47,12 @@ Basketball Academy"**, so the fund looks to have been relabelled for the new fis
 And `.btn-ghost` is a white border with white text, which only works on the navy
 doorcard: on the white fund card all four buttons rendered invisible. Added
 `.btn-outline` for light surfaces, matching the `.subpill-off` idiom already on the
-site. Worth checking wherever else `.btn-ghost` sits on a light background.
+site.
+
+*Swept afterwards: every other `.btn-ghost` on the site sits inside either the navy
+`.doorcard` or the footer, whose background computes to `rgb(11, 27, 48)`. Both are dark,
+so white-on-white was introduced by this section alone and is now fixed. No other page is
+affected.*
 
 **Item 4.** Two open client questions are now sourced rather than guessed:
 
@@ -61,11 +66,13 @@ site. Worth checking wherever else `.btn-ghost` sits on a light background.
 
 Both still want Andy's confirmation, but each now has a citation instead of a chip.
 
-**Item 6.** Only ten of the fourteen partner links can be wired. Four are broken on the
-live site: they carry a doubled scheme, `http://https://`, which resolves to a nonsense
-hostname. Person to Person, Community Fund of Darien, Charter Communications and Sacred
-Heart. The intended targets are obvious, so we can wire the corrected URL, but the
-breakage should be reported rather than quietly patched.
+**Item 6, as built.** All fourteen wired, not ten. Four carried a doubled scheme on the
+live site, `http://https://`, which resolves to a nonsense hostname: Person to Person,
+Community Fund of Darien, Charter Communications and Sacred Heart. Those were the only
+four of the fourteen that failed to load, which is what confirmed the defect was real
+rather than a transcription slip. The intended targets are unambiguous, so the corrected
+URL is wired and the breakage goes to Andy as a finding rather than being patched
+silently.
 
 ---
 
