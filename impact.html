@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Get started &middot; Beyond Limits Academics</title>
+<title>Our Impact &middot; Beyond Limits Academics</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
 :root{--navy:#10233F;--ink:#0B1B30;--gold:#F5B316;--gold-deep:#B77F07;--gold-wash:#FDF3DA;--warm:#FBFAF7;--white:#FFFFFF;--slate:#46536A;--line:#E4E0D8;--sky:#E8EEF6;--serif:'Source Serif 4',Georgia,serif;--sans:Inter,system-ui,sans-serif;--pad:48px;--maxw:1280px}
@@ -173,33 +173,32 @@ h1,h2,h3,p{margin:0}
   .collab-grid{grid-template-columns:1fr}
   .collab-item:nth-child(2){border-top:1px solid var(--line)}
 }
-
-/* Router: only the primary (parent) card stays navy, per the one-navy-object rule.
-   The other three take a light treatment so hierarchy reads at a glance. */
-.doorcard.lightcard{background:var(--white);border:1px solid var(--line)}
-.doorcard.lightcard .h2{color:var(--ink)}
-.doorcard.lightcard .doorsub{color:var(--slate)}
-.doorcard.lightcard .doornote{color:var(--slate);opacity:1}
-.doorcard.lightcard .micro-gold{color:var(--gold-deep)}
-/* btn-ghost is white-on-white and btn-secondary has no rule in this file, so the
-   light cards need their own outlined treatment or the buttons read as plain text. */
-.doorcard.lightcard .btn-secondary,
-.doorcard.lightcard .btn-ghost{background:transparent;border:1.5px solid var(--navy);color:var(--navy)}
-.doorcard.lightcard .btn-secondary:hover,
-.doorcard.lightcard .btn-ghost:hover{background:var(--navy);color:var(--white)}
-.helphead{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:14px}
-.helprow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.helpcard{background:var(--white);border-radius:16px;padding:26px 28px;display:flex;flex-direction:column;gap:10px}
-.helpcard h3{font-size:19px;font-weight:800;letter-spacing:-.018em;color:var(--ink);margin:0}
-.helpcard p{font-size:15px;line-height:1.6;color:var(--slate);margin:0}
-.helplinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-.helplinks a{display:inline-flex;align-items:center;height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--navy)}
-.helplinks a:hover{border-color:var(--gold-deep);color:var(--gold-deep)}
-@media (max-width:900px){.helprow{grid-template-columns:minmax(0,1fr)}.helpcard{padding:22px 24px}}
+.bioname{display:flex;flex-direction:column;gap:4px;min-width:0}
+.accrole{font-size:14px;font-weight:500;color:var(--slate)}
+.deicard{background:var(--white);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:14px}
+.deitext{font-size:16px;line-height:1.65;color:var(--slate);max-width:70ch}
+.deilegal{font-size:14px;line-height:1.6;color:var(--slate);max-width:78ch;padding-top:14px;border-top:1px solid var(--line)}
+.peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;margin-top:4px}
+.person{padding:16px 0;border-top:1px solid var(--line)}
+.person-name{font-size:16px;font-weight:600;color:var(--ink)}
+.person-role{font-size:14px;color:var(--slate);margin-top:2px}
+.person-tel{font-size:14px;margin-top:6px;display:block}
+.hours{margin-top:22px;padding-top:18px;border-top:1px solid var(--line);font-size:15px;line-height:1.6;color:var(--slate)}
+@media (max-width:900px){.deicard{padding:24px}}
+.impactlist{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px}
+.impactlist li{font-size:16px;line-height:1.65;color:var(--slate)}
+.storygrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.story{background:var(--white);border-radius:16px;padding:28px 30px;display:flex;flex-direction:column;gap:12px}
+.story h3{font-size:20px;font-weight:800;letter-spacing:-.018em;color:var(--ink);margin:0}
+.story p{font-size:15px;line-height:1.65;color:var(--slate);margin:0}
+.storyquote{font-family:var(--serif);font-size:17px;line-height:1.5;color:var(--navy);padding-left:16px;border-left:2px solid var(--gold);margin:0}
+.bandhead{background:var(--navy);border-radius:16px;padding:34px 36px}
+.bandhead .h2{color:var(--white);max-width:34ch}
+.bandhead .micro-gold{color:var(--gold)}
+@media (max-width:900px){.storygrid{grid-template-columns:minmax(0,1fr)}.story{padding:22px 24px}.bandhead{padding:26px 24px}}
 </style>
 </head>
 <body>
-
 
 <div class="headstack" id="headstack">
   <nav class="nav" aria-label="Main">
@@ -209,9 +208,9 @@ h1,h2,h3,p{margin:0}
     <div class="navlinks">
       <a class="navlink" href="beyond-limits.html">Beyond Limits</a>
       <a class="navlink" href="https://www.peaceyouthct.org/basketballprograms" target="_blank" rel="noopener">Basketball</a>
-      <a class="navlink" href="impact.html">Our Impact</a>
+      <a class="navlink" href="#top" aria-current="page">Our Impact</a>
       <a class="navlink" href="about.html">About</a>
-      <a class="navlink" href="#choices" aria-current="page">Get Involved</a>
+      <a class="navlink" href="start.html">Get Involved</a>
     </div>
     <div class="navright">
       <a class="pill pill-outline" href="#">Español</a>
@@ -225,9 +224,9 @@ h1,h2,h3,p{margin:0}
     <div class="drawer-inner">
       <a href="beyond-limits.html">Beyond Limits</a>
       <a href="https://www.peaceyouthct.org/basketballprograms" target="_blank" rel="noopener">Basketball</a>
-      <a href="impact.html">Our Impact</a>
+      <a href="#top" aria-current="page">Our Impact</a>
       <a href="about.html">About</a>
-      <a href="#choices" aria-current="page">Get Involved</a>
+      <a href="start.html">Get Involved</a>
       <a href="#">Español</a>
       <a class="btn btn-primary" href="donate.html">Donate</a>
     </div>
@@ -236,81 +235,91 @@ h1,h2,h3,p{margin:0}
 
 <main id="top">
 
-  
-  <section class="wrap section" id="top" style="padding-top:56px">
-    <div class="stack" style="gap:16px;max-width:60ch">
-      <span class="micro">Get started</span>
-      <h1 class="d1">What brings you here?</h1>
-      <p class="sup">Pick the one that fits and we will take you straight to it. Nothing here takes more than a few minutes.</p>
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <span class="eyebrow-pill">Stamford Peace Youth Foundation</span>
+      <h1 class="d1">Our Impact</h1>
+      <p class="sup">Beyond Limits strikes at the heart of the opportunity gap which confronts our society’s lower-income families.</p>
+    </div>
+    <div class="hero-photo">
+      <img src="hero-classroom.jpg" alt="Instructor walking a full classroom of students through a lesson under college pennants">
     </div>
   </section>
 
-  <section class="wrap section" id="choices">
-    <div class="stack" style="gap:18px">
-      <div class="doorcard">
-        <div class="stack" style="gap:12px">
-          <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">For families</span>
-          <h2 class="h2">My child needs tutoring</h2>
-          <p class="doorsub">One on one math and science tutoring for grades 4 to 10. The form takes about four minutes and you can stop anytime.</p>
-        </div>
-        <div class="doorside">
-          <a class="btn btn-primary btn-lg" href="https://vastlyresilient.github.io/beyond-limits-enrollment/">Start enrollment</a>
-        </div>
+  <section class="wrap section">
+    <div class="stack" style="gap:26px">
+      <h2 class="h2">Beyond Limits Academics</h2>
+      <p class="body">Established in late 2013 <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm launch year</span> and supporting initially five students, Beyond Limits is now working with over 200 students <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm student count, sources differ</span> in the 3rd through 12th grades <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm grades served, sources differ</span>. Today, we support even more non-athletes than we do athletes. Over 80 percent of our participants are from families eligible for free or reduced-price school lunch <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm eligibility rate, sources differ</span>, whom we charge a heavily subsidized rate. Our greatest success has been the degree to which we continue to uniquely serve this historically underserved segment of the population with:</p>
+      <ul class="impactlist">
+        <li>one-on-one academic tutoring primarily in math and science;</li>
+        <li>enrichment programming (including computer coding classes, writing workshops; college planning workshops, time management and organizational skills workshops, and more);</li>
+        <li>summer programming (including ongoing academic tutoring, 1-week middle school and high school preparatory academies designed to help orient Stamford Public School incoming 6th graders and incoming 9th graders, and our new Summer Math Academies);</li>
+        <li>informal peer and professional mentoring; and</li>
+        <li>educational advocacy.</li>
+      </ul>
+      <p class="body">In the course of our activities, we actively partner with parents, teachers and administrators as important shared advocates for our students.</p>
+      <p class="body">Our growth and success over the years, measured and evaluated based upon data as well as testimonials, reflects the perceived value of our unique peer-to-peer academic support model. Of course, we believe much of that has to do with the quality of our delivery, including the care with which we match students with tutors, our tutors’ knowledge and experience level, the affordability and flexible timing of our tutoring sessions, and other internal factors. Externally, it is also a function of the huge demand for affordable academic support services particularly for lower income youth.</p>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="storygrid">
+      <div class="story">
+        <h3>Meet Juana</h3>
+        <p>Juana is a 7th grader who has been attending Beyond Limits for 2 years. She first came to BL to improve her math skills but also takes advantage of enrichment programs, like coding classes and writing workshops. She credits her BL tutors with helping her overcome her doubts in math and giving her all the tools she needs to solve math problems.</p>
+        <p class="storyquote">Take this opportunity because it will help you alot. You learn every time you go. And by personal experience, I highly recommend it.</p>
       </div>
-      <div class="doorcard lightcard">
-        <div class="stack" style="gap:12px">
-          <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">For students and adults</span>
-          <h2 class="h2">I want to tutor</h2>
-          <p class="doorsub">Tutoring is a flexible first job or volunteer role. See what the role involves and how to apply.</p>
-        </div>
-        <div class="doorside">
-          <a class="btn btn-secondary btn-lg" href="beyond-limits.html#offer">See tutoring roles</a>
-        </div>
-      </div>
-      <div class="doorcard lightcard">
-        <div class="stack" style="gap:12px">
-          <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">For businesses and donors</span>
-          <h2 class="h2">I want to sponsor or give</h2>
-          <p class="doorsub">Put your name where a student can see it, or make a gift that keeps a student in tutoring.</p>
-        </div>
-        <div class="doorside">
-          <a class="btn btn-secondary btn-lg" href="sponsorship.html">See sponsorship</a>
-        </div>
-      </div>
-      <div class="doorcard lightcard">
-        <div class="stack" style="gap:12px">
-          <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">A different program</span>
-          <h2 class="h2">I am looking for basketball</h2>
-          <p class="doorsub">Peace Basketball is a separate program of the Stamford Peace Youth Foundation. We will take you there.</p>
-        </div>
-        <div class="doorside">
-          <a class="btn btn-ghost btn-lg" href="https://www.peaceyouthct.org/basketballprograms" target="_blank" rel="noopener">Go to Peace Basketball</a>
-        </div>
+      <div class="story">
+        <h3>Meet Matthew</h3>
+        <p>Matthew came to Beyond Limits as a freshman when he was having trouble in math. Now a senior, he says the program helped him grow, gain more confidence and improve in multiple subjects.</p>
+        <p class="storyquote">You should definitely come. The tutors here are competent and will offer you academic help as well as support from their own experiences. Beyond Limits helps tons of kids every week.</p>
       </div>
     </div>
   </section>
 
-  <section class="wrap section" id="more-ways">
-    <p class="helphead">Two more ways to help</p>
-    <div class="helprow">
-      <div class="helpcard">
-        <h3>Fundraise for our local students</h3>
-        <p>Donate your birthday or any other special day: create a Facebook fundraiser to benefit Stamford Peace. Be sure to invite family and friends to maximize your impact.</p>
-        <div class="helplinks">
-          <a href="https://www.facebook.com/fund/stamfordpeaceyouthfoundation/" target="_blank" rel="noopener">Start a fundraiser</a>
-        </div>
+  <section class="wrap section">
+    <div class="bandhead">
+      <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Peace Basketball</span>
+      <h2 class="h2" style="margin-top:10px">On the basketball side, we are anchored by the tenet that “basketball is a privilege.”</h2>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="stack" style="gap:20px">
+      <p class="body">We emphasize to our players that the game, and the accompanying “investments” by parents, coaches and other mentors in their success, is neither a “given” nor an “end” in and of itself. Rather, playing is the ongoing reward for our players’ pursuit of excellence in their core responsibilities in the classroom, in the community, and at home. We encourage our players to “use basketball, rather than to allow basketball to use them,” a principal mantra by which we drive student-athletes to appropriately prioritize their academics and other life skills.</p>
+      <p class="body">From one team of 9-10 year old Stamford boys in 2008, Stamford Peace has grown to more than 1,200 young people today across a variety of basketball and direct academic support and enrichment programs. Nearly 100 of our players attend college as basketball student-athletes, with many more pursuing their studies and playing sports recreationally. Moreover, we can count many of our former participants among the ranks of our current coaches, who are thus paying forward the lessons they themselves learned as part of Stamford Peace.</p>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <div class="storygrid">
+      <div class="story">
+        <h3>Meet Edona</h3>
+        <p>Edona is a lifelong PEACE Basketball player whose deep friendships and mentoring relationships from Stamford Peace remain true difference makers in her life. Edona’s remarkable journey from a shy little girl who hesitantly spoke English to a Division 1 college basketball player at Fordham University, overcoming several serious knee injuries along the way, speaks volumes to the development of her passion, grit and character as a member of the PEACE family.</p>
       </div>
-      <div class="helpcard">
-        <h3>Help us spread the word</h3>
-        <p>Follow us on social media and like/share our content. Share our story, mission and news with your family and friends.</p>
-        <div class="helplinks">
-          <a href="http://facebook.com/stamfordpeaceyouthfoundation" target="_blank" rel="noopener">Facebook</a>
-          <a href="http://www.instagram.com/peaceyouth_ct" target="_blank" rel="noopener">Instagram</a>
-          <a href="http://www.twitter.com/peaceyouth_ct" target="_blank" rel="noopener">Twitter</a>
-        </div>
+      <div class="story">
+        <h3>Meet Sylwia</h3>
+        <p>Sylwia is a regular participant in our Beyond Limits Academic Program, while also playing basketball on PEACE AAU and SPBBL teams. Uniquely “coachable,” Sylwia’s commitment to student-athletic excellence is evident in her positivity and gratitude as a twice-weekly recipient of Beyond Limits academic tutoring in math and science. Her academic and basketball improvement over the past few years is a testament to her hard work and the power of opportunity and investment.</p>
       </div>
     </div>
   </section>
+
+  <section class="wrap section closing">
+    <div class="doorcard">
+      <div class="stack" style="gap:14px">
+        <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Invest in our community’s children</span>
+        <h2 class="h2">This is what your support pays for.</h2>
+        <p class="doorsub">Find tutoring for your student, or make a gift that keeps a student in tutoring.</p>
+      </div>
+      <div class="doorside">
+        <a class="btn btn-primary btn-lg" href="tutoring.html">Find tutoring for your student</a>
+        <a class="btn btn-ghost btn-lg" href="donate.html">Donate to Beyond Limits</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
 <footer class="foot">
   <div class="wrap">
     <div class="foot-grid">
@@ -326,7 +335,7 @@ h1,h2,h3,p{margin:0}
       </div>
       <div class="foot-col">
         <p class="foot-h">Programs</p>
-        <p class="foot-b"><a href="beyond-limits.html">Beyond Limits Academics</a><br><a href="https://www.peaceyouthct.org/basketballprograms" target="_blank" rel="noopener">Peace Basketball</a><br><a href="impact.html">Our Impact</a><br><a href="#choices" aria-current="page">Get Involved</a></p>
+        <p class="foot-b"><a href="beyond-limits.html">Beyond Limits Academics</a><br><a href="https://www.peaceyouthct.org/basketballprograms" target="_blank" rel="noopener">Peace Basketball</a><br><a href="#top">Our Impact</a><br><a href="start.html">Get Involved</a></p>
       </div>
       <div class="foot-col">
         <p class="foot-h">Follow</p>

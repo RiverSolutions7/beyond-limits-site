@@ -23,7 +23,7 @@ Seven items. Every one has sourced copy in hand. None needs Andy.
 | ~~5~~ | **DONE.** Our commitment, uncollapsed so funders can find it | `about.html` | WWD-013, WWD-014 | done |
 | ~~6~~ | **DONE.** Partner logo grid wired, all 14, four corrected | `index.html` | HOME-057 to 096 | done |
 | ~~7~~ | **DONE.** Two Get Involved paths, as a secondary block not doorcards | `start.html` | GETINV-014 to 017, GETINV-023 to 028 | done |
-| 8 | Our Impact page: four student stories, programme list, growth figures | `impact.html`, new | IMPACT-002 to 036 | large |
+| ~~8~~ | **DONE.** Our Impact: four student stories, programme list, growth figures | `impact.html`, new | IMPACT-002 to 036 | done |
 
 ### Item 3 was the most urgent thing on this list, and is now done
 
@@ -75,6 +75,22 @@ URL is wired and the breakage goes to Andy as a finding rather than being patche
 silently.
 
 ---
+
+### Wave 1 is complete
+
+All eight items built, plus theme 9 ahead of its wave. Nine sections across five pages,
+and one new page.
+
+One thing surfaced building Impact that is worth Andy seeing. **IMPACT-010 contradicts
+the tutoring page we had already built.** It says "over 200 students in the 3rd through
+12th grades" and "over 80 percent" eligible for free or reduced-price lunch. Our tutoring
+page says grades 4 to 10 and around 90%. The facts file forbids resolving a disagreement
+by aligning one page to the other, so both ship as sourced and the Impact figures carry
+chips naming the conflict. All three are already findings questions 1 and 2.
+
+It also gives a third independent source for **2013** as the launch year: "Established in
+late 2013". LEAD-014 says Sklover co-founded it in 2013 and the live Beyond Limits page
+says 2014. Two sources to one, and "late 2013" reconciles them.
 
 ## Wave 2: blocked, and on what
 
