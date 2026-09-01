@@ -23,6 +23,7 @@ Seven items. Every one has sourced copy in hand. None needs Andy.
 | 5 | DEI statement and non-discrimination clause | `about.html` | WWD-013, WWD-014 | small |
 | 6 | Wire the partner logo grid, 10 of 14 links | `index.html` | HOME-057 to 096 | small |
 | 7 | Two Get Involved paths: Host a Fundraiser, Spread the Word | `start.html` | GETINV-014 to 017, GETINV-023 to 030 | medium |
+| 8 | Our Impact page: four student stories, programme list, growth figures | `impact.html`, new | IMPACT-002 to 036 | large |
 
 ### Why item 3 is the most urgent thing on this list
 
@@ -64,6 +65,7 @@ breakage should be reported rather than quietly patched.
 |------|-----------|----------------------|
 | Scholarships for Beyond Limits students | **Dan, then Andy** | We hold the copy, but it names two 13-year-olds and quotes them. Same class as the recipient list already deferred. See decision 3. |
 | Three Beyond Limits sub-campaign descriptions | Andy | No source text exists anywhere. |
+| `basketball.html` | **Hermes round 2** | The hub page is a signpost. Real content is on three uninventoried pages. Prompt written, not yet run. |
 | The Español toggle, 14 dead links | Andy | Findings question 16. Whether Spanish is in scope is a budget decision, not ours. |
 | Privacy policy, 6 dead links | Andy | The only one is a SportsEngine PDF dated Feb 2020, describing a platform the new site does not run on. |
 | Media consent, 6 dead links | **Us** | It appears in **none** of the 725 rows. We added this link. It has no source and no destination. |
@@ -87,9 +89,16 @@ Ordered as agreed: nothing here starts until waves 1 and 2 are settled.
 
 ## Decisions needed from Dan
 
-**1. Basketball and Our Impact.** Both nav items currently point at `peaceyouthct.org`.
-A visitor clicking them leaves the new site and lands on the old one, mid-journey. Build
-the two pages, or accept the handoff and label those links as external?
+**1. Basketball and Our Impact.** ~~Both nav items point at `peaceyouthct.org`.~~
+**DECIDED 2026-09-01 (Dan): build both.**
+
+- **`impact.html` proceeds now.** 35 content rows: four student stories, the full
+  programme list, growth figures. Strong and self-contained. Moved to Wave 1 as item 8.
+- **`basketball.html` waits for a second inventory pass.** The hub page holds only 13
+  content rows, six of which are "Go to our X page" plus its link. The substance lives on
+  three pages nobody inventoried: AAU (12,220 chars), the Boys League (2,161), and the
+  2024 Summer League (249). Dan chose to inventory those first rather than build a
+  signpost. See `HERMES-PROMPT-2.md`. Sits in Wave 2 until that returns.
 
 **2. Dead links, 34 of them.** Español is blocked on Andy. Privacy policy points at a
 stale SportsEngine PDF. Media consent has no source at all. Leave them dead until Andy

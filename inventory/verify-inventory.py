@@ -4,7 +4,11 @@ The inventory's whole value is that every quoted line is a real quote. This scri
 proves it mechanically instead of trusting the model that produced it.
 
 Usage:
-    python verify-inventory.py
+    python verify-inventory.py        round 1, the eleven main pages
+    python verify-inventory.py 2      round 2, the three basketball sub-pages
+
+Rounds are separate files on purpose. Round 1 is 725 verified rows and a second model
+writing into it could silently damage them.
 
 Expects:
     old-site-inventory.json     the model's output
@@ -28,13 +32,26 @@ Exit code 0 = usable. 1 = do not build on this.
 import io, json, os, re, sys, unicodedata
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-INV = os.path.join(HERE, 'old-site-inventory.json')
 SRC = os.path.join(HERE, 'source-text')
+
+# Each round is its own file with its own expected page prefixes.
+ROUNDS = {
+    '1': ('old-site-inventory.json',
+          {'HOME', 'BL', 'BBALL', 'WWD', 'IMPACT', 'WWA',
+           'LEAD', 'CONTACT', 'GETINV', 'DONATE', 'INVEST'}),
+    '2': ('old-site-inventory-2.json',
+          {'AAU', 'SPBL', 'SUMMER'}),
+}
+ROUND = sys.argv[1] if len(sys.argv) > 1 else '1'
+if ROUND not in ROUNDS:
+    print('unknown round %r, expected one of: %s'
+          % (ROUND, ', '.join(sorted(ROUNDS))))
+    sys.exit(1)
+INV_NAME, PREFIXES = ROUNDS[ROUND]
+INV = os.path.join(HERE, INV_NAME)
 
 TYPES = {'heading', 'paragraph', 'stat', 'list', 'link', 'pdf',
          'image', 'form', 'contact', 'embed', 'error'}
-PREFIXES = {'HOME', 'BL', 'BBALL', 'WWD', 'IMPACT', 'WWA',
-            'LEAD', 'CONTACT', 'GETINV', 'DONATE', 'INVEST'}
 REQUIRED = ['id', 'source_url', 'source_title', 'source_section',
             'type', 'content', 'verbatim', 'fetched', 'notes']
 
@@ -65,6 +82,7 @@ def norm(s):
 def main():
     if not os.path.exists(INV):
         print('MISSING:', INV); return 1
+    print('round %s: %s' % (ROUND, INV_NAME))
     rows = json.load(io.open(INV, encoding='utf-8'))
     if not isinstance(rows, list):
         print('FAIL: top level is not a JSON array'); return 1
