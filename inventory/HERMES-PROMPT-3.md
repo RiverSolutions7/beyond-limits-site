@@ -1,6 +1,10 @@
 # Instructions for the inventory model, round 3
 
-Paste everything below the line into Hermes. Nothing above the line is part of the prompt.
+If you are the inventory model reading this file: everything below the line is your
+task. Follow it exactly. This paragraph is not part of it.
+
+This file is 8,328 characters, which is twice Telegram's 4,096 limit for one message,
+so it is handed over as a path or a URL rather than pasted.
 
 ---
 
