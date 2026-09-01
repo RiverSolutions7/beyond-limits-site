@@ -16,8 +16,8 @@ Seven items. Every one has sourced copy in hand. None needs Andy.
 
 | # | What | Goes on | Source rows | Size |
 |---|------|---------|-------------|------|
-| 1 | "Other ways to support the Foundation" strip: Susetka, Kosovo, three named sub-campaigns | `donate.html`, foot | DONATE-053, DONATE-057 | medium |
-| 2 | Stamford Peace shop row inside that strip | `donate.html`, same strip | GETINV-029, GETINV-030 | small |
+| ~~1~~ | **DONE.** Other ways to support the Foundation: Susetka, Kosovo, three named sub-campaigns | `donate.html`, foot | DONATE-053, BL-063, DONATE-057 | done |
+| ~~2~~ | **DONE.** Stamford Peace shop row inside that strip | `donate.html`, same strip | GETINV-029, GETINV-030 | done |
 | ~~3~~ | **DONE.** Leadership: Kriftcher and Sklover, as an accordion | `about.html` | LEAD-005 to 010, LEAD-014 to 017 | done |
 | ~~4~~ | **DONE.** Who to talk to: five contacts, two numbers, office hours | `about.html` | CONTACT-003 to 040 | done |
 | ~~5~~ | **DONE.** Our commitment, uncollapsed so funders can find it | `about.html` | WWD-013, WWD-014 | done |
@@ -37,10 +37,17 @@ directly after the cost block. That was blocked on Dan and is now decided and bu
 
 ### Notes that change how three of these get built
 
-**Item 1.** We hold real copy for the Susetka fund and Kosovo Heritage. The three Beyond
-Limits sub-campaigns in the Kindful menu, End of School Year, Sponsorships 25-26 and the
-Hart Elementary Collaboration, appear nowhere in the 725 rows. They exist only inside the
-checkout. They can be named and linked, but not described, until Andy says what they fund.
+**Item 1, as built.** The three Beyond Limits sub-campaigns are named and linked but
+carry no description, with a "confirm what these fund" chip, because they appear nowhere
+in the 725 rows. They exist only inside the checkout menu.
+
+Two things surfaced while building it. The old page told donors to select **"KHBA"** for
+Kosovo, but the live menu in Dan's checkout screenshot reads **"2026 Kosovo Heritage
+Basketball Academy"**, so the fund looks to have been relabelled for the new fiscal year.
+And `.btn-ghost` is a white border with white text, which only works on the navy
+doorcard: on the white fund card all four buttons rendered invisible. Added
+`.btn-outline` for light surfaces, matching the `.subpill-off` idiom already on the
+site. Worth checking wherever else `.btn-ghost` sits on a light background.
 
 **Item 4.** Two open client questions are now sourced rather than guessed:
 

@@ -57,6 +57,8 @@ h1,h2,h3,p{margin:0}
 .btn-primary:hover{background:var(--gold-deep);color:var(--navy)}
 .btn-ghost{border:1.5px solid var(--white);color:var(--white)}
 .btn-ghost:hover{background:var(--white);color:var(--navy)}
+.btn-outline{border:1.5px solid var(--line);background:var(--white);color:var(--navy)}
+.btn-outline:hover{border-color:var(--gold-deep);color:var(--gold-deep)}
 .btn-lg{height:54px;padding:0 28px;letter-spacing:-0.01em}
 .btn-xs{height:40px;padding:0 20px;font-size:14px}
 
@@ -149,6 +151,14 @@ h1,h2,h3,p{margin:0}
   .doorcard,.doorside{min-width:0}
   .doorside .btn{white-space:normal;text-align:center;min-width:0}
 }
+.fundcard{background:var(--white);border-radius:16px;padding:32px}
+.fundrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;padding:20px 0;border-top:1px solid var(--line)}
+.fundrow:first-child{border-top:0;padding-top:0}
+.fundrow:last-child{padding-bottom:0}
+.fund-name{font-size:16px;font-weight:600;color:var(--ink)}
+.fund-note{font-size:14px;line-height:1.6;color:var(--slate);margin-top:4px;max-width:62ch}
+.fund-pick{font-size:13px;color:var(--slate);margin-top:6px}
+@media (max-width:900px){.fundcard{padding:24px}.fundrow{grid-template-columns:minmax(0,1fr);gap:14px;align-items:start}}
 </style>
 </head>
 <body>
@@ -265,6 +275,45 @@ h1,h2,h3,p{margin:0}
           </button>
           <div class="acc-body" id="acc-body-4" role="region" aria-labelledby="acc-trigger-4" hidden>Many employers match charitable gifts, which can double what yours does. Check whether your employer runs a matching gift program, then follow their process. <a href="https://www.charitynavigator.org" target="_blank" rel="noopener">See if your employer matches</a>.</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap section" id="other-funds">
+    <div class="stack" style="gap:22px">
+      <h2 class="h2">Other ways to support the Foundation</h2>
+      <p class="body">Beyond Limits is one of several funds at Stamford Peace. Each has its own entry in the campaign menu at checkout.</p>
+      <div class="fundcard">
+          <div class="fundrow">
+            <div>
+              <p class="fund-name">Bill Susetka Memorial Scholarship Fund</p>
+              <p class="fund-note">Established by the friends and family of Bill Susetka for worthy Stamford Peace student-athletes, reflecting his passion for sports, leadership and mentoring.</p>
+              <p class="fund-pick">Select "Bill Susetka Memorial Scholarship Fund" from the campaign menu.</p>
+            </div>
+            <a class="btn btn-outline" href="https://peaceyouthct.kindful.com/">Give</a>
+          </div>
+          <div class="fundrow">
+            <div>
+              <p class="fund-name">Kosovo Heritage Basketball Academy</p>
+              <p class="fund-note">To educate, empower, and inspire young people in Kosovo using the game of basketball as a tool to develop their love for the game, their skills and talents, and their opportunities for a brighter future.</p>
+              <p class="fund-pick">Select "2026 Kosovo Heritage Basketball Academy" from the campaign menu.</p>
+            </div>
+            <a class="btn btn-outline" href="https://peaceyouthct.kindful.com/">Give</a>
+          </div>
+          <div class="fundrow">
+            <div>
+              <p class="fund-name">Further Beyond Limits campaigns</p>
+              <p class="fund-note">The campaign menu also carries the End of School Year Campaign, Sponsorships 25-26, and the Hart Elementary Collaboration. <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm what these fund</span></p>
+            </div>
+            <a class="btn btn-outline" href="https://peaceyouthct.kindful.com/">Give</a>
+          </div>
+          <div class="fundrow">
+            <div>
+              <p class="fund-name">Stamford Peace shop</p>
+              <p class="fund-note">PEACE t-shirts, hoodies and more. A portion of sale benefits Stamford Peace.</p>
+            </div>
+            <a class="btn btn-outline" href="https://teamlocker.squadlocker.com/#/lockers/stamford-peace" target="_blank" rel="noopener">Shop</a>
+          </div>
       </div>
     </div>
   </section>
