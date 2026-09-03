@@ -5,7 +5,6 @@
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tutoring · Beyond Limits Academics</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Inter:wght@400;500;600;700;800&display=swap">
 <style>
 :root{--navy:#10233F;--ink:#0B1B30;--gold:#F5B316;--gold-deep:#B77F07;--gold-wash:#FDF3DA;--warm:#FBFAF7;--white:#FFFFFF;--slate:#46536A;--line:#E4E0D8;--sky:#E8EEF6;--serif:'Source Serif 4',Georgia,serif;--sans:Inter,system-ui,sans-serif;--pad:48px;--maxw:1280px}
 *{box-sizing:border-box}
@@ -224,6 +223,27 @@ h1,h2,h3,p{margin:0}
 .accquote blockquote{margin:0;font-family:var(--serif);font-size:16px;line-height:1.5;color:var(--navy)}
 .accquote figcaption{margin-top:6px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
 /* PATTERNS:START -- generated from patterns.css, do not edit here */
+/* Self-hosted rather than loaded from Google: no third-party request, nothing
+   about a family's visit leaves this domain, and the page cannot fall back to
+   Georgia on a network that blocks the CDN.
+
+   WOFF2, subset to the characters this site actually renders. The pair arrived
+   as raw variable TTF at 2,037KB, which is a poor trade for families opening
+   this on a phone. Subsetting to Basic Latin, Latin-1 Supplement, Latin
+   Extended-A, General Punctuation, arrows and currency takes it to 337KB, and
+   both variable axes survive, so every weight from 400 to 800 still resolves
+   from the one file.
+
+   The ranges are deliberately wider than today's text. Latin-1 covers Spanish
+   accents, because Spanish versions of the parent-facing pages are an open
+   question with Andy. The arrow range is not optional: impact.html renders a
+   &rarr; and without it that character ships as tofu.
+
+   To regenerate after a copy change that introduces a new character, subset
+   from the TTF originals with fontTools rather than editing these files. */
+@font-face{font-family:Inter;src:url('fonts/Inter-variable.woff2') format('woff2');font-style:normal;font-weight:100 900;font-display:swap}
+@font-face{font-family:'Source Serif 4';src:url('fonts/SourceSerif4-variable.woff2') format('woff2');font-style:normal;font-weight:200 900;font-display:swap}
+
 /* ============================================================================
    Photograph patterns. Single source of truth.
 
@@ -450,6 +470,53 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
 .p-logos img{height:clamp(38px,4.4vw,56px);width:auto;object-fit:contain;filter:grayscale(1);opacity:.72;transition:filter .18s ease,opacity .18s ease}
 .p-logos img:hover{filter:grayscale(0);opacity:1}
 
+/* 16. Dark Chorus ---------------------------------------------------------
+   Selected tutoring direction. These are opt-in composition rules rather
+   than global replacements: the system lives here, but only markup carrying
+   a p-chorus-* class adopts it. Flat fields, rules and whitespace do the
+   grouping so scholarship recipients and testimony never become card grids. */
+.p-chorus-hero{grid-template-columns:minmax(0,1fr) minmax(360px,.82fr);gap:clamp(42px,6vw,78px);align-items:center}
+.p-chorus-hero-copy{gap:28px}
+.p-chorus-hero{padding-top:clamp(72px,9vw,132px);padding-bottom:clamp(72px,9vw,132px)}
+.p-chorus-hero .d1{font-size:clamp(3.25rem,8vw,7rem);line-height:.92;letter-spacing:-.058em;text-wrap:balance}
+.p-chorus-hero .sup{font-size:clamp(1.25rem,2vw,1.65rem);line-height:1.48}
+.p-chorus-hero .btn,.p-chorus-hero .tlink{font-size:.875rem}
+.p-chorus-hero-media{width:min(100%,560px);height:auto;justify-self:end;border-radius:0;overflow:visible;background:transparent}
+.p-chorus-hero-media img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 35%;border-radius:0}
+
+.p-chorus-sessions{padding:0;background:var(--sky)}
+.p-chorus-sessions-inner{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(0,1.2fr);gap:clamp(44px,7vw,112px);align-items:start;padding-top:clamp(72px,9vw,132px);padding-bottom:clamp(72px,9vw,132px)}
+.p-chorus-heading{font-size:clamp(2.2rem,5vw,4.6rem);line-height:.98;letter-spacing:-.045em;text-wrap:balance}
+.p-chorus-prose{font-size:clamp(.9375rem,1.4vw,1.05rem);line-height:1.68;max-width:65ch;text-wrap:pretty}
+
+.p-chorus-scholarships{padding-top:clamp(88px,9vw,128px);padding-bottom:clamp(88px,9vw,128px)}
+.p-chorus-scholarships-head{display:flex;flex-direction:column;gap:24px;max-width:940px}
+.p-chorus-scholarship-list{display:flex;flex-direction:column;gap:clamp(84px,10vw,128px);margin-top:clamp(56px,7vw,96px)}
+.p-chorus-scholarship{display:flex;flex-direction:column;gap:26px;min-width:0}
+.p-chorus-subheading{font-size:clamp(1.25rem,2vw,1.65rem);font-weight:600;line-height:1.15;letter-spacing:-.022em;color:var(--ink);text-wrap:balance}
+.p-chorus-scholarship-body{display:flex;flex-direction:column;gap:18px;font-size:clamp(.9375rem,1.4vw,1.05rem);line-height:1.68;max-width:65ch;text-wrap:pretty}
+.p-chorus-recipient-line{font-weight:700;color:var(--ink)}
+.p-chorus-recipient-set{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:12px;min-width:0}
+.p-chorus-recipient{min-width:0;max-width:720px;margin:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.p-chorus-recipient>.p-img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:transparent;border:0;border-radius:0;box-shadow:none}
+.p-chorus-recipient figcaption{display:flex;flex-direction:column;gap:4px;margin-top:14px;background:transparent;border:0;box-shadow:none;font-size:.75rem}
+.p-chorus-recipient figcaption strong{font-size:clamp(.9375rem,1.4vw,1.05rem);color:var(--ink)}
+.p-chorus-recipient figcaption span,.p-chorus-testimony figcaption,.p-chorus-recipient-quote-credit{font-size:.75rem;line-height:1.5;letter-spacing:.075em;text-transform:uppercase;color:var(--slate)}
+.p-chorus-recipient-quote{margin:18px 0 0;padding-left:18px;border-left:2px solid var(--gold);border-radius:0;font-family:var(--serif);font-size:clamp(.9375rem,1.4vw,1.05rem);line-height:1.62;color:var(--navy)}
+.p-chorus-recipient-quote-credit{display:block;margin:9px 0 0 20px;font-style:normal}
+
+.p-chorus-testimonials{padding:0;background:var(--navy);color:var(--white)}
+.p-chorus-testimonials-inner{display:grid;grid-template-columns:minmax(280px,.75fr) minmax(0,1.25fr);gap:clamp(50px,7vw,108px);padding-top:clamp(82px,9vw,132px);padding-bottom:clamp(82px,9vw,132px)}
+.p-chorus-testimonial-lead{display:flex;flex-direction:column;gap:40px}
+.p-chorus-testimonials .p-chorus-heading,.p-chorus-testimonials .p-chorus-stat-copy strong,.p-chorus-testimonials .p-chorus-testimony blockquote{color:var(--white)}
+.p-chorus-stat{display:flex;align-items:flex-start;gap:24px}
+.p-chorus-stat-number{font-size:clamp(2.2rem,5vw,4.6rem);font-weight:800;line-height:.82;letter-spacing:-.05em;color:var(--gold)}
+.p-chorus-stat-copy{font-size:clamp(.9375rem,1.4vw,1.05rem);line-height:1.68;max-width:60ch;color:var(--sky)}
+.p-chorus-testimony-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 30px}
+.p-chorus-testimony{margin:0;padding-top:22px;border-top:1px solid var(--slate);border-radius:0;background:transparent;box-shadow:none}
+.p-chorus-testimony blockquote{margin:0;font-family:var(--serif);font-size:clamp(1.25rem,2vw,1.65rem);line-height:1.48;text-wrap:pretty}
+.p-chorus-testimony figcaption{margin-top:18px;color:var(--sky)}
+
 /* Responsive ---------------------------------------------------------------
    1100 first, then 900, matching the pages' own breakpoints. */
 @media (max-width:1100px){
@@ -475,6 +542,15 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
   .p-numgrid{grid-template-columns:1fr}
   .qgrid{grid-template-columns:1fr}
   .qlead{flex-direction:column;gap:10px}
+  .p-chorus-hero{grid-template-columns:1fr;gap:24px;padding-top:64px;padding-bottom:64px}
+  .p-chorus-hero-media{width:100%;max-width:100%;justify-self:stretch}
+  .p-chorus-sessions-inner,.p-chorus-testimonials-inner,.p-chorus-testimony-list{grid-template-columns:1fr}
+  .p-chorus-sessions-inner{gap:32px;padding-top:64px;padding-bottom:64px}
+  .p-chorus-scholarships{padding-top:64px;padding-bottom:64px}
+  .p-chorus-scholarship-list{gap:84px}
+  .p-chorus-recipient-set{grid-template-columns:1fr}
+  .p-chorus-testimonials-inner{gap:58px;padding-top:64px;padding-bottom:64px}
+  .p-chorus-stat{flex-direction:column;gap:16px}
 }
 
 /* A photograph is decoration here, never information. Anyone who cannot see it
@@ -521,8 +597,8 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
 
 <main id="top">
 
-  <section class="wrap hero">
-    <div class="hero-copy">
+  <section class="wrap hero p-chorus-hero">
+    <div class="hero-copy p-chorus-hero-copy">
       <h1 class="d1">One on one tutoring in math and science.</h1>
       <p class="sup">Here is exactly how it works, who your child would work with, what it costs, and how to start.</p>
       <div class="hero-cta">
@@ -530,7 +606,7 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
         <a class="tlink" href="tel:+12035889023"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 9 9 0 0 0 2.8.45 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 9 9 0 0 0 .45 2.8 1 1 0 0 1-.24 1z"/></svg>Call us: (203) 588-9023</a>
       </div>
     </div>
-    <div class="hero-photo">
+    <div class="hero-photo p-chorus-hero-media">
       <img src="img/p20-two-at-a-keyboard-hero.jpg" width="1024" height="768" alt="Two students close in age working side by side at a desk, one writing while the other looks on">
     </div>
   </section>
@@ -546,13 +622,10 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
     </div>
   </div>
 
-  <section class="wrap section" id="sessions">
-    <div class="sessions">
-      <div class="stack" style="gap:16px">
-        <h2 class="h2">How sessions work</h2>
-        <p class="body">Individualized academic tutoring in math and science, generally two one hour sessions each week per participant, available on weekday afternoons and evenings and Saturdays on a personalized schedule. Tutoring is conducted peer to peer, with tutors assigned to 4th through 10th graders. Tutors and tutees rotate, with pairings based upon our assessment of current best fit. Sessions can take place in person in our tutoring center or remotely via Zoom. Our approach also offers valuable informal mentoring benefits.</p>
-      </div>
-      
+  <section class="section p-chorus-sessions" id="sessions">
+    <div class="wrap p-chorus-sessions-inner">
+      <h2 class="h2 p-chorus-heading">How sessions work</h2>
+      <p class="body p-chorus-prose">Individualized academic tutoring in math and science, generally two one hour sessions each week per participant, available on weekday afternoons and evenings and Saturdays on a personalized schedule. Tutoring is conducted peer to peer, with tutors assigned to 4th through 10th graders. Tutors and tutees rotate, with pairings based upon our assessment of current best fit. Sessions can take place in person in our tutoring center or remotely via Zoom. Our approach also offers valuable informal mentoring benefits.</p>
     </div>
   </section>
 
@@ -585,54 +658,52 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
     </div>
   </section>
 
-  <section class="wrap section" id="scholarships">
-    <div class="stack" style="gap:22px">
-      <h2 class="h2">Scholarships our students have won</h2>
-      <p class="body">Beyond Limits students are eligible for two scholarships awarded through Stamford Peace. Both weigh academic standing, citizenship and financial need.</p>
-      <div class="acclist">
-        <details class="accitem">
-          <summary><span class="acctitle">The Stamford Rotary Trust Scholarship</span><svg class="accicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <div class="accbody">
-            <p>The Stamford Rotary Trust Scholarship offers non-renewable, one-year scholarships to students with financial need who display academic achievement.</p>
-            <p>It is awarded to Beyond Limits students who are in good academic standing or show commitment to improve that standing, display good citizenship, and demonstrate financial need.</p>
-            <p class="accrec">2025 recipients: Annabella, 5th grade, and Mia, 6th grade.</p>
-          </div>
-        </details>
-        <details class="accitem">
-          <summary><span class="acctitle">Bill Susetka Memorial Scholarship</span><svg class="accicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-          <div class="accbody">
-            <p>This scholarship is awarded to students in honor of Bill Susetka’s memory. Bill graduated from Stamford Catholic High School. He was accomplished in athletics, having played on the Stamford World Champion Babe Ruth baseball team and the varsity baseball and basketball teams at Rensselaer Polytechnic Institute. Still, he remained humble and reveled in other’s triumphs.</p>
-            <p>Bill was an inspirational leader with a kind, compassionate, and generous nature, who cared deeply about people and always had a smile and encouraging words to share. To honor his memory, the friends and family of Bill Susetka have established this scholarship for worthy Stamford Peace student-athletes. The successful candidate is in good academic standing, displays good citizenship, and demonstrates financial need.</p>
-            <p class="accrec">2025-2026 Beyond Limits recipients: Anthony Lopez and Danna Rivas.</p>
-            <figure class="accquote">
-              <blockquote>My name is Anthony Lopez and I’m 13 years old. I’m grateful for Beyond Limits because the sessions help me with tests, homework, and projects. I’m also grateful for my mom because she sacrifices her time to take me to Beyond Limits. Thank you</blockquote>
-              <figcaption>Anthony Lopez</figcaption>
-            </figure>
-            <figure class="accquote">
-              <blockquote>Hello, my name is Danna Rivas, and I like going to [Beyond Limits] because I like the tutors that I get, and it is fun learning there. And when I’m out of school, I like to do Gymnastics! Thank you!</blockquote>
-              <figcaption>Danna Rivas</figcaption>
-            </figure>
-          </div>
-        </details>
-      </div>
-      <div class="p-grid" style="--n:4">
-        <figure class="p-card">
-          <img class="p-img" src="img/p13-annabella-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Annabella in a school uniform, speaking to camera">
-          <figcaption class="p-card-b"><p class="p-card-t">Annabella</p><p class="sm">5th grade. Stamford Rotary Trust Scholarship, 2025.</p></figcaption>
-        </figure>
-        <figure class="p-card">
-          <img class="p-img" src="img/p83-mia-lopez-certificate-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Mia holding her Stark Elementary School certificate and a bouquet of flowers">
-          <figcaption class="p-card-b"><p class="p-card-t">Mia</p><p class="sm">6th grade. Stamford Rotary Trust Scholarship, 2025.</p></figcaption>
-        </figure>
-        <figure class="p-card">
-          <img class="p-img" src="img/p14-anthony-lopez-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Anthony Lopez standing on rocks beside a waterfall">
-          <figcaption class="p-card-b"><p class="p-card-t">Anthony Lopez</p><p class="sm">Bill Susetka Memorial Scholarship, 2025 to 2026.</p></figcaption>
-        </figure>
-        <figure class="p-card">
-          <img class="p-img" src="img/p31-danna-rivas-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Danna Rivas seated, smiling at the camera">
-          <figcaption class="p-card-b"><p class="p-card-t">Danna Rivas</p><p class="sm">Bill Susetka Memorial Scholarship, 2025 to 2026.</p></figcaption>
-        </figure>
-      </div>
+  <section class="wrap section p-chorus-scholarships" id="scholarships">
+    <header class="p-chorus-scholarships-head">
+      <h2 class="h2 p-chorus-heading">Scholarships our students have won</h2>
+      <p class="body p-chorus-prose">Beyond Limits students are eligible for two scholarships awarded through Stamford Peace. Both weigh academic standing, citizenship and financial need.</p>
+    </header>
+    <div class="p-chorus-scholarship-list">
+      <article class="p-chorus-scholarship">
+        <h3 class="p-chorus-subheading">The Stamford Rotary Trust Scholarship</h3>
+        <div class="p-chorus-scholarship-body">
+          <p>The Stamford Rotary Trust Scholarship offers non-renewable, one-year scholarships to students with financial need who display academic achievement.</p>
+          <p>It is awarded to Beyond Limits students who are in good academic standing or show commitment to improve that standing, display good citizenship, and demonstrate financial need.</p>
+          <p class="p-chorus-recipient-line">2025 recipients: Annabella, 5th grade, and Mia, 6th grade.</p>
+        </div>
+        <div class="p-chorus-recipient-set">
+          <figure class="p-chorus-recipient">
+            <img class="p-img" src="img/p13-annabella-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Annabella in a school uniform, speaking to camera">
+            <figcaption><strong>Annabella</strong><span>5th grade. Stamford Rotary Trust Scholarship, 2025.</span></figcaption>
+          </figure>
+          <figure class="p-chorus-recipient">
+            <img class="p-img" src="img/p83-mia-lopez-certificate-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Mia holding her Stark Elementary School certificate and a bouquet of flowers">
+            <figcaption><strong>Mia</strong><span>6th grade. Stamford Rotary Trust Scholarship, 2025.</span></figcaption>
+          </figure>
+        </div>
+      </article>
+      <article class="p-chorus-scholarship">
+        <h3 class="p-chorus-subheading">Bill Susetka Memorial Scholarship</h3>
+        <div class="p-chorus-scholarship-body">
+          <p>This scholarship is awarded to students in honor of Bill Susetka’s memory. Bill graduated from Stamford Catholic High School. He was accomplished in athletics, having played on the Stamford World Champion Babe Ruth baseball team and the varsity baseball and basketball teams at Rensselaer Polytechnic Institute. Still, he remained humble and reveled in other’s triumphs.</p>
+          <p>Bill was an inspirational leader with a kind, compassionate, and generous nature, who cared deeply about people and always had a smile and encouraging words to share. To honor his memory, the friends and family of Bill Susetka have established this scholarship for worthy Stamford Peace student-athletes. The successful candidate is in good academic standing, displays good citizenship, and demonstrates financial need.</p>
+          <p class="p-chorus-recipient-line">2025-2026 Beyond Limits recipients: Anthony Lopez and Danna Rivas.</p>
+        </div>
+        <div class="p-chorus-recipient-set">
+          <figure class="p-chorus-recipient">
+            <img class="p-img" src="img/p14-anthony-lopez-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Anthony Lopez standing on rocks beside a waterfall">
+            <figcaption><strong>Anthony Lopez</strong><span>Bill Susetka Memorial Scholarship, 2025 to 2026.</span></figcaption>
+            <blockquote class="p-chorus-recipient-quote">My name is Anthony Lopez and I’m 13 years old. I’m grateful for Beyond Limits because the sessions help me with tests, homework, and projects. I’m also grateful for my mom because she sacrifices her time to take me to Beyond Limits. Thank you</blockquote>
+            <cite class="p-chorus-recipient-quote-credit">Anthony Lopez</cite>
+          </figure>
+          <figure class="p-chorus-recipient">
+            <img class="p-img" src="img/p31-danna-rivas-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Danna Rivas seated, smiling at the camera">
+            <figcaption><strong>Danna Rivas</strong><span>Bill Susetka Memorial Scholarship, 2025 to 2026.</span></figcaption>
+            <blockquote class="p-chorus-recipient-quote">Hello, my name is Danna Rivas, and I like going to [Beyond Limits] because I like the tutors that I get, and it is fun learning there. And when I’m out of school, I like to do Gymnastics! Thank you!</blockquote>
+            <cite class="p-chorus-recipient-quote-credit">Danna Rivas</cite>
+          </figure>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -652,36 +723,34 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
     </div>
   </section>
 
-  <section class="wrap section" id="testimonials">
-    <div class="stack" style="gap:32px">
-      <h2 class="h2">What families and students say</h2>
-      <div class="qlead">
-        <p class="qlead-num">99%</p>
-        <div>
-          <p class="qlead-t">parent satisfaction</p>
-          <p class="sm">When we asked parents how likely they are to recommend us, the overwhelming majority chose the highest rating.</p>
+  <section class="section p-chorus-testimonials" id="testimonials">
+    <div class="wrap p-chorus-testimonials-inner">
+      <div class="p-chorus-testimonial-lead">
+        <h2 class="h2 p-chorus-heading">What families and students say</h2>
+        <div class="p-chorus-stat">
+          <p class="p-chorus-stat-number">99%</p>
+          <div class="p-chorus-stat-copy">
+            <p><strong>parent satisfaction</strong></p>
+            <p>When we asked parents how likely they are to recommend us, the overwhelming majority chose the highest rating.</p>
+          </div>
         </div>
       </div>
-      <div class="qgrid">
-        <figure class="quote qcompact" style="margin:0">
-          <p class="qmark" aria-hidden="true">&#8220;</p>
-          <blockquote class="qtext" style="margin:0">She improved so much. Its a cost effective program, very helpful, and my daughter is very happy with it. I am so glad I got to know Beyond Limits through a family member... thank you Beyond Limits for all your support.</blockquote>
-          <figcaption class="eyebrow-slate">Gustavo &middot; Current BL parent</figcaption>
+      <div class="p-chorus-testimony-list">
+        <figure class="p-chorus-testimony">
+          <blockquote>She improved so much. Its a cost effective program, very helpful, and my daughter is very happy with it. I am so glad I got to know Beyond Limits through a family member... thank you Beyond Limits for all your support.</blockquote>
+          <figcaption>Gustavo &middot; Current BL parent</figcaption>
         </figure>
-        <figure class="quote qcompact" style="margin:0">
-          <p class="qmark" aria-hidden="true">&#8220;</p>
-          <blockquote class="qtext" style="margin:0">My daughter used to struggle with math, but with the help of the tutors and all the people that so kindly help us, my daughter is now an honor roll student. There are no words to describe how thankful we are to Beyond Limits.</blockquote>
-          <figcaption class="eyebrow-slate">Anonymous &middot; Parent</figcaption>
+        <figure class="p-chorus-testimony">
+          <blockquote>My daughter used to struggle with math, but with the help of the tutors and all the people that so kindly help us, my daughter is now an honor roll student. There are no words to describe how thankful we are to Beyond Limits.</blockquote>
+          <figcaption>Anonymous &middot; Parent</figcaption>
         </figure>
-        <figure class="quote qcompact" style="margin:0">
-          <p class="qmark" aria-hidden="true">&#8220;</p>
-          <blockquote class="qtext" style="margin:0">I used to struggle with math, but then my math improved when I joined Beyond Limits. The tutors are patient, kind, and make sure you understand everything you are unsure of.</blockquote>
-          <figcaption class="eyebrow-slate">Maria and Camila &middot; Current BL students</figcaption>
+        <figure class="p-chorus-testimony">
+          <blockquote>I used to struggle with math, but then my math improved when I joined Beyond Limits. The tutors are patient, kind, and make sure you understand everything you are unsure of.</blockquote>
+          <figcaption>Maria and Camila &middot; Current BL students</figcaption>
         </figure>
-        <figure class="quote qcompact" style="margin:0">
-          <p class="qmark" aria-hidden="true">&#8220;</p>
-          <blockquote class="qtext" style="margin:0">It helped me by me knowing questions that I’ve practiced... I got my results and I got all of them right and I felt so proud of myself and really grateful I’m here.</blockquote>
-          <figcaption class="eyebrow-slate">Francis &middot; Current BL student</figcaption>
+        <figure class="p-chorus-testimony">
+          <blockquote>It helped me by me knowing questions that I’ve practiced... I got my results and I got all of them right and I felt so proud of myself and really grateful I’m here.</blockquote>
+          <figcaption>Francis &middot; Current BL student</figcaption>
         </figure>
       </div>
     </div>
