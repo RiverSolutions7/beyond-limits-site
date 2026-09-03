@@ -196,6 +196,266 @@ h1,h2,h3,p{margin:0}
 .bandhead .h2{color:var(--white);max-width:34ch}
 .bandhead .micro-gold{color:var(--gold)}
 @media (max-width:900px){.storygrid{grid-template-columns:minmax(0,1fr)}.story{padding:22px 24px}.bandhead{padding:26px 24px}}
+/* PATTERNS:START -- generated from patterns.css, do not edit here */
+/* ============================================================================
+   Photograph patterns. Single source of truth.
+
+   The nine pages each carry their own <style> block and none of them match, so
+   these rules are NOT copied by hand into nine files. build-site.py inlines this
+   file into every page at the PATTERNS marker and fails the build if a page is
+   missing it. Edit here, run the build, and every page gets it.
+
+   Inlined rather than <link>ed on purpose: this is a static GitHub Pages site and
+   an extra blocking request for ~4KB is a worse trade than the duplication.
+
+   EVERY CLASS IS PREFIXED p-. That is not decoration.
+   The first version of this file used .ph and .mosaic, and both already existed:
+   .ph is a 340px navy placeholder box on index and tutoring, .mosaic is the
+   two-column layout on tutoring. Injecting them silently restyled both live
+   sections. (.band collided only with a dead rule no markup uses, so that one
+   was harmless.) The prefix is what stops a new pattern reaching into markup it
+   was never meant to touch, so keep it.
+
+   House rules these follow:
+     - tokens only, no new colours
+     - .wrap is max-width 1280 with 48px sides; .section adds 88px bottom
+     - breakpoints are 1100 and 900, matching the pages
+     - every image declares aspect-ratio so nothing reflows when it loads
+   ============================================================================ */
+
+/* Shared. Every photograph on the site goes through .p-img. -----------------
+
+   No height here on purpose. Two kinds of pattern use this:
+     - the IMAGE carries the shape (card, figure, pair, accent) via aspect-ratio
+     - the WRAPPER carries the shape (band, split, mosaic) and the image fills it
+   A blanket height:100% breaks the first kind: inside a flex card it resolves
+   against the card and silently overrides aspect-ratio, which is exactly how the
+   three cards in a grid ended up three different heights. So the wrapper-shaped
+   patterns opt into height:100% themselves, below.
+
+   height:auto is load-bearing, not a default. Every <img> carries width and
+   height attributes so the browser reserves the right box before the file
+   arrives, and those attributes are presentational hints: with no height in the
+   CSS they apply literally, so a 600x600 file in a 240px column rendered 240
+   wide by 600 tall and aspect-ratio was ignored, because aspect-ratio only
+   applies when height is auto. */
+.p-img{display:block;width:100%;height:auto;object-fit:cover;background:var(--sky);border-radius:14px}
+.p-img-flat{border-radius:0}
+.p-fig{margin:0}
+.p-cap{margin-top:10px;font-size:13.5px;line-height:1.5;color:var(--slate);max-width:58ch}
+
+/* 1. Full-bleed band -------------------------------------------------------
+   Escapes .wrap entirely, so it is a top-level <section class="p-band">, never
+   a child of .wrap.section. Text sits on a scrim, not on the bare photograph:
+   a photo's own contrast is not something we control. */
+.p-band{position:relative;margin:0 0 88px;min-height:clamp(320px,42vw,520px);display:grid;isolation:isolate}
+.p-band>.p-img{position:absolute;inset:0;height:100%;border-radius:0;z-index:0}
+.p-band::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(100deg,rgba(11,27,48,.86) 0%,rgba(11,27,48,.66) 46%,rgba(11,27,48,.28) 100%)}
+.p-band-in{position:relative;z-index:2;align-self:center;width:100%;max-width:var(--maxw);margin:0 auto;padding:64px var(--pad);display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.p-band-in>*{max-width:44ch}
+.p-band .h2,.p-band .d1{color:var(--white)}
+.p-band .body,.p-band .sup{color:#DCE4EF}
+.p-band .micro{color:var(--gold)}
+/* A centred band needs a symmetric scrim: the default gradient is built for
+   text sitting on the left, so it leaves the right end of a centred headline on
+   the lightest part of the photograph. */
+.p-band-center::after{background:linear-gradient(180deg,rgba(11,27,48,.60) 0%,rgba(11,27,48,.78) 100%)}
+
+/* 2. Photo beside copy -----------------------------------------------------
+   Copy leads. .p-split-flip puts the photograph first on wide screens and
+   leaves source order alone, so a screen reader still hears the heading first. */
+.p-split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px);align-items:center}
+.p-split-media{aspect-ratio:4/3;margin:0}
+.p-split-media .p-img{height:100%}
+.p-split-flip .p-split-media{order:-1}
+.p-split-copy{display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+
+/* 3. Inline figure ---------------------------------------------------------
+   Sits inside a reading column and is deliberately narrower than the text it
+   interrupts, so the eye keeps its place. */
+.p-figure{margin:26px 0 0;max-width:520px}
+.p-figure .p-img{aspect-ratio:5/4}
+
+/* 4. Portrait pair ---------------------------------------------------------
+   Two people, named. The name is part of the pattern because an unnamed
+   portrait on an About page is worse than no portrait. */
+.p-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px);max-width:760px}
+.p-pair figure{margin:0}
+.p-pair .p-img{aspect-ratio:4/5}
+.p-pair-name{margin-top:12px;font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+.p-pair-role{margin-top:2px;font-size:14px;color:var(--slate)}
+
+/* 5. Card grid -------------------------------------------------------------
+   Two, three or four across. Set --n to the count; it collapses on its own. */
+.p-grid{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:clamp(18px,2.4vw,28px)}
+.p-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.p-card .p-img{aspect-ratio:3/2;border-radius:0}
+.p-card-b{padding:18px 20px 22px;display:flex;flex-direction:column;gap:7px;flex:1}
+.p-card-t{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+
+/* 6. Mosaic ----------------------------------------------------------------
+   One room, three ways. Used exactly once on the site, on the tutoring centre.
+   Give the biggest slot the strongest photograph: the large cell is the one
+   people read, so a weak image there inverts the whole point of the pattern. */
+.p-mosaic{display:grid;grid-template-columns:1.55fr 1fr;grid-template-rows:repeat(2,1fr);gap:14px;aspect-ratio:16/9}
+.p-mosaic>*{margin:0}
+.p-mosaic>*:first-child{grid-row:span 2}
+.p-mosaic .p-img{height:100%}
+
+/* 7. Quiet accent ----------------------------------------------------------
+   The smallest pattern. For sections whose content is the words, where a
+   photograph is a breath rather than evidence. */
+.p-accent{display:flex;gap:clamp(20px,3vw,36px);align-items:flex-start}
+.p-accent-media{flex:0 0 clamp(160px,20vw,240px);margin:0}
+.p-accent-media .p-img{aspect-ratio:1}
+.p-accent-copy{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+
+/* 8. Aside -----------------------------------------------------------------
+   Content leads on the left, a figure sits beside it on the right. Born on
+   tutoring.html "How to enroll", where a figure in the reading column left an
+   empty half page next to it: this puts the photograph in that space and made
+   the section 30% shorter. Anything full width inside it takes .p-aside-wide. */
+.p-aside{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,4vw,56px);align-items:start}
+.p-aside-wide{grid-column:1/-1}
+.p-figure-flush{margin-top:0}
+
+/* 9. Numbered grid ---------------------------------------------------------
+   For a list of principles that arrived as one paragraph with inline numbers.
+   Same words, one entry point per item instead of one for the whole block. */
+.p-numgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,22px)}
+.p-num{background:var(--white);border:1px solid var(--line);border-radius:14px;
+padding:20px 22px 22px;display:flex;flex-direction:column;gap:6px}
+.p-num-n{font-size:13px;font-weight:700;color:var(--gold-deep);letter-spacing:.04em;
+font-variant-numeric:tabular-nums}
+.p-num-t{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
+
+/* 10. Field list -----------------------------------------------------------
+   For a set of things a reader needs to COMPARE. Three leagues were described
+   in three prose paragraphs covering the same six attributes in a different
+   order each time, so the fact that only one of them takes girls was invisible
+   without reading all three to the end. Same labels, same order, every card. */
+.fields{margin:2px 0 0;display:flex;flex-direction:column;gap:9px}
+.fq dt{font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--gold-deep)}
+.fq dd{margin:2px 0 0;font-size:14.5px;line-height:1.5;color:var(--slate)}
+/* The labels only compare if they line up across cards, so a heading that wraps
+   to two lines must not push its own field list down past its neighbours'. */
+h3:has(+ .fields){min-height:2.6em}
+@media (max-width:900px){h3:has(+ .fields){min-height:0}}
+
+/* 11. Quote grid -----------------------------------------------------------
+   Four testimonies at 20px with 56px quote marks read as four essays. The fix
+   was never fewer quotes: it was smaller ones. The number they all support
+   leads the section rather than trailing it in a sentence nobody reaches. */
+.qlead{display:flex;gap:22px;align-items:flex-start;background:var(--white);
+border:1px solid var(--line);border-radius:16px;padding:22px 26px}
+.qlead-num{font-size:44px;font-weight:800;letter-spacing:-.03em;color:var(--gold-deep);line-height:1}
+.qlead-t{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.qlead .sm{max-width:62ch}
+.qgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.qcompact{padding:22px 24px;gap:10px}
+.qcompact .qtext{font-size:16.5px;line-height:1.5}
+.qcompact .qmark{font-size:34px}
+
+/* Text link ----------------------------------------------------------------
+   .tlink is an existing site class, but only four of the nine pages define it
+   and the four do not agree. impact.html and about.html use it and style it not
+   at all, so their links rendered as plain inline text and the arrow wrapped to
+   its own line. One definition here, last in the cascade, so all nine match.
+   width:fit-content and white-space:nowrap are sponsorship's version, which is
+   the only one that had already solved the wrapping arrow. */
+.tlink{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:600;
+color:var(--navy);white-space:nowrap;width:fit-content}
+.tlink svg{transition:transform .18s ease}
+.tlink:hover{color:var(--gold-deep)}
+.tlink:hover svg{transform:translateX(4px)}
+@media (prefers-reduced-motion:reduce){.tlink svg,.tlink:hover svg{transition:none;transform:none}}
+
+/* 12. Growth arc -----------------------------------------------------------
+   Two numbers and the distance between them. Built because "supporting
+   initially five students... now working with 250+" was a subordinate clause
+   on a page called Our Impact. */
+.arc{display:flex;align-items:center;gap:clamp(20px,4vw,48px);background:var(--white);
+border:1px solid var(--line);border-radius:16px;padding:24px 28px;flex-wrap:wrap}
+.arc-yr{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+.arc-n{font-size:52px;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--slate);margin-top:4px}
+.arc-now{color:var(--gold-deep)}
+.arc-to{font-size:30px;color:var(--line)}
+.arc .sm{margin-top:6px;display:block}
+.fields-wide .fq dd{max-width:66ch}
+.whycard{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px 28px}
+
+/* 13. Logo wall ------------------------------------------------------------
+   A modifier on the site's existing .logorow, NOT a replacement, because the
+   per-logo heights on index.html were already hand-tuned and an area-normalising
+   formula independently agreed with them within a few pixels. Sizing was never
+   the problem. Two things were: fourteen competing colour schemes, and a five
+   column grid that left fourteen logos as 5 / 5 / 4 with an orphan gap.
+
+   The filter is measured, not chosen by eye. grayscale plus opacity left a
+   93-point spread between the palest logo and the darkest, because opacity
+   cannot rescue a pale original. Darkening cuts that spread to 43. */
+.p-logowall{grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:18px 20px}
+.p-logowall img{filter:grayscale(1) brightness(.45);transition:filter .18s ease;max-width:100%}
+.p-logowall a:hover img,.p-logowall a:focus-visible img{filter:none}
+@media (prefers-reduced-motion:reduce){.p-logowall img{transition:none}}
+
+/* 14. Three-up mosaic ------------------------------------------------------
+   A modifier on the site's .mosaic-grid, which is a 2x2. Three photographs in a
+   four-cell grid leave an orphan, so the first spans both columns. */
+.p-mosaic3{grid-template-rows:auto auto}
+.p-mosaic3>*:first-child{grid-column:1/-1}
+.p-mosaic3>*{min-height:0}
+
+/* 15. Name chips -----------------------------------------------------------
+   For a long list of peers where every entry carries equal weight. Built for
+   the 26 colleges on basketball.html, which had been a five-column text grid
+   with rules through it, plus a screenshot of a six-logo collage that named
+   five colleges the list already had. Chips beat logos here: we hold logo files
+   for three of the twenty-six, and featuring those three would claim they are
+   special when the only thing special about them is that we have the files. */
+.p-chips{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 0;padding:0}
+.p-chips li{font-size:14px;line-height:1;color:var(--navy);background:var(--white);
+border:1px solid var(--line);border-radius:999px;padding:9px 15px}
+
+/* Logo strip ---------------------------------------------------------------
+   Not one of the seven. Real logo files on a neutral ground. */
+.p-logos{display:flex;flex-wrap:wrap;gap:clamp(20px,3vw,44px);align-items:center}
+.p-logos img{height:clamp(38px,4.4vw,56px);width:auto;object-fit:contain;filter:grayscale(1);opacity:.72;transition:filter .18s ease,opacity .18s ease}
+.p-logos img:hover{filter:grayscale(0);opacity:1}
+
+/* Responsive ---------------------------------------------------------------
+   1100 first, then 900, matching the pages' own breakpoints. */
+@media (max-width:1100px){
+  .p-grid{grid-template-columns:repeat(min(var(--n,3),2),minmax(0,1fr))}
+  .p-accent-media{flex-basis:clamp(140px,22vw,200px)}
+  .p-numgrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:900px){
+  .p-band{min-height:0;margin-bottom:64px}
+  .p-band-in{padding:48px var(--pad)}
+  .p-band::after{background:linear-gradient(180deg,rgba(11,27,48,.72) 0%,rgba(11,27,48,.84) 100%)}
+  .p-split{grid-template-columns:1fr;gap:24px}
+  .p-split-flip .p-split-media{order:0}
+  .p-grid{grid-template-columns:1fr}
+  .p-pair{grid-template-columns:1fr 1fr;gap:16px}
+  .p-mosaic{grid-template-columns:1fr;grid-template-rows:none;aspect-ratio:auto}
+  .p-mosaic>*:first-child{grid-row:auto}
+  .p-mosaic .p-img{aspect-ratio:3/2}
+  .p-accent{flex-direction:column;gap:18px}
+  .p-accent-media{flex-basis:auto;width:min(100%,260px)}
+  .p-figure{max-width:100%}
+  .p-aside{grid-template-columns:1fr;gap:28px}
+  .p-numgrid{grid-template-columns:1fr}
+  .qgrid{grid-template-columns:1fr}
+  .qlead{flex-direction:column;gap:10px}
+}
+
+/* A photograph is decoration here, never information. Anyone who cannot see it
+   still has the heading and the copy, so no pattern hides text behind an image. */
+@media (prefers-reduced-motion:reduce){
+  .p-logos img{transition:none}
+}
+/* PATTERNS:END */
 </style>
 </head>
 <body>
@@ -249,27 +509,41 @@ h1,h2,h3,p{margin:0}
   <section class="wrap section" id="academics">
     <div class="stack" style="gap:26px">
       <h2 class="h2">Beyond Limits Academics</h2>
-      <p class="body">Established in late 2013 <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm launch year</span> and supporting initially five students, Beyond Limits is now working with over 200 students <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm student count, sources differ</span> in the 3rd through 12th grades <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm grades served, sources differ</span>. Today, we support even more non-athletes than we do athletes. Over 80 percent of our participants are from families eligible for free or reduced-price school lunch <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm eligibility rate, sources differ</span>, whom we charge a heavily subsidized rate. Our greatest success has been the degree to which we continue to uniquely serve this historically underserved segment of the population with:</p>
-      <ul class="impactlist">
-        <li>one-on-one academic tutoring primarily in math and science;</li>
-        <li>enrichment programming (including computer coding classes, writing workshops; college planning workshops, time management and organizational skills workshops, and more);</li>
-        <li>summer programming (including ongoing academic tutoring, 1-week middle school and high school preparatory academies designed to help orient Stamford Public School incoming 6th graders and incoming 9th graders, and our new Summer Math Academies);</li>
-        <li>informal peer and professional mentoring; and</li>
-        <li>educational advocacy.</li>
-      </ul>
-      <p class="body">In the course of our activities, we actively partner with parents, teachers and administrators as important shared advocates for our students.</p>
-      <p class="body">Our growth and success over the years, measured and evaluated based upon data as well as testimonials, reflects the perceived value of our unique peer-to-peer academic support model. Of course, we believe much of that has to do with the quality of our delivery, including the care with which we match students with tutors, our tutors’ knowledge and experience level, the affordability and flexible timing of our tutoring sessions, and other internal factors. Externally, it is also a function of the huge demand for affordable academic support services particularly for lower income youth.</p>
+      <div class="arc">
+        <div><p class="arc-yr">2013</p><p class="arc-n">5</p><p class="sm">students at launch <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm launch year</span></p></div>
+        <p class="arc-to" aria-hidden="true">&rarr;</p>
+        <div><p class="arc-yr">Today</p><p class="arc-n arc-now">250+</p><p class="sm">students <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm one agreed count</span></p></div>
+      </div>
+      <dl class="fields fields-wide">
+        <div class="fq"><dt>Grades served</dt><dd>4th through 10th <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm grades served</span></dd></div>
+        <div class="fq"><dt>Who they are</dt><dd>More non-athletes than athletes</dd></div>
+        <div class="fq"><dt>What they pay</dt><dd>Over 80 percent are from families eligible for free or reduced-price school lunch <span class="chip"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm whether this is the same figure as the 90% on the home page</span>, and are charged a heavily subsidized rate</dd></div>
+      </dl>
+      <p class="body">Our greatest success has been the degree to which we continue to uniquely serve this historically underserved segment of the population, with tutoring, enrichment, summer programming, mentoring and educational advocacy.</p>
+      <p><a class="tlink" href="beyond-limits.html#offer">See everything we offer <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+      <div class="whycard">
+        <p class="micro">Why it works</p>
+        <p class="body" style="margin-top:8px">Our growth reflects the value of the peer-to-peer model, measured on data as well as testimonials.</p>
+        <dl class="fields" style="margin-top:16px">
+          <div class="fq"><dt>Matching</dt><dd>The care with which we match students with tutors</dd></div>
+          <div class="fq"><dt>Our tutors</dt><dd>Their knowledge and experience level</dd></div>
+          <div class="fq"><dt>Access</dt><dd>The affordability and flexible timing of our sessions</dd></div>
+          <div class="fq"><dt>And the need</dt><dd>Huge demand for affordable academic support, particularly for lower income youth</dd></div>
+        </dl>
+      </div>
     </div>
   </section>
 
   <section class="wrap section" id="bl-stories">
     <div class="storygrid">
       <div class="story">
+        <img class="p-img" src="img/p81-juana-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Two students working through an exercise at a table" style="aspect-ratio:3/2;margin-bottom:4px">
         <h3>Meet Juana</h3>
         <p>Juana is a 7th grader who has been attending Beyond Limits for 2 years. She first came to BL to improve her math skills but also takes advantage of enrichment programs, like coding classes and writing workshops. She credits her BL tutors with helping her overcome her doubts in math and giving her all the tools she needs to solve math problems.</p>
         <p class="storyquote">Take this opportunity because it will help you alot. You learn every time you go. And by personal experience, I highly recommend it.</p>
       </div>
       <div class="story">
+        <img class="p-img" src="img/p82-matthew-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Matthew outdoors, smiling at the camera" style="aspect-ratio:3/2;margin-bottom:4px">
         <h3>Meet Matthew</h3>
         <p>Matthew came to Beyond Limits as a freshman when he was having trouble in math. Now a senior, he says the program helped him grow, gain more confidence and improve in multiple subjects.</p>
         <p class="storyquote">You should definitely come. The tutors here are competent and will offer you academic help as well as support from their own experiences. Beyond Limits helps tons of kids every week.</p>
@@ -277,10 +551,18 @@ h1,h2,h3,p{margin:0}
     </div>
   </section>
 
+  <section class="p-band">
+    <img class="p-img" src="img/p63-team-huddle-court-band.jpg" width="1600" height="640" loading="lazy" decoding="async" alt="A coach and a circle of young players in pinnies on the court">
+    <div class="p-band-in">
+      <p class="micro">Peace Basketball</p>
+      <h2 class="h2">Basketball is a privilege, not a right.</h2>
+    </div>
+  </section>
+
   <section class="wrap section" id="peace-basketball">
     <div class="bandhead">
       <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Peace Basketball</span>
-      <h2 class="h2" style="margin-top:10px">On the basketball side, we are anchored by the tenet that “basketball is a privilege.”</h2>
+      <h2 class="h2" style="margin-top:10px">What that principle buys, on the court and off it.</h2>
     </div>
   </section>
 
@@ -294,10 +576,12 @@ h1,h2,h3,p{margin:0}
   <section class="wrap section" id="bball-stories">
     <div class="storygrid">
       <div class="story">
+        <img class="p-img" src="img/p54-edona-at-fordham-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Edona bringing the ball up the court in a Fordham uniform" style="aspect-ratio:3/2;margin-bottom:4px">
         <h3>Meet Edona</h3>
         <p>Edona is a lifelong PEACE Basketball player whose deep friendships and mentoring relationships from Stamford Peace remain true difference makers in her life. Edona’s remarkable journey from a shy little girl who hesitantly spoke English to a Division 1 college basketball player at Fordham University, overcoming several serious knee injuries along the way, speaks volumes to the development of her passion, grit and character as a member of the PEACE family.</p>
       </div>
       <div class="story">
+        <img class="p-img" src="img/p88-sylwia-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Sylwia at a Stamford Peace event" style="aspect-ratio:3/2;margin-bottom:4px">
         <h3>Meet Sylwia</h3>
         <p>Sylwia is a regular participant in our Beyond Limits Academic Program, while also playing basketball on PEACE AAU and SPBBL teams. Uniquely “coachable,” Sylwia’s commitment to student-athletic excellence is evident in her positivity and gratitude as a twice-weekly recipient of Beyond Limits academic tutoring in math and science. Her academic and basketball improvement over the past few years is a testament to her hard work and the power of opportunity and investment.</p>
       </div>

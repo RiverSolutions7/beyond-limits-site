@@ -14,11 +14,31 @@ import io, os, re, sys
 # The repo root is the site root: this script lives beside the pages it processes.
 OUT = os.path.dirname(os.path.abspath(__file__))
 
-PAGES = ['index.html', 'beyond-limits.html', 'tutoring.html',
+PAGES = ['index.html', 'beyond-limits.html', 'tutoring.html',
          'sponsorship.html', 'donate.html', 'about.html', 'start.html',
          'impact.html', 'basketball.html']
 
 ASSISTANT = 'https://vastlyresilient.github.io/beyond-limits-enrollment/'
+
+# Photograph patterns.
+#
+# The nine pages each hand-authored their own <style> block and no two of them
+# match, so the seven patterns have exactly one home: patterns.css. This step
+# inlines it into every page between the markers below, replacing whatever was
+# there before, and the self-check at the bottom fails the build if any page is
+# missing it or carrying a stale copy. Edit patterns.css, run this, done.
+#
+# Inlined rather than <link>ed because this is a static site on GitHub Pages and
+# a blocking request for 4KB costs more than the duplication does.
+PATTERNS_FILE = 'patterns.css'
+PAT_START = '/* PATTERNS:START -- generated from patterns.css, do not edit here */'
+PAT_END = '/* PATTERNS:END */'
+
+
+def patterns_block():
+    """The exact text every page must carry, markers included."""
+    css = io.open(os.path.join(OUT, PATTERNS_FILE), encoding='utf-8').read().strip()
+    return '%s\n%s\n%s' % (PAT_START, css, PAT_END)
 
 # Keep the work-in-progress site out of search results.
 #
@@ -197,10 +217,22 @@ def main():
         if ASSISTANT in new and TIMING[0] in new:
             new = new.replace(TIMING[0], TIMING[1])
 
+        # Inline the photograph patterns, replacing any earlier copy.
+        nP = 0
+        block = patterns_block()
+        if PAT_START in new and PAT_END in new:
+            a, b = new.index(PAT_START), new.index(PAT_END) + len(PAT_END)
+            if new[a:b] != block:
+                new = new[:a] + block + new[b:]
+                nP = 1
+        elif '</style>' in new:
+            new = new.replace('</style>', block + '\n</style>', 1)
+            nP = 1
+
         if n0 or nO or n1 or n2 or n3:
             changed.append('%s (noindex:%d omelette:%d banner:%d dsCard:%d assistantHref:%d)' % (p, n0, nO, n1, n2, n3))
-        if hits or n4 or nS or nC:
-            wired.append('%s (buttons:%d getInvolved:%d statNet:%d chipFill:%d)' % (p, hits, n4, nS, nC))
+        if hits or n4 or nS or nC or nP:
+            wired.append('%s (buttons:%d getInvolved:%d statNet:%d chipFill:%d patterns:%d)' % (p, hits, n4, nS, nC, nP))
         if new != s:
             io.open(path, 'w', encoding='utf-8').write(new)
 
@@ -229,6 +261,15 @@ def main():
                        if NOINDEX not in io.open(os.path.join(OUT, p), encoding='utf-8').read()]
     if missing_noindex:
         bad.append('noindex meta missing from: %s' % ', '.join(missing_noindex))
+
+    # Every page must carry the CURRENT patterns, not a stale copy of them. This is
+    # the check that makes one source of truth actually true: edit patterns.css and
+    # forget to rebuild, and the build fails instead of nine pages quietly drifting.
+    block = patterns_block()
+    stale = [p for p in PAGES
+             if block not in io.open(os.path.join(OUT, p), encoding='utf-8').read()]
+    if stale:
+        bad.append('patterns.css missing or stale in: %s' % ', '.join(stale))
 
     print('leaks:   ', bad if bad else 'none')
     print('noindex: ', 'all %d pages' % len(PAGES) if not missing_noindex else 'MISSING')
