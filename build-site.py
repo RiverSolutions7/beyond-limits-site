@@ -143,6 +143,62 @@ CHIP_FILL = [
     ('about.html', 'launched in <span class="chip"', 'launched in 2014 <span class="chip"'),
 ]
 
+# The open questions, and why this file now depends on a document outside the repo.
+#
+# On 2026-09-03 all 41 gold confirm chips came out of the nine pages. They were the
+# loudest thing on a page after a photograph and nothing about the design could be
+# judged with them there.
+#
+# But the chips were also the site's visible marking of its own uncertainty. Without
+# them the page states "Launched in 2014" flatly while we remain unsure between 2013
+# and 2014, and transparency with Andy was a stated objective of this project. The
+# questions did not stop existing; they stopped being visible.
+#
+# So they moved to beyond-limits-open-questions.md, and this check makes that move
+# safe: every question a chip used to carry must still be in that document, or the
+# build fails. The only real failure mode is a question going quietly missing, and
+# this is what makes that impossible.
+#
+# The document lives one directory UP, outside this repo, deliberately. This repo
+# publishes to GitHub Pages, and a list of everything we are unsure about is not
+# something to serve to the public web. The build depending on a file it does not
+# publish is the price of that, and it is the right trade.
+QUESTIONS = os.path.join(os.path.dirname(OUT), 'beyond-limits-open-questions.md')
+
+# The 20 distinct questions the 41 chips were carrying, by their exact chip label.
+# Several labels ask the same thing in different words, which is why the document
+# has 16 entries rather than 20: an entry declares every label it answers in an
+# HTML comment, and this list is checked against those declarations.
+RETIRED_CHIPS = [
+    'confirm grades served',
+    'confirm one agreed count',
+    'confirm count',
+    'confirm %',
+    'confirm eligibility %',
+    'confirm whether this is the same figure as the 90% on the home page',
+    'confirm on-site % (88 vs 90)',
+    'confirm launch year',
+    'confirm standard fee',
+    'confirm subsidized fee',
+    'confirm background checks and room supervision',
+    'confirm online availability',
+    'confirm what this level funds',
+    'confirm what these fund',
+    'confirm founders',
+    'confirm these two portraits are matched to the right names',
+    'confirm email',
+    'confirm the four paths',
+    'confirm level list',
+    'confirm reassurance line',
+]
+
+# An entry declares the labels it covers as: <!-- chips: label one, label two -->
+DECLARED = re.compile(r'<!--\s*chips:\s*(.+?)\s*-->')
+# Any chip still standing in the markup, whatever class it carries. Nine of the
+# original 41 were styled inline rather than with class="chip", so matching on the
+# class alone would have missed them.
+CHIP_IN_MARKUP = re.compile(r'>(confirm [^<]+)</span>')
+
 # The assistant's own welcome screen says "About 4 minutes". Our buttons said two.
 # Align the promise with the tool so the first screen does not contradict the button.
 TIMING = ('Takes about two minutes. No account needed.',
@@ -256,6 +312,33 @@ def main():
     if dangling:
         bad.append('chip replacing a value: %s' % '; '.join(dangling))
 
+    # No question may be silently lost. See the RETIRED_CHIPS note above.
+    #
+    # Two directions, and both matter. Every question the chips used to carry must
+    # still be answerable from the questions document; and any chip that ever comes
+    # back to the markup must be documented there too, so the document cannot fall
+    # behind the pages any more than the pages can fall behind the document.
+    declared = set()
+    if not os.path.exists(QUESTIONS):
+        bad.append('open questions file missing: %s (the chips were removed from the '
+                   'pages on the promise that it exists)' % QUESTIONS)
+    else:
+        md = io.open(QUESTIONS, encoding='utf-8').read()
+        for mm in DECLARED.finditer(md):
+            declared.update(lab.strip() for lab in mm.group(1).split(','))
+
+        undocumented = [c for c in RETIRED_CHIPS if c not in declared]
+        if undocumented:
+            bad.append('question dropped from %s: %s'
+                       % (os.path.basename(QUESTIONS), '; '.join(undocumented)))
+
+    # A chip that returns must bring its question with it.
+    for p in PAGES:
+        t = io.open(os.path.join(OUT, p), encoding='utf-8').read()
+        for mm in CHIP_IN_MARKUP.finditer(t[t.rindex('</style>'):]):
+            if mm.group(1) not in declared:
+                bad.append('%s carries an undocumented chip: %r' % (p, mm.group(1)))
+
     # Every page must carry the noindex meta while this is a work in progress.
     missing_noindex = [p for p in PAGES
                        if NOINDEX not in io.open(os.path.join(OUT, p), encoding='utf-8').read()]
@@ -273,6 +356,8 @@ def main():
 
     print('leaks:   ', bad if bad else 'none')
     print('noindex: ', 'all %d pages' % len(PAGES) if not missing_noindex else 'MISSING')
+    print('questions:', '%d of %d retired chips documented'
+          % (sum(1 for c in RETIRED_CHIPS if c in declared), len(RETIRED_CHIPS)))
 
     n_assist = sum(io.open(os.path.join(OUT, p), encoding='utf-8').read().count(ASSISTANT)
                    for p in PAGES)

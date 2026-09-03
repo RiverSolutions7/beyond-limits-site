@@ -110,14 +110,14 @@ h1,h2,h3,p{margin:0}
 .check-item span{font-size:14px;font-weight:600;color:var(--white)}
 .chip-navy{background:rgba(253,243,218,.14);border-color:var(--gold);color:var(--gold)}
 
-/* cost panel, Variant A, reassurance first, copied from lab */
-.panel-a{background:var(--white);border-radius:16px;padding:44px;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(300px,420px);gap:56px;align-items:start}
-.panel-a .lead{font-size:19px;line-height:1.6;color:var(--navy);max-width:46ch;font-weight:500}
-.panel-a .quiet{display:flex;flex-direction:column;gap:14px;background:var(--warm);border-radius:16px;padding:26px}
+/* cost section, formerly the two-column .panel-a card.
+   The right-hand track held the dashed fee slots and the quiet panel; both were
+   removed 2026-09-03, which left a white card wrapping copy that filled half of
+   it. Card gone, section now sits on the page like every other one here.
+   This rule was .panel-a .lead, so it had to be rescoped or removing the card
+   would have quietly unstyled the paragraph. */
+#costs .lead{font-size:19px;line-height:1.6;color:var(--navy);max-width:46ch;font-weight:500}
 .reassure{font-size:17px;line-height:1.6;color:var(--ink);max-width:44ch}
-.feeslot{border:1.5px dashed var(--gold-deep);background:var(--gold-wash);border-radius:16px;padding:20px 24px;display:flex;flex-direction:column;gap:10px}
-.feeslot-label{font-size:12px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-deep)}
-.feeslot-rule{height:2px;background:var(--gold-deep);opacity:.35;border-radius:2px;max-width:180px}
 
 /* center mosaic */
 .mosaic{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
@@ -176,7 +176,6 @@ h1,h2,h3,p{margin:0}
   .sessions{grid-template-columns:1fr;gap:40px}
   .safety{padding:36px}
   .checklist{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .panel-a{grid-template-columns:1fr;gap:32px;padding:32px}
   .mosaic{grid-template-columns:1fr;gap:32px}
   .grid4{grid-template-columns:repeat(2,minmax(0,1fr))}
   .navlinks{gap:20px;font-size:13.5px}
@@ -551,7 +550,7 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
     <div class="sessions">
       <div class="stack" style="gap:16px">
         <h2 class="h2">How sessions work</h2>
-        <p class="body">Individualized academic tutoring in math and science, generally two one hour sessions each week per participant, available on weekday afternoons and evenings and Saturdays on a personalized schedule. Tutoring is conducted peer to peer, with tutors assigned to 4th through 10th graders <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm grades served</span>. Tutors and tutees rotate, with pairings based upon our assessment of current best fit. Sessions can take place in person in our tutoring center or remotely via Zoom <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm online availability</span>. Our approach also offers valuable informal mentoring benefits.</p>
+        <p class="body">Individualized academic tutoring in math and science, generally two one hour sessions each week per participant, available on weekday afternoons and evenings and Saturdays on a personalized schedule. Tutoring is conducted peer to peer, with tutors assigned to 4th through 10th graders. Tutors and tutees rotate, with pairings based upon our assessment of current best fit. Sessions can take place in person in our tutoring center or remotely via Zoom. Our approach also offers valuable informal mentoring benefits.</p>
       </div>
       
     </div>
@@ -569,39 +568,19 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
         <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5B316" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg><span>Interview</span></div>
         <div class="check-item"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F5B316" stroke-width="2.5" aria-hidden="true"><path d="M4 12l5 5 11-11"/></svg><span>Signed Code of Ethics</span></div>
       </div>
-      <span class="chip chip-navy"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F5B316" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm background checks and room supervision</span>
       </div>
       </div>
     </div>
   </section>
 
   <section class="wrap section" id="costs">
-    <div class="panel-a">
-      <div class="stack" style="gap:22px">
-        <h2 class="h2">What it costs</h2>
-        <p class="lead">Tutoring fees are on a sliding scale and are substantially subsidized for families eligible to receive discounted services, the eligibility formerly known as free or reduced-price school lunch. Around 90% of our participants qualify.</p>
-        <div style="display:flex;gap:10px;flex-wrap:wrap">
-          <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm eligibility %</span>
-        </div>
-        <p class="reassure">If cost is the reason you are hesitating, contact us before you decide. <span class="chip chip-white" style="display:inline-flex;vertical-align:2px"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm reassurance line</span></p>
-        <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:2px">
-          <a class="btn btn-primary btn-lg" href="#enroll">Ask about fees</a>
-          <a class="tlink" href="tel:+12035889023">Call us: (203) 588-9023</a>
-        </div>
-      </div>
-      <div class="quiet">
-        <p class="eyebrow-slate">The numbers, kept quiet</p>
-        <div class="feeslot">
-          <p class="feeslot-label">Standard fee</p>
-          <div class="feeslot-rule"></div>
-          <span class="chip chip-white"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm standard fee</span>
-        </div>
-        <div class="feeslot">
-          <p class="feeslot-label">Subsidized fee</p>
-          <div class="feeslot-rule"></div>
-          <span class="chip chip-white"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm subsidized fee</span>
-        </div>
-        <p class="sm">What a family actually pays depends on eligibility. We talk it through with you before anything is signed.</p>
+    <div class="stack" style="gap:22px">
+      <h2 class="h2">What it costs</h2>
+      <p class="lead">Tutoring fees are on a sliding scale and are substantially subsidized for families eligible to receive discounted services, the eligibility formerly known as free or reduced-price school lunch. Around 90% of our participants qualify.</p>
+      <p class="reassure">If cost is the reason you are hesitating, contact us before you decide.</p>
+      <div style="display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:2px">
+        <a class="btn btn-primary btn-lg" href="#enroll">Ask about fees</a>
+        <a class="tlink" href="tel:+12035889023">Call us: (203) 588-9023</a>
       </div>
     </div>
   </section>
@@ -667,7 +646,7 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
       <div class="stack" style="gap:16px">
         <h2 class="h2">Our tutoring center</h2>
         <p class="body">925 Long Ridge Road, Stamford. Dedicated tutoring rooms with Chromebooks, school supplies and program materials. A lounge with Wi-Fi where families can wait. A kitchen with water and snacks. Academic reference books on the shelf.</p>
-        <p class="sm" style="font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">Most sessions happen here in person. <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm on-site % (88 vs 90)</span></p>
+        <p class="sm" style="font-size:16px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">Most sessions happen here in person.</p>
         <a class="tlink" href="https://maps.google.com/?q=925+Long+Ridge+Road,+Stamford,+CT+06902">Directions and parking <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
     </div>
@@ -750,7 +729,6 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
       <div class="foot-col">
         <p class="foot-h">Contact</p>
         <p class="foot-b"><a href="tel:+12035889023">(203) 588-9023</a><br>Phone hours Monday to Thursday, 9am to 3pm</p>
-        <span class="chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#B77F07" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 0 1 4.9.7c0 1.6-2.4 2.3-2.4 2.3M12 17h.01"/></svg>confirm email</span>
       </div>
       <div class="foot-col">
         <p class="foot-h">Programs</p>
