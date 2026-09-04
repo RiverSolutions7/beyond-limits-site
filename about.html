@@ -71,32 +71,34 @@ h1,h2,h3,p{margin:0}
 .hero-copy{display:flex;flex-direction:column;gap:24px;min-width:0}
 .eyebrow-pill{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:999px;background:var(--white);border:1px solid var(--line);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);width:fit-content}
 .sup{font-size:19px;line-height:1.55;color:var(--slate);max-width:44ch}
-.hero-photo{height:560px;border-radius:16px;overflow:hidden;background:var(--gold-wash)}
+.hero-photo{height:560px;overflow:hidden;background:transparent}
 .hero-photo img{width:100%;height:100%;object-fit:cover}
 
 /* mission */
-.missioncard{background:var(--white);border-radius:16px;padding:44px;display:flex;flex-direction:column;gap:18px}
+.missioncard{padding:0;display:flex;flex-direction:column;gap:20px;max-width:72ch}
 .missiontext{font-family:var(--serif);font-size:22px;line-height:1.55;color:var(--navy);max-width:68ch}
 
 /* accordion */
-.acclist{display:flex;flex-direction:column;gap:12px}
-.accitem{background:var(--white);border-radius:16px}
-.accitem summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 24px}
+.acclist{display:flex;flex-direction:column;gap:0;border-bottom:1px solid var(--line)}
+.accitem{border-top:1px solid var(--line)}
+.accitem summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 4px}
 .accitem summary::-webkit-details-marker{display:none}
 .acctitle{font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--ink)}
 .accicon{flex:0 0 auto;width:20px;height:20px;color:var(--gold-deep);transition:transform .2s ease}
 .accitem[open] .accicon{transform:rotate(45deg)}
-.accbody{padding:0 24px 24px;font-size:15px;line-height:1.6;color:var(--slate)}
+.accbody{padding:0 4px 26px;font-size:15px;line-height:1.68;color:var(--slate);max-width:70ch}
 
 /* foundation */
-.foundationcard{background:var(--navy);border-radius:16px;padding:44px;display:flex;flex-direction:column;gap:28px}
+.nightband{background:var(--navy);color:var(--white);margin-bottom:88px}
+.nightband-in{width:100%;max-width:var(--maxw);margin:0 auto;padding:clamp(64px,8vw,104px) var(--pad)}
+.foundationcard{display:flex;flex-direction:column;gap:28px}
 .foundationcard .body{color:var(--white);max-width:70ch}
 .fstatrow{display:flex;gap:40px;flex-wrap:wrap}
 .fstat-num{font-size:36px;font-weight:700;letter-spacing:-0.03em;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1}
 .fstat-sub{font-size:13px;color:var(--white);opacity:.85;margin-top:6px;max-width:22ch}
 
 /* collaborators */
-.collabcard{background:var(--white);border-radius:16px;padding:36px}
+.collabcard{padding:0}
 .collab-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin-top:20px}
 .collab-item{padding:12px 0;border-top:1px solid var(--line);font-size:15px;color:var(--ink)}
 .collab-item:nth-child(1),.collab-item:nth-child(2){border-top:0}
@@ -105,8 +107,7 @@ h1,h2,h3,p{margin:0}
 .legitcard{background:var(--white);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:6px}
 
 /* closing */
-.closing{display:flex;flex-direction:column;gap:32px}
-.doorcard{background:var(--navy);border-radius:16px;padding:44px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.doorcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
 .doorcard .h2{color:var(--white);letter-spacing:-.022em;line-height:1.08;max-width:24ch}
 .doorsub{font-size:17px;line-height:1.6;color:var(--white);max-width:56ch;text-wrap:pretty}
 .doorside{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
@@ -167,14 +168,14 @@ h1,h2,h3,p{margin:0}
 
 /* page-local phone tightening for elements not covered by the shared block above */
 @media (max-width:900px){
-  .missioncard,.foundationcard,.collabcard,.legitcard{padding:24px}
+  .nightband-in{padding:56px var(--pad)}
   .fstatrow{gap:28px}
   .collab-grid{grid-template-columns:1fr}
   .collab-item:nth-child(2){border-top:1px solid var(--line)}
 }
 .bioname{display:flex;flex-direction:column;gap:4px;min-width:0}
 .accrole{font-size:14px;font-weight:500;color:var(--slate)}
-.deicard{background:var(--white);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:14px}
+.deicard{padding:0;display:flex;flex-direction:column;gap:16px;max-width:68ch}
 .deitext{font-size:16px;line-height:1.65;color:var(--slate);max-width:70ch}
 .deilegal{font-size:14px;line-height:1.6;color:var(--slate);max-width:78ch;padding-top:14px;border-top:1px solid var(--line)}
 .peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;margin-top:4px}
@@ -582,8 +583,8 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
 
   
 
-  <section class="wrap section">
-    <div class="foundationcard">
+  <section class="nightband">
+    <div class="nightband-in foundationcard">
       <span class="micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">The foundation behind Beyond Limits</span>
       <p class="body">The Stamford Peace Youth Foundation was founded in 2008 by Brian Kriftcher, and has grown into two programs working side by side: Peace Basketball and Beyond Limits Academics.</p>
       <div class="fstatrow">
@@ -832,8 +833,8 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
 
   
 
-  <section class="wrap section closing" id="start">
-    <div class="doorcard">
+  <section class="nightband" id="start">
+    <div class="nightband-in doorcard">
       <div class="stack" style="gap:14px">
         <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Start here</span>
         <h2 class="h2">Whatever brought you here, we can help you take the next step.</h2>
