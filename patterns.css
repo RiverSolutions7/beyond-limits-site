@@ -260,7 +260,7 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
 .p-chorus-hero-media img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 35%;border-radius:0}
 
 .p-chorus-sessions{padding:0;background:var(--sky)}
-.p-chorus-sessions-inner{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(0,1.2fr);gap:clamp(44px,7vw,112px);align-items:start;padding-top:clamp(72px,9vw,132px);padding-bottom:clamp(72px,9vw,132px)}
+.p-chorus-sessions-inner{display:grid;grid-template-columns:minmax(300px,.8fr) minmax(0,1.2fr);gap:clamp(44px,7vw,112px);align-items:start;padding-top:clamp(48px,5vw,66px);padding-bottom:clamp(48px,5vw,66px)}
 .p-chorus-heading{font-size:clamp(2.2rem,5vw,4.6rem);line-height:.98;letter-spacing:-.045em;text-wrap:balance}
 .p-chorus-prose{font-size:clamp(.9375rem,1.4vw,1.05rem);line-height:1.68;max-width:65ch;text-wrap:pretty}
 
