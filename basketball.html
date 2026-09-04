@@ -548,6 +548,27 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
   .p-logos img{transition:none}
 }
 /* PATTERNS:END */
+
+/* Where our players go. The figures carry the section, two real alumni anchor
+   it, and the 26 colleges run as text. They were 26 outlined pills, which is a
+   lot of chrome for a list nobody reads end to end, but the names themselves are
+   sourced and stay. */
+.alum-figs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,5vw,72px);max-width:860px}
+.alum-n{font-size:clamp(34px,4.6vw,60px);font-weight:800;line-height:.95;letter-spacing:-.04em;color:var(--ink)}
+.alum-l{font-size:15px;line-height:1.5;color:var(--slate);max-width:34ch;margin-top:8px}
+.alum-photos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,40px);max-width:820px}
+.alum-photo{margin:0}
+.alum-photo .p-img{aspect-ratio:4/5}
+.alum-photo figcaption{margin-top:14px;display:flex;flex-direction:column;gap:3px}
+.alum-photo figcaption strong{font-size:18px;font-weight:700;letter-spacing:-.015em;color:var(--ink);text-transform:none}
+.alum-photo figcaption{font-size:13px;letter-spacing:.075em;text-transform:uppercase;color:var(--slate)}
+.alum-colleges{display:flex;flex-direction:column;gap:12px;padding-top:26px;border-top:1px solid var(--line)}
+.alum-colleges-h{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep)}
+.alum-list{font-size:15px;line-height:1.9;color:var(--slate);max-width:88ch}
+@media (max-width:900px){
+  .alum-figs{grid-template-columns:1fr;gap:28px}
+  .alum-photos{grid-template-columns:1fr;max-width:none}
+}
 </style>
 </head>
 <body>
@@ -652,17 +673,41 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
   </section>
 
   <section class="wrap section" id="alumni">
-    <div class="stack" style="gap:22px">
+    <div class="stack" style="gap:40px">
       <h2 class="h2">Where our players go</h2>
-      <p class="body"><b>Nearly 100 former players are now in college as basketball student athletes.</b> We are truly so proud of all of our PEACE alumni whose early college-athletic dreams were nurtured within Stamford Peace. Our players have gone on to more than 70 colleges, among them:</p>
-      <ul class="p-chips"><li>Boston College</li><li>Boston University</li><li>Brandeis University</li><li>Bryn Mawr College</li><li>Bucknell University</li><li>Butler University</li><li>Colgate University</li><li>Columbia University</li><li>Cornell University</li><li>Emory University</li><li>Fordham University</li><li>Johns Hopkins University</li><li>Massachusetts Institute of Technology</li><li>Purdue University</li><li>Quinnipiac University</li><li>Sacred Heart University</li><li>Skidmore College</li><li>St John's University</li><li>Swarthmore College</li><li>Trinity College</li><li>Tufts University</li><li>University of Michigan</li><li>University of North Carolina</li><li>Villanova University</li><li>Wake Forest University</li><li>Yale University</li></ul>
+
+      <div class="alum-figs">
+        <div class="alum-fig">
+          <p class="alum-n">Nearly 100</p>
+          <p class="alum-l">former players now in college as basketball student athletes</p>
+        </div>
+        <div class="alum-fig">
+          <p class="alum-n">More than 70</p>
+          <p class="alum-l">colleges and universities</p>
+        </div>
+      </div>
+
+      <div class="alum-photos">
+        <figure class="alum-photo">
+          <img class="p-img" src="img/p104-shockely-columbia-pair.jpg" width="640" height="800" loading="lazy" decoding="async" alt="Shockely holding the ball in a Columbia uniform">
+          <figcaption><strong>Shockely</strong>Columbia University</figcaption>
+        </figure>
+        <figure class="alum-photo">
+          <img class="p-img" src="img/p54-edona-at-fordham-pair.jpg" width="640" height="800" loading="lazy" decoding="async" alt="Edona bringing the ball up the court in a Fordham uniform">
+          <figcaption><strong>Edona</strong>Fordham University</figcaption>
+        </figure>
+      </div>
+
+      <div class="alum-colleges">
+        <p class="alum-colleges-h">Among them</p>
+        <p class="alum-list">Boston College &middot; Boston University &middot; Brandeis University &middot; Bryn Mawr College &middot; Bucknell University &middot; Butler University &middot; Colgate University &middot; Columbia University &middot; Cornell University &middot; Emory University &middot; Fordham University &middot; Johns Hopkins University &middot; Massachusetts Institute of Technology &middot; Purdue University &middot; Quinnipiac University &middot; Sacred Heart University &middot; Skidmore College &middot; St John's University &middot; Swarthmore College &middot; Trinity College &middot; Tufts University &middot; University of Michigan &middot; University of North Carolina &middot; Villanova University &middot; Wake Forest University &middot; Yale University</p>
+      </div>
     </div>
   </section>
 
   <section class="wrap section" id="alumni-video">
     <div class="deicard">
       <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">On News Channel 12</span>
-          <img class="p-img" src="img/p104-shockely-columbia-accent.jpg" width="600" height="600" loading="lazy" decoding="async" alt="A Stamford Peace alumnus playing for Columbia" style="max-width:170px;margin-top:14px">
       <p class="deitext">Hear about four of our alumni players and their time spent with Stamford Peace.</p>
       <figure class="alumquote">
         <blockquote>A lot of programs recruit finished products off the shelf. We spend time in the lab developing our players. Big difference between getting a young person from 1st to 3rd base; as opposed to from 3rd base to home, much greater level of investment and fulfillment!</blockquote>
