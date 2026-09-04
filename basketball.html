@@ -106,7 +106,9 @@ h1,h2,h3,p{margin:0}
 
 /* closing */
 .closing{display:flex;flex-direction:column;gap:32px}
-.doorcard{background:var(--navy);border-radius:16px;padding:44px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.nightband{background:var(--navy);color:var(--white);margin-bottom:88px}
+.nightband-in{width:100%;max-width:var(--maxw);margin:0 auto;padding:clamp(64px,8vw,104px) var(--pad)}
+.doorcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
 .doorcard .h2{color:var(--white);letter-spacing:-.022em;line-height:1.08;max-width:24ch}
 .doorsub{font-size:17px;line-height:1.6;color:var(--white);max-width:56ch;text-wrap:pretty}
 .doorside{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
@@ -151,7 +153,8 @@ h1,h2,h3,p{margin:0}
   .statband{flex-direction:column;gap:14px}
   .stat-anchor,.statcard{flex:1 1 auto}
   .grid2,.grid3,.grid4{grid-template-columns:1fr;gap:14px}
-  .doorcard{grid-template-columns:1fr;gap:24px;padding:28px 24px}
+  .doorcard{grid-template-columns:1fr;gap:24px}
+  .nightband-in{padding:56px var(--pad)}
   .doorside{align-items:stretch}
   .doorside .btn{width:100%;height:52px}
   .doornote{max-width:none}
@@ -174,7 +177,7 @@ h1,h2,h3,p{margin:0}
 }
 .bioname{display:flex;flex-direction:column;gap:4px;min-width:0}
 .accrole{font-size:14px;font-weight:500;color:var(--slate)}
-.deicard{background:var(--white);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:14px}
+.deicard{padding:0;display:flex;flex-direction:column;gap:16px}
 .deitext{font-size:16px;line-height:1.65;color:var(--slate);max-width:70ch}
 .deilegal{font-size:14px;line-height:1.6;color:var(--slate);max-width:78ch;padding-top:14px;border-top:1px solid var(--line)}
 .peoplegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2px;margin-top:4px}
@@ -195,15 +198,15 @@ h1,h2,h3,p{margin:0}
 .bandhead .h2{color:var(--white);max-width:34ch}
 .bandhead .micro-gold{color:var(--gold)}
 @media (max-width:900px){.storygrid{grid-template-columns:minmax(0,1fr)}.story{padding:22px 24px}.bandhead{padding:26px 24px}}
-.leaguegrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.league{background:var(--white);border-radius:16px;padding:28px 30px;display:flex;flex-direction:column;gap:12px}
+.leaguegrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}
+.league{padding:22px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
 .league h3{font-size:19px;font-weight:800;letter-spacing:-.018em;color:var(--ink);margin:0}
 .league p{font-size:15px;line-height:1.6;color:var(--slate);margin:0}
 .league .note{font-size:13.5px;color:var(--slate);padding-top:10px;border-top:1px solid var(--line)}
 .league a.go{margin-top:auto;padding-top:12px;font-size:14.5px;font-weight:600;color:var(--navy)}
 .league a.go:hover{color:var(--gold-deep)}
 @media (max-width:1100px){.leaguegrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:900px){.leaguegrid{grid-template-columns:minmax(0,1fr)}.league{padding:22px 24px}}
+@media (max-width:900px){.leaguegrid{grid-template-columns:minmax(0,1fr)}.league{padding:20px 0 0}}
 .collegegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:2px 24px;margin-top:4px}
 .collegegrid p{padding:11px 0;border-top:1px solid var(--line);font-size:15px;color:var(--ink);margin:0}
 .alumquote{margin:0;padding-left:16px;border-left:2px solid var(--gold)}
@@ -627,7 +630,7 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
   <section class="wrap section" id="academics-first">
     <div class="deicard">
       <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Academics come first</span>
-          <img class="p-img" src="img/p115-tutoring-room-accent.jpg" width="600" height="600" loading="lazy" decoding="async" alt="Students at laptops along the tutoring room tables" style="max-width:170px;border-radius:12px;margin-top:14px">
+          <img class="p-img" src="img/p115-tutoring-room-accent.jpg" width="600" height="600" loading="lazy" decoding="async" alt="Students at laptops along the tutoring room tables" style="max-width:170px;margin-top:14px">
       <p class="deitext">Peace Basketball is deeply concerned with the academic performance and conduct of its players. As a condition to playing with Peace, participants are required to submit a copy of their report card or other academic progress reports, which are then reviewed to identify those in need of individualized academic support.</p>
       <p class="deilegal">That review is one of the ways students reach Beyond Limits Academics. <a href="tutoring.html">See how tutoring works</a>.</p>
     </div>
@@ -659,7 +662,7 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
   <section class="wrap section" id="alumni-video">
     <div class="deicard">
       <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">On News Channel 12</span>
-          <img class="p-img" src="img/p104-shockely-columbia-accent.jpg" width="600" height="600" loading="lazy" decoding="async" alt="A Stamford Peace alumnus playing for Columbia" style="max-width:170px;border-radius:12px;margin-top:14px">
+          <img class="p-img" src="img/p104-shockely-columbia-accent.jpg" width="600" height="600" loading="lazy" decoding="async" alt="A Stamford Peace alumnus playing for Columbia" style="max-width:170px;margin-top:14px">
       <p class="deitext">Hear about four of our alumni players and their time spent with Stamford Peace.</p>
       <figure class="alumquote">
         <blockquote>A lot of programs recruit finished products off the shelf. We spend time in the lab developing our players. Big difference between getting a young person from 1st to 3rd base; as opposed to from 3rd base to home, much greater level of investment and fulfillment!</blockquote>
@@ -668,8 +671,8 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
     </div>
   </section>
 
-  <section class="wrap section closing">
-    <div class="doorcard">
+  <section class="nightband closing">
+    <div class="nightband-in doorcard">
       <div class="stack" style="gap:14px">
         <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">The other half of the Foundation</span>
         <h2 class="h2">Beyond Limits is our tutoring program.</h2>
