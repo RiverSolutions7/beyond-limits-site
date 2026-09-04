@@ -67,11 +67,11 @@ h1,h2,h3,p{margin:0}
 .chip{display:inline-flex;align-items:center;gap:6px;background:var(--gold-wash);border:1px solid var(--gold-deep);color:var(--gold-deep);font-size:12px;font-weight:600;padding:3px 12px;border-radius:99px;width:fit-content}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:80px var(--pad) 88px}
+.hero{display:grid;grid-template-columns:.86fr 1.14fr;gap:clamp(40px,5vw,72px);align-items:center;padding:72px var(--pad) 80px}
 .hero-copy{display:flex;flex-direction:column;gap:24px;min-width:0}
 .eyebrow-pill{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:999px;background:var(--white);border:1px solid var(--line);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);width:fit-content}
 .sup{font-size:19px;line-height:1.55;color:var(--slate);max-width:44ch}
-.hero-photo{height:560px;overflow:hidden;background:transparent}
+.hero-photo{height:470px;overflow:hidden;background:transparent}
 .hero-photo img{width:100%;height:100%;object-fit:cover}
 
 /* mission */
@@ -106,7 +106,7 @@ h1,h2,h3,p{margin:0}
 
 /* closing */
 .closing{display:flex;flex-direction:column;gap:32px}
-.doorcard{background:var(--navy);border-radius:16px;padding:44px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.doorcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
 .doorcard .h2{color:var(--white);letter-spacing:-.022em;line-height:1.08;max-width:24ch}
 .doorsub{font-size:17px;line-height:1.6;color:var(--white);max-width:56ch;text-wrap:pretty}
 .doorside{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
@@ -151,7 +151,8 @@ h1,h2,h3,p{margin:0}
   .statband{flex-direction:column;gap:14px}
   .stat-anchor,.statcard{flex:1 1 auto}
   .grid2,.grid3,.grid4{grid-template-columns:1fr;gap:14px}
-  .doorcard{grid-template-columns:1fr;gap:24px;padding:28px 24px}
+  .doorcard{grid-template-columns:1fr;gap:24px}
+  .nightband-in{padding:52px var(--pad)}
   .doorside{align-items:stretch}
   .doorside .btn{width:100%;height:52px}
   .doornote{max-width:none}
@@ -186,15 +187,16 @@ h1,h2,h3,p{margin:0}
 @media (max-width:900px){.deicard{padding:24px}}
 .impactlist{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:10px}
 .impactlist li{font-size:16px;line-height:1.65;color:var(--slate)}
-.storygrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.story{background:var(--white);border-radius:16px;padding:28px 30px;display:flex;flex-direction:column;gap:12px}
+.storygrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 40px}
+.story{padding:22px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:12px}
 .story h3{font-size:20px;font-weight:800;letter-spacing:-.018em;color:var(--ink);margin:0}
 .story p{font-size:15px;line-height:1.65;color:var(--slate);margin:0}
 .storyquote{font-family:var(--serif);font-size:17px;line-height:1.5;color:var(--navy);padding-left:16px;border-left:2px solid var(--gold);margin:0}
-.bandhead{background:var(--navy);border-radius:16px;padding:34px 36px}
+.nightband{background:var(--navy);color:var(--white);margin-bottom:88px}
+.nightband-in{width:100%;max-width:var(--maxw);margin:0 auto;padding:clamp(56px,7vw,88px) var(--pad)}
 .bandhead .h2{color:var(--white);max-width:34ch}
 .bandhead .micro-gold{color:var(--gold)}
-@media (max-width:900px){.storygrid{grid-template-columns:minmax(0,1fr)}.story{padding:22px 24px}.bandhead{padding:26px 24px}}
+@media (max-width:900px){.storygrid{grid-template-columns:minmax(0,1fr)}.story{padding:20px 0 0}.bandhead{padding:0}}
 /* PATTERNS:START -- generated from patterns.css, do not edit here */
 /* Self-hosted rather than loaded from Google: no third-party request, nothing
    about a family's visit leaves this domain, and the page cannot fall back to
@@ -394,15 +396,15 @@ color:var(--navy);white-space:nowrap;width:fit-content}
    Two numbers and the distance between them. Built because "supporting
    initially five students... now working with 250+" was a subordinate clause
    on a page called Our Impact. */
-.arc{display:flex;align-items:center;gap:clamp(20px,4vw,48px);background:var(--white);
-border:1px solid var(--line);border-radius:16px;padding:24px 28px;flex-wrap:wrap}
+.arc{display:flex;align-items:center;gap:clamp(20px,4vw,48px);padding:22px 0 0;
+border-top:1px solid var(--line);flex-wrap:wrap}
 .arc-yr{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
 .arc-n{font-size:52px;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--slate);margin-top:4px}
 .arc-now{color:var(--gold-deep)}
 .arc-to{font-size:30px;color:var(--line)}
 .arc .sm{margin-top:6px;display:block}
 .fields-wide .fq dd{max-width:66ch}
-.whycard{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px 28px}
+.whycard{padding:22px 0 0;border-top:1px solid var(--line)}
 
 /* 13. Logo wall ------------------------------------------------------------
    A modifier on the site's existing .logorow, NOT a replacement, because the
@@ -578,7 +580,7 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
       <p class="sup">Beyond Limits strikes at the heart of the opportunity gap which confronts our society’s lower-income families.</p>
     </div>
     <div class="hero-photo">
-      <img src="hero-classroom.jpg" alt="Instructor walking a full classroom of students through a lesson under college pennants">
+      <img src="img/p74-two-students-lunch-figure.jpg" width="1040" height="832" alt="Two students smiling at a lunch table during the summer programme">
     </div>
   </section>
 
@@ -635,8 +637,8 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
     </div>
   </section>
 
-  <section class="wrap section" id="peace-basketball">
-    <div class="bandhead">
+  <section class="nightband" id="peace-basketball">
+    <div class="nightband-in bandhead">
       <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Peace Basketball</span>
       <h2 class="h2" style="margin-top:10px">What that principle buys, on the court and off it.</h2>
     </div>
@@ -664,8 +666,8 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
     </div>
   </section>
 
-  <section class="wrap section closing">
-    <div class="doorcard">
+  <section class="nightband closing">
+    <div class="nightband-in doorcard">
       <div class="stack" style="gap:14px">
         <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Invest in our community’s children</span>
         <h2 class="h2">This is what your support pays for.</h2>

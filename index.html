@@ -79,13 +79,16 @@ h1,h2,h3,p{margin:0}
 .slot-on-navy{border:1.5px dashed var(--gold);background:rgba(253,243,218,.12);border-radius:999px;padding:12px 20px;font-size:11px;font-weight:600;color:var(--gold);text-align:center}
 
 /* stat band */
-.statband{display:grid;grid-template-columns:1.15fr repeat(3,minmax(0,1fr));gap:0;align-items:start}
-.stat-anchor{padding:0 34px 0 0;display:flex;flex-direction:column;gap:18px}
-.stat-anchor-label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
-.stat-anchor-line{font-family:var(--serif);font-size:19px;line-height:1.45;color:var(--navy);max-width:26ch}
+.statband{display:flex;gap:20px}
+.stat-anchor{flex:1.1;background:var(--navy);border-radius:16px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.stat-anchor-label{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.stat-anchor-line{font-family:var(--serif);font-size:18px;line-height:1.45;color:var(--white)}
 .stat-num-gold{font-size:36px;font-weight:700;letter-spacing:-0.03em;color:var(--gold);font-variant-numeric:tabular-nums;line-height:1}
 .stat-sub{font-size:12px;color:var(--white);opacity:.85}
-.statcard{padding:0 28px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:14px}
+.statcard{flex:1;background:var(--white);border-radius:16px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;gap:20px;position:relative;transition:transform .18s ease}
+.statcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);border-radius:16px 16px 0 0;opacity:0;transition:opacity .18s ease}
+.statcard:hover{transform:translateY(-2px)}
+.statcard:hover::before{opacity:1}
 .stat-num{font-size:44px;font-weight:700;letter-spacing:-0.03em;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1}
 .stat-label{font-size:13px;color:var(--slate)}
 .source{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-top:18px}
@@ -179,9 +182,9 @@ h1,h2,h3,p{margin:0}
   .band-inner{padding:44px 36px}
   .sponsorsplit{grid-template-columns:1fr;gap:28px}
   .imgframe{max-width:640px}
-  .statband{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 0}
-  .stat-anchor{grid-column:1 / -1;padding:0 0 4px}
-  .statcard:nth-child(2){border-left:0;padding-left:0}
+  .statband{flex-wrap:wrap}
+  .stat-anchor{flex:1 1 100%}
+  .statcard{flex:1 1 calc(33.333% - 14px)}
   .navlinks{gap:20px;font-size:13.5px}
   .pill{padding:0 14px}
 }
@@ -204,9 +207,8 @@ h1,h2,h3,p{margin:0}
   .hero-cta{flex-direction:column;gap:12px;margin-top:0}
   .hero-cta .btn{width:100%;height:52px}
   .hero-photo{height:260px}
-  .statband{grid-template-columns:1fr;gap:26px}
-  .stat-anchor{padding:0}
-  .statcard{padding:18px 0 0;border-left:0;border-top:1px solid var(--line)}
+  .statband{flex-direction:column;gap:14px}
+  .stat-anchor,.statcard{flex:1 1 auto}
   .midband{grid-template-columns:1fr;gap:28px}
   .num{font-size:96px}
   .pillars{grid-template-columns:1fr;gap:28px}
@@ -444,15 +446,15 @@ color:var(--navy);white-space:nowrap;width:fit-content}
    Two numbers and the distance between them. Built because "supporting
    initially five students... now working with 250+" was a subordinate clause
    on a page called Our Impact. */
-.arc{display:flex;align-items:center;gap:clamp(20px,4vw,48px);background:var(--white);
-border:1px solid var(--line);border-radius:16px;padding:24px 28px;flex-wrap:wrap}
+.arc{display:flex;align-items:center;gap:clamp(20px,4vw,48px);padding:22px 0 0;
+border-top:1px solid var(--line);flex-wrap:wrap}
 .arc-yr{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
 .arc-n{font-size:52px;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--slate);margin-top:4px}
 .arc-now{color:var(--gold-deep)}
 .arc-to{font-size:30px;color:var(--line)}
 .arc .sm{margin-top:6px;display:block}
 .fields-wide .fq dd{max-width:66ch}
-.whycard{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px 28px}
+.whycard{padding:22px 0 0;border-top:1px solid var(--line)}
 
 /* 13. Logo wall ------------------------------------------------------------
    A modifier on the site's existing .logorow, NOT a replacement, because the
