@@ -69,7 +69,7 @@ h1,h2,h3,h4,p{margin:0}
 .hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
 .eyebrow-pill{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:999px;background:var(--white);border:1px solid var(--line);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);width:fit-content}
 .sup{font-size:19px;line-height:1.55;color:var(--slate);max-width:46ch}
-.hero-photo{height:520px;border-radius:16px;overflow:hidden;background:var(--gold-wash)}
+.hero-photo{height:520px;overflow:hidden;background:transparent}
 .hero-photo img{width:100%;height:100%;object-fit:cover}
 .hero-cta{display:flex;gap:12px;margin-top:4px;flex-wrap:wrap}
 .slot{border:1.5px dashed var(--gold-deep);background:var(--gold-wash);border-radius:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center}
@@ -87,7 +87,7 @@ h1,h2,h3,h4,p{margin:0}
 .ed-foot{border-top:1px solid var(--line);padding-top:12px}
 
 /* vision, mission: serif quoted-voice cards */
-.voice{background:var(--white);border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:16px}
+.voice{padding:0 0 0 22px;border-left:2px solid var(--gold);display:flex;flex-direction:column;gap:16px}
 .voice-text{font-family:var(--serif);font-size:23px;line-height:1.55;color:var(--navy);max-width:56ch}
 
 /* core values */
@@ -105,15 +105,12 @@ h1,h2,h3,h4,p{margin:0}
 .carrow{display:inline-block;vertical-align:.12em;margin:0 10px}
 
 /* cards */
-.card{position:relative;background:var(--white);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:12px;transition:transform .18s ease}
-.card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold);border-radius:16px 16px 0 0;opacity:0;transition:opacity .18s ease}
-.card:hover{transform:translateY(-2px)}
-.card:hover::before{opacity:1}
+.card{position:relative;padding:26px 0 0;display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line)}
 .card-title{font-size:20px;font-weight:700;letter-spacing:-.01em;line-height:1.25;color:var(--ink)}
 .card-body{font-size:15px;line-height:1.6}
-.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
-.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:44px 40px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:48px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:36px}
 
 /* stat band, exact geometry from canonical Home */
 .statband{display:flex;gap:20px}
@@ -337,7 +334,7 @@ h1,h2,h3,h4,p{margin:0}
    For a list of principles that arrived as one paragraph with inline numbers.
    Same words, one entry point per item instead of one for the whole block. */
 .p-numgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,22px)}
-.p-num{background:var(--white);border:1px solid var(--line);border-radius:14px;
+.p-num{border-top:1px solid var(--line);
 padding:20px 22px 22px;display:flex;flex-direction:column;gap:6px}
 .p-num-n{font-size:13px;font-weight:700;color:var(--gold-deep);letter-spacing:.04em;
 font-variant-numeric:tabular-nums}

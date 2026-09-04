@@ -145,7 +145,7 @@
    For a list of principles that arrived as one paragraph with inline numbers.
    Same words, one entry point per item instead of one for the whole block. */
 .p-numgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,22px)}
-.p-num{background:var(--white);border:1px solid var(--line);border-radius:14px;
+.p-num{border-top:1px solid var(--line);
 padding:20px 22px 22px;display:flex;flex-direction:column;gap:6px}
 .p-num-n{font-size:13px;font-weight:700;color:var(--gold-deep);letter-spacing:.04em;
 font-variant-numeric:tabular-nums}
