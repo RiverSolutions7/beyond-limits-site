@@ -69,7 +69,6 @@ h1,h2,h3,p{margin:0}
 /* hero */
 .hero{display:grid;grid-template-columns:.86fr 1.14fr;gap:clamp(40px,5vw,72px);align-items:center;padding:72px var(--pad) 80px}
 .hero-copy{display:flex;flex-direction:column;gap:24px;min-width:0}
-.eyebrow-pill{display:inline-flex;align-items:center;height:32px;padding:0 16px;border-radius:999px;background:var(--white);border:1px solid var(--line);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--slate);width:fit-content}
 .sup{font-size:19px;line-height:1.55;color:var(--slate);max-width:44ch}
 .hero-photo{height:470px;overflow:hidden;background:transparent}
 .hero-photo img{width:100%;height:100%;object-fit:cover}
@@ -472,8 +471,8 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
 .p-chorus-scholarship-body{display:flex;flex-direction:column;gap:18px;font-size:clamp(.9375rem,1.4vw,1.05rem);line-height:1.68;max-width:65ch;text-wrap:pretty}
 .p-chorus-recipient-line{font-weight:700;color:var(--ink)}
 .p-chorus-recipient-set{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:12px;min-width:0}
-.p-chorus-recipient{min-width:0;max-width:720px;margin:0;background:transparent;border:0;border-radius:0;box-shadow:none}
-.p-chorus-recipient>.p-img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:transparent;border:0;border-radius:0;box-shadow:none}
+.p-chorus-recipient{min-width:0;max-width:420px;margin:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.p-chorus-recipient>.p-img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:transparent;border:0;border-radius:0;box-shadow:none}
 .p-chorus-recipient figcaption{display:flex;flex-direction:column;gap:4px;margin-top:14px;background:transparent;border:0;box-shadow:none;font-size:.75rem}
 .p-chorus-recipient figcaption strong{font-size:clamp(.9375rem,1.4vw,1.05rem);color:var(--ink)}
 .p-chorus-recipient figcaption span,.p-chorus-testimony figcaption,.p-chorus-recipient-quote-credit{font-size:.75rem;line-height:1.5;letter-spacing:.075em;text-transform:uppercase;color:var(--slate)}
@@ -575,7 +574,6 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
 
   <section class="wrap hero">
     <div class="hero-copy">
-      <span class="eyebrow-pill">Stamford Peace Youth Foundation</span>
       <h1 class="d1">Our Impact</h1>
       <p class="sup">Beyond Limits strikes at the heart of the opportunity gap which confronts our society’s lower-income families.</p>
     </div>
@@ -629,16 +627,9 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
     </div>
   </section>
 
-  <section class="p-band">
-    <img class="p-img" src="img/p63-team-huddle-court-band.jpg" width="1600" height="640" loading="lazy" decoding="async" alt="A coach and a circle of young players in pinnies on the court">
-    <div class="p-band-in">
-      <p class="micro">Peace Basketball</p>
-      <h2 class="h2">Basketball is a privilege, not a right.</h2>
-    </div>
-  </section>
-
-  <section class="nightband" id="peace-basketball">
-    <div class="nightband-in bandhead">
+    <section class="p-band" id="peace-basketball">
+    <img class="p-img" src="img/p10-hoop-group-band.jpg" width="1600" height="640" loading="lazy" decoding="async" alt="A team of young players lined up on the court">
+    <div class="p-band-in bandhead">
       <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Peace Basketball</span>
       <h2 class="h2" style="margin-top:10px">What that principle buys, on the court and off it.</h2>
     </div>

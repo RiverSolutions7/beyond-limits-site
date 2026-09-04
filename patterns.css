@@ -272,8 +272,8 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
 .p-chorus-scholarship-body{display:flex;flex-direction:column;gap:18px;font-size:clamp(.9375rem,1.4vw,1.05rem);line-height:1.68;max-width:65ch;text-wrap:pretty}
 .p-chorus-recipient-line{font-weight:700;color:var(--ink)}
 .p-chorus-recipient-set{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:12px;min-width:0}
-.p-chorus-recipient{min-width:0;max-width:720px;margin:0;background:transparent;border:0;border-radius:0;box-shadow:none}
-.p-chorus-recipient>.p-img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:transparent;border:0;border-radius:0;box-shadow:none}
+.p-chorus-recipient{min-width:0;max-width:420px;margin:0;background:transparent;border:0;border-radius:0;box-shadow:none}
+.p-chorus-recipient>.p-img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:transparent;border:0;border-radius:0;box-shadow:none}
 .p-chorus-recipient figcaption{display:flex;flex-direction:column;gap:4px;margin-top:14px;background:transparent;border:0;box-shadow:none;font-size:.75rem}
 .p-chorus-recipient figcaption strong{font-size:clamp(.9375rem,1.4vw,1.05rem);color:var(--ink)}
 .p-chorus-recipient figcaption span,.p-chorus-testimony figcaption,.p-chorus-recipient-quote-credit{font-size:.75rem;line-height:1.5;letter-spacing:.075em;text-transform:uppercase;color:var(--slate)}
