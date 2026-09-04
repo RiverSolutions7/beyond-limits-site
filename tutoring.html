@@ -74,7 +74,7 @@ h1,h2,h3,p{margin:0}
 /* hero */
 .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:64px var(--pad) 80px}
 .hero-copy{display:flex;flex-direction:column;gap:22px;min-width:0}
-.hero-photo{height:480px;border-radius:16px;overflow:hidden;background:var(--gold-wash)}
+.hero-photo{height:480px;overflow:hidden;background:transparent}
 .hero-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 35%}
 .hero-cta{display:flex;align-items:center;gap:24px;margin-top:2px;flex-wrap:wrap}
 
@@ -121,7 +121,7 @@ h1,h2,h3,p{margin:0}
 /* center mosaic */
 .mosaic{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
 .mosaic-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,160px);gap:14px}
-.mosaic-grid .ph{grid-row:span 2;border-radius:16px;overflow:hidden;background:var(--navy)}
+.mosaic-grid .ph{grid-row:span 2;overflow:hidden;background:var(--navy)}
 .mosaic-grid .ph img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
 
 /* quote card, locked pattern */
@@ -286,7 +286,7 @@ h1,h2,h3,p{margin:0}
    CSS they apply literally, so a 600x600 file in a 240px column rendered 240
    wide by 600 tall and aspect-ratio was ignored, because aspect-ratio only
    applies when height is auto. */
-.p-img{display:block;width:100%;height:auto;object-fit:cover;background:var(--sky);border-radius:14px}
+.p-img{display:block;width:100%;height:auto;object-fit:cover;background:var(--sky);border-radius:0}
 .p-img-flat{border-radius:0}
 .p-fig{margin:0}
 .p-cap{margin-top:10px;font-size:13.5px;line-height:1.5;color:var(--slate);max-width:58ch}

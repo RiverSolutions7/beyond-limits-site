@@ -250,7 +250,7 @@ h1,h2,h3,h4,p{margin:0}
    CSS they apply literally, so a 600x600 file in a 240px column rendered 240
    wide by 600 tall and aspect-ratio was ignored, because aspect-ratio only
    applies when height is auto. */
-.p-img{display:block;width:100%;height:auto;object-fit:cover;background:var(--sky);border-radius:14px}
+.p-img{display:block;width:100%;height:auto;object-fit:cover;background:var(--sky);border-radius:0}
 .p-img-flat{border-radius:0}
 .p-fig{margin:0}
 .p-cap{margin-top:10px;font-size:13.5px;line-height:1.5;color:var(--slate);max-width:58ch}
@@ -523,6 +523,19 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
   .p-logos img{transition:none}
 }
 /* PATTERNS:END */
+
+/* "What we offer": four labelled groups, not nine equal items.
+   No rules between the items on purpose. The group heading is the only mark
+   needed; spacing does the separating, which is the register's argument. */
+.ogrid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px 48px}
+.ogroup{display:flex;flex-direction:column;gap:26px}
+.ogroup-h{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep)}
+.orow{display:flex;flex-direction:column;gap:5px}
+.orow .card-title{font-size:17px}
+.orow .card-body{font-size:14.5px}
+@media (max-width:900px){
+  .ogrid2{grid-template-columns:1fr;gap:44px}
+}
 </style>
 </head>
 <body>
@@ -668,13 +681,28 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
         <img class="p-img" style="aspect-ratio:3/2" src="img/p68-computer-lab-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Students at desktop computers in the coding lab">
         <img class="p-img" style="aspect-ratio:3/2" src="img/p112-summer-camp-card.jpg" width="720" height="480" loading="lazy" decoding="async" alt="Summer programme participants holding certificates in a gymnasium">
       </div>
-      <div class="grid3">
-        <div class="card"><p class="card-title">Peer Tutoring</p><p class="card-body">One on one math and science, generally twice a week.</p></div>
-        <div class="card"><p class="card-title">Mentoring</p><p class="card-body">Informal mentoring built into every pairing.</p></div>
-        <div class="card"><p class="card-title">Enrichment Programming</p><p class="card-body">Coding, writing, college planning, time management and organizational skills.</p></div>
-        <div class="card"><p class="card-title">Youth Employment</p><p class="card-body">Paid peer tutoring positions for high school and college students.</p></div>
-        <div class="card"><p class="card-title">Building Foundations for Success</p><p class="card-body">Support for Stamford High School's Early College Studies students.</p></div>
-        <div class="card"><p class="card-title">Middle School Summer Scholars</p><p class="card-body">A one week program for incoming 6th graders.</p></div><div class="card"><p class="card-title">High School Preparatory Academy</p><p class="card-body">A one week program for incoming 9th graders.</p></div><div class="card"><p class="card-title">Summer Math Academies</p><p class="card-body">Focused math programming through the summer.</p></div><div class="card"><p class="card-title">Educational Advocacy</p><p class="card-body">We work with parents, teachers and administrators as shared advocates for our students.</p></div>
+      <div class="ogrid2">
+        <div class="ogroup">
+          <p class="ogroup-h">Year round</p>
+          <div class="orow"><p class="card-title">Peer Tutoring</p><p class="card-body">One on one math and science, generally twice a week.</p></div>
+          <div class="orow"><p class="card-title">Mentoring</p><p class="card-body">Informal mentoring built into every pairing.</p></div>
+          <div class="orow"><p class="card-title">Educational Advocacy</p><p class="card-body">We work with parents, teachers and administrators as shared advocates for our students.</p></div>
+        </div>
+        <div class="ogroup">
+          <p class="ogroup-h">Summer programmes</p>
+          <div class="orow"><p class="card-title">Middle School Summer Scholars</p><p class="card-body">A one week program for incoming 6th graders.</p></div>
+          <div class="orow"><p class="card-title">High School Preparatory Academy</p><p class="card-body">A one week program for incoming 9th graders.</p></div>
+          <div class="orow"><p class="card-title">Summer Math Academies</p><p class="card-body">Focused math programming through the summer.</p></div>
+        </div>
+        <div class="ogroup">
+          <p class="ogroup-h">Enrichment and partnerships</p>
+          <div class="orow"><p class="card-title">Enrichment Programming</p><p class="card-body">Coding, writing, college planning, time management and organizational skills.</p></div>
+          <div class="orow"><p class="card-title">Building Foundations for Success</p><p class="card-body">Support for Stamford High School's Early College Studies students.</p></div>
+        </div>
+        <div class="ogroup">
+          <p class="ogroup-h">For tutors</p>
+          <div class="orow"><p class="card-title">Youth Employment</p><p class="card-body">Paid peer tutoring positions for high school and college students.</p></div>
+        </div>
       </div>
     </div>
   </section>
