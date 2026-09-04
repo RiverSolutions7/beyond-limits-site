@@ -82,7 +82,7 @@ h1,h2,h3,p{margin:0}
 
 /* sponsorship levels, lifted from Sponsorship levels, revised */
 .lede{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,340px);gap:64px;align-items:end}
-.naming{background:var(--gold-wash);border-radius:16px;padding:22px 28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center}
+.naming{padding:0 0 0 22px;border-left:2px solid var(--gold);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center}
 .naming p{font-size:17px;line-height:1.5;color:var(--ink);max-width:70ch;text-wrap:pretty}
 .naming b{font-weight:800}
 .ladder{border-top:1px solid var(--line)}
@@ -94,11 +94,11 @@ h1,h2,h3,p{margin:0}
 .recog p{font-size:16px;line-height:1.55;color:var(--ink)}
 
 /* doorway, navy object */
-.doorcard{background:var(--navy);border-radius:16px;padding:44px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
-.doorcard .h2{color:var(--white);font-size:clamp(28px,3vw,40px);letter-spacing:-.022em;line-height:1.08;max-width:24ch}
-.doorsub{font-size:17px;line-height:1.6;color:var(--white);max-width:56ch;text-wrap:pretty}
+.doorcard{padding:28px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.doorcard .h2{color:var(--ink);font-size:clamp(28px,3vw,40px);letter-spacing:-.022em;line-height:1.08;max-width:24ch}
+.doorsub{font-size:17px;line-height:1.6;color:var(--slate);max-width:56ch;text-wrap:pretty}
 .doorside{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
-.doornote{font-size:13px;line-height:1.5;color:var(--white);opacity:.75;max-width:24ch}
+.doornote{font-size:13px;line-height:1.5;color:var(--slate);max-width:24ch}
 
 /* funders */
 .logorow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:center;justify-items:center;gap:32px;padding:28px 0}
@@ -144,8 +144,8 @@ h1,h2,h3,p{margin:0}
   .statement{padding:44px var(--pad) 0}
   .rung{grid-template-columns:1fr;gap:6px;padding:16px 0}
   .amt{font-size:24px}
-  .naming{grid-template-columns:1fr;gap:14px}
-  .doorcard{grid-template-columns:1fr;gap:24px;padding:28px 24px}
+  .naming{grid-template-columns:1fr;gap:14px;padding-left:18px}
+  .doorcard{grid-template-columns:1fr;gap:24px}
   .doorside{align-items:stretch}
   .doorside .btn{width:100%;height:52px}
   .doornote{max-width:none}
@@ -591,7 +591,7 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
       <div class="stack" style="gap:18px;margin-top:12px">
         <div class="doorcard">
           <div class="stack" style="gap:14px">
-            <span class="micro-gold">Sponsor a level</span>
+            <span class="micro">Sponsor a level</span>
             <h2 class="h2">Tell us what you want your sponsorship to do.</h2>
             <p class="doorsub">We will match your business to the level that fits and take it from there.</p>
           </div>

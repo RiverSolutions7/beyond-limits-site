@@ -106,9 +106,9 @@ h1,h2,h3,p{margin:0}
 
 /* closing */
 .closing{display:flex;flex-direction:column;gap:32px}
-.doorcard{background:var(--navy);border-radius:16px;padding:44px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
-.doorcard .h2{color:var(--white);letter-spacing:-.022em;line-height:1.08;max-width:24ch}
-.doorsub{font-size:17px;line-height:1.6;color:var(--white);max-width:56ch;text-wrap:pretty}
+.doorcard{padding:28px 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.doorcard .h2{color:var(--ink);letter-spacing:-.022em;line-height:1.08;max-width:24ch}
+.doorsub{font-size:17px;line-height:1.6;color:var(--slate);max-width:56ch;text-wrap:pretty}
 .doorside{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
 .doornote{font-size:13px;line-height:1.5;color:var(--white);opacity:.75;max-width:26ch}
 
@@ -151,7 +151,7 @@ h1,h2,h3,p{margin:0}
   .statband{flex-direction:column;gap:14px}
   .stat-anchor,.statcard{flex:1 1 auto}
   .grid2,.grid3,.grid4{grid-template-columns:1fr;gap:14px}
-  .doorcard{grid-template-columns:1fr;gap:24px;padding:28px 24px}
+  .doorcard{grid-template-columns:1fr;gap:24px;padding:24px 0 0}
   .doorside{align-items:stretch}
   .doorside .btn{width:100%;height:52px}
   .doornote{max-width:none}
@@ -175,26 +175,22 @@ h1,h2,h3,p{margin:0}
 
 /* Router: only the primary (parent) card stays navy, per the one-navy-object rule.
    The other three take a light treatment so hierarchy reads at a glance. */
-.doorcard.lightcard{background:var(--white);border:1px solid var(--line)}
-.doorcard.lightcard .h2{color:var(--ink)}
-.doorcard.lightcard .doorsub{color:var(--slate)}
-.doorcard.lightcard .doornote{color:var(--slate);opacity:1}
-.doorcard.lightcard .micro-gold{color:var(--gold-deep)}
+.doorcard.lightcard{background:transparent;border:0;border-top:1px solid var(--line)}
 /* btn-ghost is white-on-white and btn-secondary has no rule in this file, so the
    light cards need their own outlined treatment or the buttons read as plain text. */
 .doorcard.lightcard .btn-secondary,
-.doorcard.lightcard .btn-ghost{background:transparent;border:1.5px solid var(--navy);color:var(--navy)}
+.doorcard .btn-ghost{background:transparent;border:1.5px solid var(--navy);color:var(--navy)}
 .doorcard.lightcard .btn-secondary:hover,
-.doorcard.lightcard .btn-ghost:hover{background:var(--navy);color:var(--white)}
+.doorcard .btn-ghost:hover{background:var(--navy);color:var(--white)}
 .helphead{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--slate);margin-bottom:14px}
-.helprow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.helpcard{background:var(--white);border-radius:16px;padding:26px 28px;display:flex;flex-direction:column;gap:10px}
+.helprow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:44px 40px}
+.helpcard{padding:22px 0 0;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
 .helpcard h3{font-size:19px;font-weight:800;letter-spacing:-.018em;color:var(--ink);margin:0}
 .helpcard p{font-size:15px;line-height:1.6;color:var(--slate);margin:0}
 .helplinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
 .helplinks a{display:inline-flex;align-items:center;height:38px;padding:0 16px;border-radius:999px;border:1px solid var(--line);font-size:14px;font-weight:600;color:var(--navy)}
 .helplinks a:hover{border-color:var(--gold-deep);color:var(--gold-deep)}
-@media (max-width:900px){.helprow{grid-template-columns:minmax(0,1fr)}.helpcard{padding:22px 24px}}
+@media (max-width:900px){.helprow{grid-template-columns:minmax(0,1fr)}.helpcard{padding:20px 0 0}}
 /* PATTERNS:START -- generated from patterns.css, do not edit here */
 /* Self-hosted rather than loaded from Google: no third-party request, nothing
    about a family's visit leaves this domain, and the page cannot fall back to
