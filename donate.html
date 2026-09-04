@@ -65,7 +65,9 @@ h1,h2,h3,p{margin:0}
 .chip{display:inline-flex;align-items:center;gap:6px;background:var(--gold-wash);border:1px solid var(--gold-deep);color:var(--gold-deep);font-size:12px;font-weight:600;padding:3px 12px;border-radius:99px;width:fit-content}
 
 /* doorway card, copied verbatim from doorway-card.html */
-.doorcard{background:var(--navy);border-radius:16px;padding:44px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
+.nightband{background:var(--navy);color:var(--white);margin-bottom:88px}
+.nightband-in{width:100%;max-width:var(--maxw);margin:0 auto;padding:clamp(64px,8vw,104px) var(--pad)}
+.doorcard{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:center}
 .doorcard .h2{color:var(--white);letter-spacing:-.022em;line-height:1.08;max-width:24ch}
 .micro-gold{color:var(--gold)}
 .doorsub{font-size:17px;line-height:1.6;color:var(--white);max-width:56ch;text-wrap:pretty}
@@ -90,7 +92,7 @@ h1,h2,h3,p{margin:0}
 .give-hero{max-width:var(--maxw);margin:0 auto;padding:88px var(--pad) 72px;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center}
 
 /* the giving card, functional panel: 1px border, 16px radius */
-.giving-panel{max-width:620px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:16px;padding:40px;display:flex;flex-direction:column;gap:28px}
+.giving-panel{max-width:620px;margin:0 auto;border:1px solid var(--line);padding:40px;display:flex;flex-direction:column;gap:28px}
 .segmented{display:flex;gap:10px}
 .seg-btn{height:44px;padding:0 22px;border-radius:999px;font-size:14px;font-weight:600;border:1px solid var(--line);background:var(--white);color:var(--navy)}
 .seg-btn.is-active{background:var(--navy);color:var(--white);border-color:var(--navy)}
@@ -103,7 +105,7 @@ h1,h2,h3,p{margin:0}
 .campaign-note{font-size:14px;line-height:1.6;color:var(--slate)}
 
 /* other ways to give, accordion */
-.accordion{background:var(--white);border-radius:16px;padding:6px 32px}
+.accordion{padding:0}
 .acc-row{border-bottom:1px solid var(--line)}
 .acc-row:last-child{border-bottom:0}
 .acc-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;padding:20px 0;text-align:left}
@@ -133,7 +135,8 @@ h1,h2,h3,p{margin:0}
   .drawer-inner a:hover{color:var(--gold-deep)}
   .drawer .btn{margin-top:16px}
   .brandsub{display:none}
-  .doorcard{grid-template-columns:1fr;gap:24px;padding:28px 24px}
+  .doorcard{grid-template-columns:1fr;gap:24px}
+  .nightband-in{padding:56px var(--pad)}
   .doorside{align-items:stretch}
   .doorside .btn{width:100%;height:52px}
   .foot-grid{grid-template-columns:1fr;gap:24px}
@@ -146,13 +149,13 @@ h1,h2,h3,p{margin:0}
 @media (max-width:900px){
   .give-hero{padding:44px var(--pad) 36px}
   .giving-panel{padding:28px 24px}
-  .accordion{padding:6px 20px}
+  .accordion{padding:0}
   .doorcard,.doorside{min-width:0}
   .doorside .btn{white-space:normal;text-align:center;min-width:0}
 }
-.fundcard{background:var(--white);border-radius:16px;padding:32px}
+.fundcard{padding:0;margin-top:10px}
 .fundrow{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;align-items:center;padding:20px 0;border-top:1px solid var(--line)}
-.fundrow:first-child{border-top:0;padding-top:0}
+.fundrow:first-child{border-top:0}
 .fundrow:last-child{padding-bottom:0}
 .fund-name{font-size:16px;font-weight:600;color:var(--ink)}
 .fund-note{font-size:14px;line-height:1.6;color:var(--slate);margin-top:4px;max-width:62ch}
@@ -659,8 +662,8 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
 
   
 
-  <section class="wrap section">
-    <div class="doorcard">
+  <section class="nightband">
+    <div class="nightband-in doorcard">
       <div style="display:flex;flex-direction:column;gap:14px">
         <span class="micro micro-gold">Not ready to give today</span>
         <h2 class="h2">Curious about the program first? Tell us about your student.</h2>
