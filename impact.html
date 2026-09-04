@@ -281,6 +281,15 @@ h1,h2,h3,p{margin:0}
    text sitting on the left, so it leaves the right end of a centred headline on
    the lightest part of the photograph. */
 .p-band-center::after{background:linear-gradient(180deg,rgba(11,27,48,.60) 0%,rgba(11,27,48,.78) 100%)}
+/* A band carrying only an eyebrow and a heading collapses to about 199px on a
+   phone, because min-height goes to 0 below 900. A 2.5:1 group photograph in a
+   390x199 box is a strip of torsos. These bands drop the picture and keep the
+   colour; Donate's band is taller and keeps its photograph. */
+@media (max-width:900px){
+  .p-band.p-band-tight>.p-img{display:none}
+  .p-band.p-band-tight::after{background:var(--navy)}
+  .p-band-tight .p-band-in{padding-top:44px;padding-bottom:44px}
+}
 
 /* 2. Photo beside copy -----------------------------------------------------
    Copy leads. .p-split-flip puts the photograph first on wide screens and
@@ -471,6 +480,12 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
 .p-chorus-scholarship-body{display:flex;flex-direction:column;gap:18px;font-size:clamp(.9375rem,1.4vw,1.05rem);line-height:1.68;max-width:65ch;text-wrap:pretty}
 .p-chorus-recipient-line{font-weight:700;color:var(--ink)}
 .p-chorus-recipient-set{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:12px;min-width:0}
+/* At full phone width a 4:5 portrait is about 430px tall, so two of them fill a
+   screen before any text. Cap them and keep the pair side by side. */
+@media (max-width:900px){
+  .p-chorus-recipient-set{gap:16px}
+  .p-chorus-recipient>.p-img{aspect-ratio:1/1}
+}
 .p-chorus-recipient{min-width:0;max-width:420px;margin:0;background:transparent;border:0;border-radius:0;box-shadow:none}
 .p-chorus-recipient>.p-img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;background:transparent;border:0;border-radius:0;box-shadow:none}
 .p-chorus-recipient figcaption{display:flex;flex-direction:column;gap:4px;margin-top:14px;background:transparent;border:0;box-shadow:none;font-size:.75rem}
@@ -627,7 +642,7 @@ border:1px solid var(--line);border-radius:999px;padding:9px 15px}
     </div>
   </section>
 
-    <section class="p-band" id="peace-basketball">
+    <section class="p-band p-band-tight" id="peace-basketball">
     <img class="p-img" src="img/p10-hoop-group-band.jpg" width="1600" height="640" loading="lazy" decoding="async" alt="A team of young players lined up on the court">
     <div class="p-band-in bandhead">
       <span class="micro micro-gold" style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase">Peace Basketball</span>
